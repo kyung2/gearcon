@@ -58,3 +58,9 @@
 341	509	0	gearcon_m	cddf995ad0b74867
 2	337	0	src/gearcon_m.o	64065032c27b9986
 338	504	0	gearcon_m	cddf995ad0b74867
+0	24	0	clean_sa	4c96bf98c7d9ab47
+24	34	0	clean	d59b6dac04fa9b5d
+2	417	0	src/pc_setting.o	461dc7c43dd9d2fa
+6	420	0	src/gearcon_m.o	64065032c27b9986
+421	722	0	gearcon_m	cddf995ad0b74867
+10	909	0	res/edje/gearcon_m.edj	b1027e8e26ba31e5

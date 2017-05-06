@@ -4,3 +4,6 @@
 author-signature.xml
 signature1.xml
 bin/gearcon_m
+res/edje/gearcon_m.edj
+shared/res/gearcon_m.png
+tizen-manifest.xml

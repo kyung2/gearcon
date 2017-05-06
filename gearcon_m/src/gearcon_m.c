@@ -14,6 +14,7 @@ static void item_clicked_cb(void *data, Evas_Object *obj, void *event_info);
 static Eina_Bool _naviframe_pop_cb(void *data, Elm_Object_Item *it);
 static void create_rotary_selector(appdata_s *ad);
 static void view_pc_setting(appdata_s *ad);
+static Eina_Bool _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev);
 
 
 
@@ -95,6 +96,11 @@ _naviframe_pop_cb(void *data, Elm_Object_Item *it)
 	ui_app_exit();
 	return EINA_FALSE;
 }
+static Eina_Bool
+_rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev)
+{
+
+}
 
 static void
 create_rotary_selector(appdata_s *ad)
@@ -152,6 +158,9 @@ Evas_Object *view_create_circle_genlist(Evas_Object *parent)
 	circle_genlist = eext_circle_object_genlist_add(genlist, circle_genlist);
 	eext_circle_object_genlist_scroller_policy_set(circle_genlist, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	eext_rotary_object_event_activated_set(circle_genlist, EINA_TRUE);
+
+	//Register the rotary event handler
+	eext_rotary_event_handler_add(_rotary_handler_cb,NULL);
 
 	evas_object_show(genlist);
 

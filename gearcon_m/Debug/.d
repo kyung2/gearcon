@@ -1,0 +1,1 @@
+res/edje/gearcon_m.edj:

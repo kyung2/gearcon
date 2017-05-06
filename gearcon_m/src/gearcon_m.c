@@ -99,7 +99,14 @@ _naviframe_pop_cb(void *data, Elm_Object_Item *it)
 static Eina_Bool
 _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev)
 {
-
+	if(ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
+	{
+		dlog_print(DLOG_DEBUG,LOG_TAG,"ROTARY HANDLER : Rotary device rotated in clockwise direction");
+	}
+	else
+	{
+		dlog_print(DLOG_DEBUG,LOG_TAG,"ROTARY HANDLER : Rotary device in counter clockwise direction");
+	}
 }
 
 static void

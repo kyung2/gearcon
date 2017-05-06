@@ -17,7 +17,7 @@ static char *main_menu_names[] = {
 	/* do not delete below */
 	NULL
 };
-
+//hyunkyunhg
 /*
  * @brief Function will be operated when manipulating setting value is finished
  * @param[in] data The data to be passed to the callback function

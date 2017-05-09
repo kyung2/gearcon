@@ -81,7 +81,7 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	const char *text = eext_rotary_selector_item_part_text_get(item,"selector,sub_text");
 	/* Get set text for the item */;
 
-	dlog_print(DLOG_INFO, LOG_TAG, "hyunykung ITEM clickedcddd !!! %s\n" ,text);
+	dlog_print(DLOG_INFO, LOG_TAG, "hyunykung ITEM name %s clicked \n" ,text);
 
 	if (!strncmp(text,"PC Setting",sizeof("PC Setting"))) {
 

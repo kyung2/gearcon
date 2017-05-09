@@ -5,6 +5,8 @@
 #define NUM_OF_GENLIST_DEMO_NAMES 101
 #define NUM_OF_GENLIST_DEMO_LONG_TEXT 7
 
+//함수 여기다가 선언좀 해놓기!
+
 	 // PC CONTROL - > PCSETTING(밝기.배터리,볼륨,와이파이,블투,전원
 static char *main_menu_names[] = {
 	/*** 1line styles ***/
@@ -23,6 +25,8 @@ static char *main_menu_names[] = {
  * @param[in] data The data to be passed to the callback function
  * @param[in] it The item to be popped from naviframe
  */
+
+
 static Eina_Bool
 _setting_finished_cb(void *data, Elm_Object_Item *it)
 {

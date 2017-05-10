@@ -72,23 +72,30 @@ _item_selected_cb(void *data, Evas_Object *obj, void *event_info)
 static void
 item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	appdata_s *ad = data;
+	   appdata_s *ad = data;
 
 
-	/* Get current seleted item object */
-	Eext_Object_Item *item;
-	item = eext_rotary_selector_selected_item_get(obj);
-	const char *text = eext_rotary_selector_item_part_text_get(item,"selector,sub_text");
-	/* Get set text for the item */;
+	   /* Get current seleted item object */
+	   Eext_Object_Item *item;
+	   item = eext_rotary_selector_selected_item_get(obj);
+	   const char *text = eext_rotary_selector_item_part_text_get(item,"selector,sub_text");
+	   /* Get set text for the item */;
 
-	dlog_print(DLOG_INFO, LOG_TAG, "hyunykung ITEM name %s clicked \n" ,text);
+	   Evas_Object *bg;
 
-	if (!strncmp(text,"PC Setting",sizeof("PC Setting"))) {
+	   bg = elm_bg_add(ad->nf);
+	   elm_bg_color_set(bg, 66, 162, 206);
+	   elm_naviframe_item_push(ad->nf, "Solid Color", NULL, NULL, bg, "empty");
 
-	}
+	   dlog_print(DLOG_INFO, LOG_TAG, "hyunykung ITEM name %s clicked \n" ,text);
+
+	//   if (!strncmp(text,"PC Setting",sizeof("PC Setting"))) {
+	//
+	//   }
 
 
 }
+
 
 static Eina_Bool
 _naviframe_pop_cb(void *data, Elm_Object_Item *it)

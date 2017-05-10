@@ -68,3 +68,6 @@
 378	558	0	gearcon_m	cddf995ad0b74867
 2	2815	0	src/gearcon_m.o	64065032c27b9986
 2815	4244	0	gearcon_m	cddf995ad0b74867
+2	2355	0	src/pc_setting.o	461dc7c43dd9d2fa
+445	2365	0	src/gearcon_m.o	64065032c27b9986
+2366	3690	0	gearcon_m	cddf995ad0b74867

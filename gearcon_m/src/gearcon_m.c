@@ -80,15 +80,24 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   item = eext_rotary_selector_selected_item_get(obj);
 	   const char *text = eext_rotary_selector_item_part_text_get(item,"selector,sub_text");
 	   /* Get set text for the item */;
+ //temp _ 배경 버튼 이벤트
+//	   Evas_Object *bg;
 
-	   Evas_Object *bg;
-
-	   bg = elm_bg_add(ad->nf);
-	   elm_bg_color_set(bg, 66, 162, 206);
-	   elm_naviframe_item_push(ad->nf, "Solid Color", NULL, NULL, bg, "empty");
+	//   bg = elm_bg_add(ad->nf);
+	  // elm_bg_color_set(bg, 66, 162, 206);
+	   //e/lm_naviframe_item_push(ad->nf, "Solid Color", NULL, NULL, bg, "empty");
 
 	   dlog_print(DLOG_INFO, LOG_TAG, "hyunykung ITEM name %s clicked \n" ,text);
 
+	   if(!strncmp(text,"PC Setting",sizeof("PC Setting"))) {
+		   my_A_cb(data);
+	   }
+	   else if(!strncmp(text,"Mouse",sizeof("Mouse"))) {
+		   my_A_cb(data);
+	   }
+	   else {
+
+	   }
 	//   if (!strncmp(text,"PC Setting",sizeof("PC Setting"))) {
 	//
 	//   }

@@ -26,7 +26,18 @@ static char *main_menu_names[] = {
  * @param[in] it The item to be popped from naviframe
  */
 
+void my_A_cb (void *data)
 
+{
+	 appdata_s *ad = data;
+	   Evas_Object *bg;
+
+	   bg = elm_bg_add(ad->nf);
+	   elm_bg_color_set(bg, 66, 162, 206);
+	   elm_naviframe_item_push(ad->nf, "Solid Color", NULL, NULL, bg, "empty");
+
+//a페이지 생성코드
+}
 static Eina_Bool
 _setting_finished_cb(void *data, Elm_Object_Item *it)
 {

@@ -39,6 +39,7 @@ typedef struct appdata {
 
 void my_A_cb (void *data);
 void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);
+void view_PC_Setting(void *data);
 
 struct _menu_item {
    char *name;

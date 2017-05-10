@@ -13,7 +13,6 @@ static void _item_selected_cb(void *data, Evas_Object *obj, void *event_info);
 static void item_clicked_cb(void *data, Evas_Object *obj, void *event_info);
 static Eina_Bool _naviframe_pop_cb(void *data, Elm_Object_Item *it);
 static void create_rotary_selector(appdata_s *ad);
-static void view_pc_setting(appdata_s *ad);
 static Eina_Bool _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev);
 
 
@@ -90,7 +89,7 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   dlog_print(DLOG_INFO, LOG_TAG, "hyunykung ITEM name %s clicked \n" ,text);
 
 	   if(!strncmp(text,"PC Setting",sizeof("PC Setting"))) {
-		   my_A_cb(data);
+		   view_PC_Setting(data);
 	   }
 	   else if(!strncmp(text,"Mouse",sizeof("Mouse"))) {
 		   my_A_cb(data);

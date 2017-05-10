@@ -26,6 +26,8 @@ static char *main_menu_names[] = {
  * @param[in] it The item to be popped from naviframe
  */
 
+void view_PC_Setting(void *data);
+
 void my_A_cb (void *data)
 
 {
@@ -335,8 +337,8 @@ _naviframe_pop_cb(void *data, Elm_Object_Item *it)
  * @brief Function to create gui object
  * @param[in] ad The data structure to manage gui object
  */
-static void
-create_list_view(appdata_s *ad)
+void
+view_PC_Setting(void *ad)
 {
 	Evas_Object *genlist = NULL;
 	Evas_Object *naviframe = ad->nf;

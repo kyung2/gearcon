@@ -337,9 +337,18 @@ _naviframe_pop_cb(void *data, Elm_Object_Item *it)
  * @brief Function to create gui object
  * @param[in] ad The data structure to manage gui object
  */
+
 void
-view_PC_Setting(void *ad)
+bg_cb(void *data, Evas_Object *obj, void *event_info)
 {
+	appdata_s *ad = (appdata_s *)data;
+
+}
+void
+view_PC_Setting(void *data)
+{
+
+	appdata_s *ad = (appdata_s *)data;
 	Evas_Object *genlist = NULL;
 	Evas_Object *naviframe = ad->nf;
 	Elm_Object_Item *nf_it = NULL;

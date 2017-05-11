@@ -81,6 +81,8 @@ _volume_changed_cb(void *data, Evas_Object *obj, void *event_info)
 	elm_object_part_text_set(layout, "elm.text.slider", buf);
 }
 
+
+//내가 써야할 원형
 /*
  * @brief Function will be operated when brightness value is changed
  * @param[in] data The data to be passed to the callback function

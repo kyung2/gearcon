@@ -84,3 +84,12 @@
 2	479	0	src/pc_setting.o	461dc7c43dd9d2fa
 6	479	0	src/gearcon_m.o	64065032c27b9986
 491	763	0	gearcon_m	cddf995ad0b74867
+6	403	0	src/gearcon_m.o	64065032c27b9986
+2	403	0	src/pc_setting.o	461dc7c43dd9d2fa
+404	609	0	gearcon_m	cddf995ad0b74867
+8	685	0	src/control_ppt.o	20b66ce92fa5d82c
+13	717	0	src/control_player.o	632541c3bd065daa
+18	722	0	src/control_pdf.o	9bcc10793ae8e370
+23	732	0	src/connect.o	1cb530d08a85d6a6
+2	772	0	src/disconnect.o	18a1aefe2c247c06
+686	1138	0	src/control_mouse.o	db611cafd85d1858

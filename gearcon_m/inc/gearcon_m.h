@@ -20,6 +20,12 @@
 #define GRP_MAIN "main"
 #define ICON_DIR "images"
 
+void my_A_cb (void *data);
+void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);
+void view_PC_Setting(void *data);
+void view_app_info(void *data);
+
+
 typedef struct appdata {
 	Evas_Object *win;
 	Evas_Object *conform;
@@ -36,10 +42,6 @@ typedef struct appdata {
 	Evas_Object *rect[10];
 
 } appdata_s;
-
-void my_A_cb (void *data);
-void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);
-void view_PC_Setting(void *data);
 
 
 struct _menu_item {

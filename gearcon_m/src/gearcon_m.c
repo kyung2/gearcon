@@ -73,7 +73,6 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	   appdata_s *ad = data;
 
-
 	   /* Get current seleted item object */
 	   Eext_Object_Item *item;
 	   item = eext_rotary_selector_selected_item_get(obj);
@@ -94,7 +93,8 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   else if(!strncmp(text,"Mouse",sizeof("Mouse"))) {
 		   my_A_cb(data);
 	   }
-	   else {
+	   else if(!strncmp(text,"Info",sizeof("Info"))){
+		   view_app_info(data);
 
 	   }
 	//   if (!strncmp(text,"PC Setting",sizeof("PC Setting"))) {

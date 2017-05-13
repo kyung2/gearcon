@@ -32,6 +32,21 @@ char *main_menu_names[] = {
 	NULL
 
 };
+char *main_menu_icons[] = {
+
+		"pc_setting.png",
+		"/images/mouse.png",
+		"keyboard.png",
+		"ppt.png",
+		"video.png",
+		"pdf.png",
+		"connect.png",
+		"disconnect.png",
+		"setting.png",
+		"info.png",
+		NULL
+
+};
 
 typedef struct _item_data
 {
@@ -128,21 +143,28 @@ static void
 create_rotary_selector(appdata_s *ad)
 {
 	Elm_Object_Item *nf_it = NULL;
-	int idx = 0;
+	Eext_Object_Item * item;
+	Evas_Object *image;
 
+	int idx = 0;
+	char * image_path = "";
 	//rotary selector = rs 라고 약어
 	ad -> rs = eext_rotary_selector_add(ad->nf);
 	eext_rotary_object_event_activated_set(ad->rs, EINA_TRUE);
 
-	Eext_Object_Item * item;
-	Evas_Object *image;
+//다른방법은 그냥 하나하나 append 하는 방법 해보기
+	//image _file set wgt/
 	for ( idx = 0; main_menu_names[idx];idx++) {
 		item = eext_rotary_selector_item_append(ad->rs);
+		image = elm_image_add(ad->rs);
+		//elm_image_file_set(image,main_menu_icons[idx],NULL);
+		//		elm_image_file_set(image, "/images/music_controller_btn_mobile.png", NULL);
+
+		eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
+
 	/*
 		image = elm_image_add(ad->rs);
 		elm_image_file_set(image, "/images/music_controller_btn_mobile.png", NULL);
-		eext_rotary_selector_item_part_content_set(item, "item,icon",
-			                                              EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL, image);
 
 		*/
 		eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");

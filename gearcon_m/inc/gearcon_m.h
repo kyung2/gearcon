@@ -37,6 +37,8 @@ typedef struct appdata {
 	Evas_Object *genlist;
 	Evas_Object *circle_genlist;
 	Evas_Object *parent;
+	Evas_Object *image;
+
 
 	//using pc_setting
 	Evas_Object *rect[10];

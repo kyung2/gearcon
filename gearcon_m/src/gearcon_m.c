@@ -33,8 +33,12 @@ char *main_menu_names[] = {
 
 };
 char *main_menu_icons[] = {
-		"temp.png"
 
+		ICON_DIR"/music_controller_btn_mobile.png",
+		ICON_DIR"/music_controller_btn_play.png",
+		ICON_DIR"/music_controller_btn_repeat_all.png",
+		ICON_DIR"/music_controller_btn_shuffle_on.png",
+/*
 		"pc_setting.png",
 		"/images/mouse.png",
 		"keyboard.png",
@@ -44,7 +48,7 @@ char *main_menu_icons[] = {
 		"connect.png",
 		"disconnect.png",
 		"setting.png",
-		"info.png",
+		"info.png",*/
 		NULL
 
 };
@@ -158,7 +162,7 @@ _item_create(Evas_Object *rs)
 		for ( idx = 0; main_menu_names[idx];idx++) {
 			item = eext_rotary_selector_item_append(rs);
 			image = elm_image_add(rs);
-			elm_image_file_set(image,"/images/music_controller_btn_mobile.png",NULL);
+			elm_image_file_set(image,main_menu_icons[idx % 4],NULL);
 
 			//elm_image_file_set(image,main_menu_icons[idx],NULL);
 
@@ -180,8 +184,6 @@ _item_create(Evas_Object *rs)
 
 	}*/
 
-
-
 }
 
 
@@ -191,16 +193,12 @@ create_rotary_selector(appdata_s *ad)
 
 
 	Elm_Object_Item *nf_it = NULL;
-
-
 	//rotary selector = rs 라고 약어 (헤드에 정의)
 	ad->rs = eext_rotary_selector_add(ad->nf);
 	eext_rotary_object_event_activated_set(ad->rs, EINA_TRUE);
 //코드 아이템어팬드로 코드 옮긴거
-
 	_item_create(ad->rs);
 	//callback event
-
 	evas_object_smart_callback_add(ad->rs, "item,selected", _item_selected_cb, NULL);
 	evas_object_smart_callback_add(ad->rs , "item,clicked", item_clicked_cb,ad);
 	nf_it = elm_naviframe_item_push(ad->nf,NULL,NULL,NULL,ad->rs,"empty");

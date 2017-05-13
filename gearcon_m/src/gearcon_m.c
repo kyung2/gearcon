@@ -33,6 +33,7 @@ char *main_menu_names[] = {
 
 };
 char *main_menu_icons[] = {
+		"temp.png"
 
 		"pc_setting.png",
 		"/images/mouse.png",
@@ -131,60 +132,74 @@ _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev)
 	}
 }
 
+void
+_item_create(Evas_Object *rs)
+{
+	Evas_Object *image;
+	Eext_Object_Item * item;
+	int idx;
+
+	//다른방법은 그냥 하나하나 append 하는 방법 해보기
+
+
+/*
+ * 	item = eext_rotary_selector_item_append(rs);
+		image = elm_image_add(rs);
+		eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
+		eext_rotary_selector_item_part_text_set(item,"selector,sub_text","keyboard");
+		elm_image_file_set(image,"/images/temp.png", NULL);
+	//	elm_image_file_set(image, icon_path_list[j % 4], NULL);
+		eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
+*/
+
+
+
+	//ver1
+		for ( idx = 0; main_menu_names[idx];idx++) {
+			item = eext_rotary_selector_item_append(rs);
+			image = elm_image_add(rs);
+			elm_image_file_set(image,"/images/music_controller_btn_mobile.png",NULL);
+
+			//elm_image_file_set(image,main_menu_icons[idx],NULL);
+
+			eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
+
+			eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
+			eext_rotary_selector_item_part_text_set(item,"selector,sub_text",main_menu_names[idx]);
+
+		}
+
+
+
+		//ver3
+		/*
+	 *
+			eext_more_option_item_part_text_set(item, "selector,main_text", "test4");
+			eext_more_option_item_part_content_set(item, "item,icon", img);
+			elm_image_file_set(img, ICON_DIR"/music_controller_btn_mobile.png", NULL);
+
+	}*/
+
+
+
+}
+
+
 static void
 create_rotary_selector(appdata_s *ad)
 {
+
+
 	Elm_Object_Item *nf_it = NULL;
-	Eext_Object_Item * item;
-	Evas_Object *image = NULL;
 
-	int idx = 0;
-	//rotary selector = rs 라고 약어
-	ad -> rs = eext_rotary_selector_add(ad->nf);
+
+	//rotary selector = rs 라고 약어 (헤드에 정의)
+	ad->rs = eext_rotary_selector_add(ad->nf);
 	eext_rotary_object_event_activated_set(ad->rs, EINA_TRUE);
+//코드 아이템어팬드로 코드 옮긴거
 
-//다른방법은 그냥 하나하나 append 하는 방법 해보기
-
-	item = eext_rotary_selector_item_append(ad->rs);
-	image = elm_image_add(ad->rs);
-
-
-	eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
-	eext_rotary_selector_item_part_text_set(item,"selector,sub_text","keyboard");
-	elm_image_file_set(image,"/images/keyboard.png", NULL);
-//	elm_image_file_set(image, icon_path_list[j % 4], NULL);
-	eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
-
-
-
-
-	/*
-	for ( idx = 0; main_menu_names[idx];idx++) {
-		item = eext_rotary_selector_item_append(ad->rs);
-		image = elm_image_add(ad->rs);
-		//elm_image_file_set(image,main_menu_icons[idx],NULL);
-		//		elm_image_file_set(image, "/images/music_controller_btn_mobile.png", NULL);
-
-		eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
-
-		eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
-		eext_rotary_selector_item_part_text_set(item,"selector,sub_text",main_menu_names[idx]);
-
-	}
-	*/
-
-
-
-	//ver3
-	/*
- *
-		eext_more_option_item_part_text_set(item, "selector,main_text", "test4");
-		eext_more_option_item_part_content_set(item, "item,icon", img);
-		elm_image_file_set(img, ICON_DIR"/music_controller_btn_mobile.png", NULL);
-
-}*/
-
-
+	_item_create(ad->rs);
+	//callback event
 
 	evas_object_smart_callback_add(ad->rs, "item,selected", _item_selected_cb, NULL);
 	evas_object_smart_callback_add(ad->rs , "item,clicked", item_clicked_cb,ad);

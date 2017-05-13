@@ -18,7 +18,7 @@
 
 #define EDJ_FILE "edje/gearcon_m.edj"
 #define GRP_MAIN "main"
-#define ICON_DIR "images"
+#define ICON_DIR "/images"
 
 void my_A_cb (void *data);
 void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);

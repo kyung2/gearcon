@@ -93,12 +93,6 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   item = eext_rotary_selector_selected_item_get(obj);
 	   const char *text = eext_rotary_selector_item_part_text_get(item,"selector,sub_text");
 	   /* Get set text for the item */;
- //temp _ 배경 버튼 이벤트
-//	   Evas_Object *bg;
-
-	//   bg = elm_bg_add(ad->nf);
-	  // elm_bg_color_set(bg, 66, 162, 206);
-	   //e/lm_naviframe_item_push(ad->nf, "Solid Color", NULL, NULL, bg, "empty");
 
 	   dlog_print(DLOG_INFO, LOG_TAG, "hyunykung ITEM name %s clicked \n" ,text);
 
@@ -112,9 +106,7 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 		   view_app_info(data);
 
 	   }
-	//   if (!strncmp(text,"PC Setting",sizeof("PC Setting"))) {
-	//
-	//   }
+
 
 
 }
@@ -144,16 +136,28 @@ create_rotary_selector(appdata_s *ad)
 {
 	Elm_Object_Item *nf_it = NULL;
 	Eext_Object_Item * item;
-	Evas_Object *image;
+	Evas_Object *image = NULL;
 
 	int idx = 0;
-	char * image_path = "";
 	//rotary selector = rs 라고 약어
 	ad -> rs = eext_rotary_selector_add(ad->nf);
 	eext_rotary_object_event_activated_set(ad->rs, EINA_TRUE);
 
 //다른방법은 그냥 하나하나 append 하는 방법 해보기
-	//image _file set wgt/
+
+	item = eext_rotary_selector_item_append(ad->rs);
+	image = elm_image_add(ad->rs);
+
+
+	eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
+	eext_rotary_selector_item_part_text_set(item,"selector,sub_text","keyboard");
+	eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
+	elm_image_file_set(image,"/images/keyboard.png", NULL);
+
+
+
+
+	/*
 	for ( idx = 0; main_menu_names[idx];idx++) {
 		item = eext_rotary_selector_item_append(ad->rs);
 		image = elm_image_add(ad->rs);
@@ -162,17 +166,62 @@ create_rotary_selector(appdata_s *ad)
 
 		eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
 
-	/*
-		image = elm_image_add(ad->rs);
-		elm_image_file_set(image, "/images/music_controller_btn_mobile.png", NULL);
-
-		*/
 		eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
 		eext_rotary_selector_item_part_text_set(item,"selector,sub_text",main_menu_names[idx]);
 
 	}
+	*/
 
-//	evas_object_smart_callback_add(ad->rs, "item,selected", _item_selected_cb, NULL);
+
+	//ver 2
+	/*
+	static char *icon_path_list[] = {
+		ICON_DIR"/music_controller_btn_mobile.png",
+		ICON_DIR"/music_controller_btn_play.png",
+		ICON_DIR"/music_controller_btn_repeat_all.png",
+		ICON_DIR"/music_controller_btn_shuffle_on.png",
+		NULL
+	};
+
+
+	void
+	eext_rotary_selector_cb(void *data, Evas_Object *obj, void *event_info EINA_UNUSED)
+	{
+		appdata_s *ad = (appdata_s *)data;
+		Evas_Object *nf = ad->nf;
+		Evas_Object *rotary_selector;
+		Elm_Object_Item *nf_it = NULL;
+
+		/* Add a new Rotary Selector
+			Because the return value is the elm_layout handle,
+			the elm_layout APIs can be applicable to rotary selector handle.
+		rotary_selector = eext_rotary_selector_add(nf);
+
+
+		_item_create(rotary_selector);
+
+		/* Add smart callback
+		evas_object_smart_callback_add(rotary_selector, "item,selected", _item_selected_cb, NULL);
+		evas_object_smart_callback_add(rotary_selector, "item,clicked", _item_clicked_cb, NULL);
+
+		nf_it
+		*/
+
+	//ver3
+	/*
+	 *
+	 *
+		eext_more_option_item_part_text_set(item, "selector,main_text", "test4");
+
+		img = elm_image_add(parent);
+		eext_more_option_item_part_content_set(item, "item,icon", img);
+		elm_image_file_set(img, ICON_DIR"/music_controller_btn_mobile.png", NULL);
+
+}*/
+
+
+
+	evas_object_smart_callback_add(ad->rs, "item,selected", _item_selected_cb, NULL);
 	evas_object_smart_callback_add(ad->rs , "item,clicked", item_clicked_cb,ad);
 	nf_it = elm_naviframe_item_push(ad->nf,NULL,NULL,NULL,ad->rs,"empty");
 	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);

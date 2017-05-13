@@ -151,8 +151,9 @@ create_rotary_selector(appdata_s *ad)
 
 	eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
 	eext_rotary_selector_item_part_text_set(item,"selector,sub_text","keyboard");
-	eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
 	elm_image_file_set(image,"/images/keyboard.png", NULL);
+//	elm_image_file_set(image, icon_path_list[j % 4], NULL);
+	eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
 
 
 
@@ -173,47 +174,11 @@ create_rotary_selector(appdata_s *ad)
 	*/
 
 
-	//ver 2
-	/*
-	static char *icon_path_list[] = {
-		ICON_DIR"/music_controller_btn_mobile.png",
-		ICON_DIR"/music_controller_btn_play.png",
-		ICON_DIR"/music_controller_btn_repeat_all.png",
-		ICON_DIR"/music_controller_btn_shuffle_on.png",
-		NULL
-	};
-
-
-	void
-	eext_rotary_selector_cb(void *data, Evas_Object *obj, void *event_info EINA_UNUSED)
-	{
-		appdata_s *ad = (appdata_s *)data;
-		Evas_Object *nf = ad->nf;
-		Evas_Object *rotary_selector;
-		Elm_Object_Item *nf_it = NULL;
-
-		/* Add a new Rotary Selector
-			Because the return value is the elm_layout handle,
-			the elm_layout APIs can be applicable to rotary selector handle.
-		rotary_selector = eext_rotary_selector_add(nf);
-
-
-		_item_create(rotary_selector);
-
-		/* Add smart callback
-		evas_object_smart_callback_add(rotary_selector, "item,selected", _item_selected_cb, NULL);
-		evas_object_smart_callback_add(rotary_selector, "item,clicked", _item_clicked_cb, NULL);
-
-		nf_it
-		*/
 
 	//ver3
 	/*
-	 *
-	 *
+ *
 		eext_more_option_item_part_text_set(item, "selector,main_text", "test4");
-
-		img = elm_image_add(parent);
 		eext_more_option_item_part_content_set(item, "item,icon", img);
 		elm_image_file_set(img, ICON_DIR"/music_controller_btn_mobile.png", NULL);
 

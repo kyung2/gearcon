@@ -18,13 +18,14 @@
 
 #define EDJ_FILE "edje/gearcon_m.edj"
 #define GRP_MAIN "main"
-#define ICON_DIR "/opt/usr/apps/org.example.gearcon_m/images"
+#define ICON_DIR "/opt/usr/apps/org.example.gearcon_m/res/images"
 
 
 void my_A_cb (void *data);
 void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);
 void view_PC_Setting(void *data);
 void view_app_info(void *data);
+void view_control_volume(void *data);
 
 
 typedef struct appdata {

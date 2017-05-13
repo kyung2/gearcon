@@ -46,6 +46,11 @@ build src/control_ppt.o.ast: build_c_fast_ast ../src/control_ppt.c
 build $sareportdir/src/control_ppt.o.xml: build_c_fast_sa src/control_ppt.o.ast || externalFnMap.txt
 build src/control_ppt.o.txt: build_c_api ../src/control_ppt.c 
 build $coveragedir/src/control_ppt.o.cov: build_cov ../src/control_ppt.c 
+build src/control_volume.o: build_c ../src/control_volume.c 
+build src/control_volume.o.ast: build_c_fast_ast ../src/control_volume.c 
+build $sareportdir/src/control_volume.o.xml: build_c_fast_sa src/control_volume.o.ast || externalFnMap.txt
+build src/control_volume.o.txt: build_c_api ../src/control_volume.c 
+build $coveragedir/src/control_volume.o.cov: build_cov ../src/control_volume.c 
 build src/disconnect.o: build_c ../src/disconnect.c 
 build src/disconnect.o.ast: build_c_fast_ast ../src/disconnect.c 
 build $sareportdir/src/disconnect.o.xml: build_c_fast_sa src/disconnect.o.ast || externalFnMap.txt

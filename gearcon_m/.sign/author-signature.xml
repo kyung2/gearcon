@@ -4,11 +4,79 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fgearcon_m">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>5K5UxfBuPJDuNv2i0jGAeWzd9rrrPZVOxBrJyPVOtbg=</DigestValue>
+<DigestValue>xVnfGHuLwFoKsgzU5I33FAFouHTAy3l4AGP9PACnlZc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fedje%2Fgearcon_m.edj">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>HvCi1UbS1FIzyAV3vA+lVNlmtfD86jZxkOHgseWN/5w=</DigestValue>
+<DigestValue>UGm5+w0eECer7Ka0MBSQGkSLZ3meTaNviRNPxpKwGaE=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fbluetooth.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>xxyvTxXoLD+l4Pz9qqv6ifJR3jwZkvwwanCZILzyh2E=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fconnect.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>0nzjAjFul3e9wP0DbHzkYOQxN8GpLPHhK8iFIzOabmw=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fdisconnect.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>O46kGzxulbp7CDyOpXTlNkTTmnnYs0blV96Vz9bI01k=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fhello.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>v/l//t1wD7Yg45ClSOUD9NDymuAvuCRgon1rbfy1M3I=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fkeyboard.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>qRBL6FhRfa890M/KQpi/XIJm1NuCfIY7ZgJ9AHzFm/A=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fmouse.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>IohD/I2FIdu5f/cDH0pQ9acCuPnhKwtShbmqAq+WxlM=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fmusic_controller_btn_mobile.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>F6r8Hrajwn3vtJ+89g/eFVrdC4H5N5c52NqrhKpCM+M=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fmusic_controller_btn_play.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>HFaoU5/uzRbEFeuIOZMnEKHt61c3kEDK7fBTT7BhmWY=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fmusic_controller_btn_repeat_all.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>NShybnHIvN4cEbuRhJio1LrWfYcYBw9c+OF3p2FH0M0=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fmusic_controller_btn_shuffle_on.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>ZtWqHSZkzGY+2u5vkXy70lGx3Etz08k5SEFeK2aLaFQ=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fpc_setting.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>BG/n3RdsDu+AZwAi5wrmy8TkmfXyYhr6nm7KVZ60+n0=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fpdf.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>8Y7RDEl28piMNqvd7w/yCmqwrVHZtOy+3q5XTpmZPdM=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fppt.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>NmdIQR1g2ig3T1c1/7X4i3HFjGCMijIjw0dM/rTyM7U=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fsettings.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>Zt62AVYgkHlAkEfrDUvuaL7mDVwYH5yhc7dnGTsVtto=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Ftemp.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>Vg8MfP3OIo+RkxwemMnJvuaUd1KE2eNxHidsfc6/B3w=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fvideo.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>/7Oz2VQCoaUNdSiUm692v7r+0VrvxbxFFHTjsacxcXM=</DigestValue>
+</Reference>
+<Reference URI="res%2Fimages%2Fwifi-signal.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>96RZCfUovrVpIJ7OGLapQ4ZfdsH5mRQcCZAo4ZUgyt0=</DigestValue>
 </Reference>
 <Reference URI="shared%2Fres%2Fgearcon_m.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -27,9 +95,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-KARRbtDRwuIbyN3lCoSoPkvfTCAmOob0JOFabnehRsfY97Q8FK5uJXSWui935qazKzVmExmBgEAZ
-Vrfg92L/ZFNw0JklpT8tmVlt4GZcu02F3/eZEuL6O12Futs5RlHtBpMruHHVdUygnM2byPFG8MM+
-5fiHdafx+BHDBuxKb5g=
+IxHWKXUpQLNGgXOQU/mSbwrJnT7Tkl3TQN38o/ZXaHu5rML48mKvcwJLNfvDrZoCBgUcm7Q8qpYn
+tvmgaQD7QliQ318mMVHyFx0tPj+NAnXqtlUFZMLDqL4DZ8JJBwR9p6/1JJbqFBMGaiKjEko2BJn2
+/PATn13zPELdAsQwmVI=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

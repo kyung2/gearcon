@@ -33,22 +33,17 @@ char *main_menu_names[] = {
 
 };
 char *main_menu_icons[] = {
-
-		ICON_DIR"/music_controller_btn_mobile.png",
+		ICON_DIR"/pc_setting.png",
+		ICON_DIR"/mouse.png",
+		ICON_DIR"/keyboard.png",
+		ICON_DIR"/ppt.png",
 		ICON_DIR"/music_controller_btn_play.png",
-		ICON_DIR"/music_controller_btn_repeat_all.png",
+		ICON_DIR"/pdf.png",
+		ICON_DIR"/connect.png",
+		ICON_DIR"/disconnect.png",
+		ICON_DIR"/setting.png",
+//		ICON_DIR"/info.png",
 		ICON_DIR"/music_controller_btn_shuffle_on.png",
-/*
-		"pc_setting.png",
-		"/images/mouse.png",
-		"keyboard.png",
-		"ppt.png",
-		"video.png",
-		"pdf.png",
-		"connect.png",
-		"disconnect.png",
-		"setting.png",
-		"info.png",*/
 		NULL
 
 };
@@ -162,7 +157,7 @@ _item_create(Evas_Object *rs)
 		for ( idx = 0; main_menu_names[idx];idx++) {
 			item = eext_rotary_selector_item_append(rs);
 			image = elm_image_add(rs);
-			elm_image_file_set(image,main_menu_icons[idx % 4],NULL);
+			elm_image_file_set(image,main_menu_icons[idx],NULL);
 
 			//elm_image_file_set(image,main_menu_icons[idx],NULL);
 

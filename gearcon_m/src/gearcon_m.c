@@ -41,7 +41,7 @@ char *main_menu_icons[] = {
 		ICON_DIR"/pdf.png",
 		ICON_DIR"/connect.png",
 		ICON_DIR"/disconnect.png",
-		ICON_DIR"/setting.png",
+		ICON_DIR"/settings.png",
 //		ICON_DIR"/info.png",
 		ICON_DIR"/music_controller_btn_shuffle_on.png",
 		NULL

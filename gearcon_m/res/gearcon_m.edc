@@ -1,14 +1,5 @@
 collections {
-   base_scale: 1.3;
-   #include "../edc_resource/eext_progressbar.edc"
-   #include "../edc_resource/eext_spinner.edc"
-   #include "../edc_resource/entry.edc"
-   #include "../edc_resource/index.edc"
-   #include "../edc_resource/image.edc"
-   #include "../edc_resource/progressbar.edc"
-   #include "../edc_resource/radio.edc"
-   #include "../edc_resource/popup_custom.edc"
+   base_scale: 3.0;
    #include "../edc_resource/scroller.edc"
-   #include "../edc_resource/slider.edc"
 }
 

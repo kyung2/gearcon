@@ -7,6 +7,20 @@
 
 //함수 여기다가 선언좀 해놓기!
 
+static Evas_Object* create_scroller(Evas_Object *parent);
+static Evas_Object* create_button_view(Evas_Object *parent);
+static Eina_Bool _setting_finished_cb(void *data, Elm_Object_Item *it);
+
+void up_btn_clicked_cb(void* data);
+void down_btn_clicked_cb(void* data);
+
+
+typedef struct _item_data {
+	int index;
+	Elm_Object_Item *item;
+} item_data;
+
+
 	 // PC CONTROL - > PCSETTING(밝기.배터리,볼륨,와이파이,블투,전원
 static char *main_menu_names[] = {
 	/*** 1line styles ***/
@@ -26,10 +40,8 @@ static char *main_menu_names[] = {
  * @param[in] it The item to be popped from naviframe
  */
 
-void view_PC_Setting(void *data);
-
-void my_A_cb (void *data)
-
+void
+my_A_cb (void *data)
 {
 	 appdata_s *ad = data;
 	   Evas_Object *bg;
@@ -49,6 +61,31 @@ _setting_finished_cb(void *data, Elm_Object_Item *it)
 	eext_rotary_object_event_activated_set(ad->circle_genlist, EINA_TRUE);
 	return EINA_TRUE;
 }
+
+static Evas_Object*
+create_scroller(Evas_Object *parent)
+{
+	Evas_Object *scroller = elm_scroller_add(parent);
+	elm_scroller_bounce_set(scroller, EINA_FALSE, EINA_TRUE);
+	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	evas_object_show(scroller);
+
+	return scroller;
+}
+
+void
+up_btn_clicked_cb(void* data)
+{
+
+}
+
+void
+down_btn_clicked_cb(void* data)
+{
+
+}
+
+
 
 /*
  * @brief Function will be operated when button is clicked
@@ -267,10 +304,6 @@ _setting_information_cb(void *data, Evas_Object *obj, void *event_info EINA_UNUS
 }
 
 
-typedef struct _item_data {
-	int index;
-	Elm_Object_Item *item;
-} item_data;
 
 /*
  * @brief Function to get string on genlist title item's text part
@@ -340,12 +373,60 @@ _naviframe_pop_cb(void *data, Elm_Object_Item *it)
  * @param[in] ad The data structure to manage gui object
  */
 
+static Evas_Object*
+create_button_view(Evas_Object *parent)
+{
+
+	Evas_Object *btn, *box;
+	char buf[64];
+
+	box = elm_box_add(parent);
+	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(box, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	elm_box_padding_set(box, 0, 5 * elm_config_scale_get());
+	evas_object_show(box);
+
+	btn = elm_button_add(box);
+	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
+	snprintf(buf, sizeof(buf), "up");
+	elm_object_text_set(btn, buf);
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(250), ELM_SCALE_SIZE(200));
+	evas_object_show(btn);
+	elm_box_pack_end(box, btn);
+
+	//down
+	btn = elm_button_add(box);
+	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb,NULL);
+	snprintf(buf, sizeof(buf), "down");
+	elm_object_text_set(btn, buf);
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(250), ELM_SCALE_SIZE(200));
+	evas_object_show(btn);
+	elm_box_pack_end(box, btn);
+
+	return box;
+}
+
 void
-bg_cb(void *data, Evas_Object *obj, void *event_info)
+view_control_volume(void *data)
 {
 	appdata_s *ad = (appdata_s *)data;
+	Evas_Object *scroller, *circle_scroller, *layout;
+	Evas_Object *nf = ad->nf;
+	Elm_Object_Item *nf_it;
 
+	scroller = create_scroller(nf);
+	layout = create_button_view(scroller);
+	elm_object_content_set(scroller, layout);
+
+	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
+	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
+
+	nf_it = elm_naviframe_item_push(nf, "Default Styles", NULL, NULL, scroller, NULL);
+	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
 }
+
+
 void
 view_PC_Setting(void *data)
 {
@@ -396,7 +477,7 @@ view_PC_Setting(void *data)
 //밝기
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
-	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, _setting_volume_cb, ad);
+	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 	//배터리
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
@@ -404,7 +485,7 @@ view_PC_Setting(void *data)
 	//볼륨
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
-	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
+	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_control_volume, ad);
 //와이파이
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
@@ -423,3 +504,4 @@ view_PC_Setting(void *data)
 	nf_it = elm_naviframe_item_push(naviframe, NULL, NULL, NULL, genlist, "empty");
 	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);
 }
+

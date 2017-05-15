@@ -1,0 +1,5 @@
+collections {
+   base_scale: 3.0;
+   #include "../edc_resource/scroller.edc"
+}
+

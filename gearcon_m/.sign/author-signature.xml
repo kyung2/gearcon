@@ -4,11 +4,15 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fgearcon_m">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>w0Z6zfN00io8T0RdkI6HfNp5MSIlI6jurk74poUcqjg=</DigestValue>
+<DigestValue>ccMFxQ4QekFZ1iHbBc6pbj5/pNOP3xnNPpmobrtRjfM=</DigestValue>
 </Reference>
-<Reference URI="res%2Fedje%2Fgearcon_m.edj">
+<Reference URI="res%2Fgearcon_m.edc">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>UGm5+w0eECer7Ka0MBSQGkSLZ3meTaNviRNPxpKwGaE=</DigestValue>
+<DigestValue>YS+mv8V3snAii6tfIjRfYk8Fu6wD2j3E4i41M5buBGM=</DigestValue>
+</Reference>
+<Reference URI="res%2Fgearcon_m.edj">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>4k6PgniUOfN0e/YkcF+mtna+wLRV9EsNYlu85X08uwY=</DigestValue>
 </Reference>
 <Reference URI="res%2Fimages%2Fbluetooth.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -95,9 +99,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-L6EYKYBm8QKp7j+wT9N898y1AUwAtzKViPilWnWNIhrz0AUS0lPES5jXwRnPY2NbUpWUrc8jXsIB
-EqVjQjBHQSPJQvqe6RfxaQqc8TeycUUmbU2V4QQds9uOLZ8aeUcS4SD1zmVSvzq16ougK7BpMUPO
-0FJUmCxFJDNpJv1Y6gg=
+DtAbwKA2Ffmibi30Z9Mky1CU4n02FwFnHW+oYWtXLSn0iSSGlSOrGq0cYoKsz8iNjdz77p34jMyw
+gG/XcQ8DWwgFrrjjcH0GjK+aj3K6IWs+czxVYn3U7f+pNzkAI0uJd7LvfxA+MqpuucZ6mhwZdTu7
+rFjtqdYu3IhfO27RO5A=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

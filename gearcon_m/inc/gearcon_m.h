@@ -26,7 +26,7 @@ void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);
 void view_PC_Setting(void *data);
 void view_app_info(void *data);
 void view_control_volume(void *data);
-
+void _default_btn_cb(void *data);
 
 typedef struct appdata {
 	Evas_Object *win;

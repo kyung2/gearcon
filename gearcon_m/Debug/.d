@@ -1,1 +1,1 @@
-res/edje/gearcon_m.edj:
+res/gearcon_m.edj: ../res/../edc_resource/scroller.edc

@@ -100,7 +100,7 @@ view_app_info(void *data)
 	Evas_Object *naviframe = ad->nf;
 	Elm_Object_Item *nf_it = NULL;
 	Elm_Genlist_Item_Class *itc = elm_genlist_item_class_new();
-	Elm_Genlist_Item_Class *titc = elm_genlist_item_class_new();
+
 	Elm_Genlist_Item_Class *pitc = elm_genlist_item_class_new();
 	item_data *id = NULL;
 	int index = 0;

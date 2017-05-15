@@ -104,11 +104,11 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   }
 	   else if(!strncmp(text,"Info",sizeof("Info"))){
 		   view_app_info(data);
+	   }
+	   else if(!strncmp (text,"Keyboard",sizeof("Keyboard"))) {
+		   _default_btn_cb(data);
 
 	   }
-
-
-
 }
 
 

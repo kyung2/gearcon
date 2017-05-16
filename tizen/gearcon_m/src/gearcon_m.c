@@ -15,7 +15,7 @@ static Eina_Bool _naviframe_pop_cb(void *data, Elm_Object_Item *it);
 static void create_rotary_selector(appdata_s *ad);
 static Eina_Bool _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev);
 
-
+//ghuhuhuhus
 
 char *main_menu_names[] = {
 

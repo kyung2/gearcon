@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>heart_ 64.png</file>
+        <file>heart_.png</file>
+        <file>lock_black32.png</file>
+        <file>lock_blue32.png</file>
+        <file>lock-icon.png</file>
+        <file>watch_black32.png</file>
+        <file>watch_blue32.png</file>
+    </qresource>
+</RCC>

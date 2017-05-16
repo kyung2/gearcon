@@ -24,9 +24,6 @@ int videoControl::stToggle()
 
 int videoControl::jmpNext()
 {
-                                    // 실행
-
-                                                // django process
     return returnType::sussecc;
 }
 
@@ -62,21 +59,6 @@ int videoControl::jmpBack()
 
         CoUninitialize();
         return 0;
-    /*ISimpleAudioVolume volume;
-
-    float level;
-    volume.GetMasterVolume(*level);
-
-
-
-        ISimpleAudioVolume volume = GetVolumeObject(name);
-    if (volume == null)
-        return null;
-    float level;
-    volume.GetMasterVolume(level);
-    volume.SetMasterVolume(level);
-        */
-
     
     return returnType::sussecc;
 }
@@ -196,10 +178,21 @@ void videoControl::pressLeftKey(int moveX, int moveY)
     //QMouseEvent MouseEvent(QEvent::MouseButtonPress, QCursor::pos(),Qt::LeftButton,Qt::LeftButton, Qt::NoModifier);
     //QApplication::sendEvent(d, &MouseEvent);
     //QApplication::sendEvent(d, &MouseEvent);
-    PostMessage(hWnd, WM_LBUTTONDOWN, 0, MAKELPARAM(mousepos.x, mousepos.y));
-    PostMessage(hWnd, WM_LBUTTONUP, 0, MAKELPARAM(mousepos.x, mousepos.y));
+    //PostMessage(hWnd, WM_LBUTTONDOWN, MK_LBUTTON, MAKELPARAM(mousepos.x, mousepos.y));
+    //PostMessage(hWnd, WM_LBUTTONUP, 0, MAKELPARAM(mousepos.x, mousepos.y));
+    INPUT    Input={0};
+      // left down
+      Input.type      = INPUT_MOUSE;
+      Input.mi.dwFlags  = MOUSEEVENTF_LEFTDOWN;
+      ::SendInput(1,&Input,sizeof(INPUT));
+
+      // left up
+      ::ZeroMemory(&Input,sizeof(INPUT));
+      Input.type      = INPUT_MOUSE;
+      Input.mi.dwFlags  = MOUSEEVENTF_LEFTUP;
+      ::SendInput(1,&Input,sizeof(INPUT));
+
     //PostMessage(hWnd, WM_KEYDOWN, VK_NUMPAD1, 0);
     ShowWindowAsync(myHWnd, SW_SHOWNORMAL); // 윈도우에 포커스를 줘서 최상위로 만든다
     SetForegroundWindow(myHWnd);
-
 }

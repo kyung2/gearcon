@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 
     MainWindow w;
     w.setWindowFlags(Qt::WindowCloseButtonHint);
-    w.setWindowTitle("hyunkyung_qt_title_test");
+    w.setWindowTitle("Gear-con");
     w.setFixedSize(280,280);
 
     w.show();

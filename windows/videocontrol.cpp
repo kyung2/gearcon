@@ -193,6 +193,28 @@ void videoControl::pressLeftKey(int moveX, int moveY)
       ::SendInput(1,&Input,sizeof(INPUT));
 
     //PostMessage(hWnd, WM_KEYDOWN, VK_NUMPAD1, 0);
-    ShowWindowAsync(myHWnd, SW_SHOWNORMAL); // 윈도우에 포커스를 줘서 최상위로 만든다
-    SetForegroundWindow(myHWnd);
+     getHandle();
+    Sleep(1000);
+     const byte ESCKey = 32;
+     const int KEYUP = 0x0002;
+     int Info=0;
+     keybd_event(ESCKey, 0, 0, Info);   // ALT key 다운
+     keybd_event(ESCKey, 0, KEYUP, Info);  // ALT key 업
+
+}
+
+void videoControl::getHandle(){
+    HWND hWnd;
+    HWND hWndForeground = ::GetForegroundWindow();
+       if(hWndForeground != hWnd) return;
+
+       DWORD Strange = ::GetWindowThreadProcessId(hWndForeground, NULL);
+       DWORD My = ::GetWindowThreadProcessId(hWnd, NULL);
+       if( !::AttachThreadInput(My, Strange, TRUE) )
+       {
+          return;
+         }
+       ::SetForegroundWindow(hWnd);
+       ::BringWindowToTop(hWnd);
+
 }

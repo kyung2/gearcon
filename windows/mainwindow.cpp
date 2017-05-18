@@ -41,6 +41,7 @@ int MainWindow::test(){
 
 void MainWindow::keyPressEvent( QKeyEvent *e )
 {
+    qDebug("press");
     //`qDebug("press key = " + e->key());
     if( e->key() == Qt::Key_1){
         videoControl a;

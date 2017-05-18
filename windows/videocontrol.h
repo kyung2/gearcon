@@ -12,7 +12,7 @@ public:
     void pressLeftKey(int, int);
     void closeExcute();
     int checkDisplay();
-
+    void getHandle();
 private:
 
 };

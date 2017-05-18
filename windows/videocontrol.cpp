@@ -142,6 +142,8 @@ void videoControl::closeExcute()
 
 void videoControl::pressLeftKey(int moveX, int moveY)
 {
+
+
     HWND hWnd;
     HWND myHWnd;
     myHWnd = GetActiveWindow();
@@ -171,17 +173,6 @@ void videoControl::pressLeftKey(int moveX, int moveY)
     //QApplication::sendEvent(d, &MouseEvent);
     //PostMessage(hWnd, WM_LBUTTONDOWN, MK_LBUTTON, MAKELPARAM(mousepos.x, mousepos.y));
     //PostMessage(hWnd, WM_LBUTTONUP, 0, MAKELPARAM(mousepos.x, mousepos.y));
-    INPUT    Input={0};
-      // left down
-      Input.type      = INPUT_MOUSE;
-      Input.mi.dwFlags  = MOUSEEVENTF_LEFTDOWN;
-      ::SendInput(1,&Input,sizeof(INPUT));
-
-      // left up
-      ::ZeroMemory(&Input,sizeof(INPUT));
-      Input.type      = INPUT_MOUSE;
-      Input.mi.dwFlags  = MOUSEEVENTF_LEFTUP;
-      ::SendInput(1,&Input,sizeof(INPUT));
 
     //PostMessage(hWnd, WM_KEYDOWN, VK_NUMPAD1, 0);
      getHandle();

@@ -2,6 +2,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "videocontrol.h"
+#include "mousecontrol.h"
 #include <QImage>
 #include <QPixmap>
 #include <QLabel>
@@ -49,8 +50,8 @@ void MainWindow::keyPressEvent( QKeyEvent *e )
         //a.jmpBack();
         //a.closeExcute();
         //a.checkDisplay();
-        qDebug("click");
-        system("shutdown -s");
+//        qDebug("click");
+//        system("shutdown -s");
         /*QString processPath = "cmd.exe";
         QProcess *exitProcess;
         exitProcess = new QProcess(this);

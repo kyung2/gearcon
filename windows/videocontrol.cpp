@@ -142,17 +142,8 @@ void videoControl::closeExcute()
 
 void videoControl::pressLeftKey(int moveX, int moveY)
 {
-    POINT mousepos;
     HWND hWnd;
     HWND myHWnd;
-    GetCursorPos(&mousepos);
-    int i;
-    for(i = 0; i<5; i++){
-        GetCursorPos(&mousepos);
-        SetCursorPos(mousepos.x+moveX,mousepos.y+moveY);
-        QThread::msleep(10);
-    }
-    GetCursorPos(&mousepos);
     myHWnd = GetActiveWindow();
     //hWnd = FindWindow(L"CalcFrame",NULL);
     //hWnd = FindWindow(NULL,L"Windows Media Player");

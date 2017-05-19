@@ -48,7 +48,7 @@ create_button_view(Evas_Object *parent)
 	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
 	snprintf(buf, sizeof(buf), "up");
 	elm_object_text_set(btn, buf);
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(250), ELM_SCALE_SIZE(200));
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(150), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
@@ -57,7 +57,7 @@ create_button_view(Evas_Object *parent)
 	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb,NULL);
 	snprintf(buf, sizeof(buf), "down");
 	elm_object_text_set(btn, buf);
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(250), ELM_SCALE_SIZE(200));
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(150), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 

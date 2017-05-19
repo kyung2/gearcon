@@ -16,7 +16,7 @@
 #define PACKAGE "org.example.gearcon_m"
 #endif
 
-#define EDJ_FILE "edje/gearcon_m.edj"
+#define EDJ_FILE "/opt/usr/apps/org.example.gearcon_m/res/gearcon_m.edj"
 #define GRP_MAIN "main"
 #define ICON_DIR "/opt/usr/apps/org.example.gearcon_m/res/images"
 
@@ -27,6 +27,9 @@ void view_PC_Setting(void *data);
 void view_app_info(void *data);
 void view_control_volume(void *data);
 void _default_btn_cb(void *data);
+
+
+void progressbar_cb(void *data, Evas_Object * obj, void *event_info);
 
 typedef struct appdata {
 	Evas_Object *win;

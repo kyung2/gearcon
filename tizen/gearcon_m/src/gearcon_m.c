@@ -107,7 +107,8 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   }
 	   else if(!strncmp (text,"Keyboard",sizeof("Keyboard"))) {
 		   _default_btn_cb(data);
-
+//		   progressbar_cb(data,obj,event_info);
+		   //TODO 이부분 쓰면 프로그레스바 나옴
 	   }
 }
 

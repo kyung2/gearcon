@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-res/edje/gearcon_m.edj__DEL__UGm5+w0eECer7Ka0MBSQGkSLZ3meTaNviRNPxpKwGaE=
-=======
-bin/gearcon_m__DEL__ccMFxQ4QekFZ1iHbBc6pbj5/pNOP3xnNPpmobrtRjfM=
->>>>>>> 2c095e3d3fa40f2c727786c91406784fc421ecb5
+res/adsf.edc__DEL__d+kMkVyvFTYES41Ranx0W98y3u5bkINmwHgQef2BwUA=
+res/adsf.edj__DEL__QJNt/5+5vATc9gkUQco9o7/7Bddl0PlRXtoZaRApYiA=
 res/images/bluetooth.png__DEL__xxyvTxXoLD+l4Pz9qqv6ifJR3jwZkvwwanCZILzyh2E=
 res/images/connect.png__DEL__0nzjAjFul3e9wP0DbHzkYOQxN8GpLPHhK8iFIzOabmw=
 res/images/disconnect.png__DEL__O46kGzxulbp7CDyOpXTlNkTTmnnYs0blV96Vz9bI01k=
@@ -20,13 +17,11 @@ res/images/settings.png__DEL__Zt62AVYgkHlAkEfrDUvuaL7mDVwYH5yhc7dnGTsVtto=
 res/images/temp.png__DEL__Vg8MfP3OIo+RkxwemMnJvuaUd1KE2eNxHidsfc6/B3w=
 res/images/video.png__DEL__/7Oz2VQCoaUNdSiUm692v7r+0VrvxbxFFHTjsacxcXM=
 res/images/wifi-signal.png__DEL__96RZCfUovrVpIJ7OGLapQ4ZfdsH5mRQcCZAo4ZUgyt0=
+res/up_and_down_buttons.edj__DEL__/KlpoSBZaC1MS9JOO/MuAYLJkoompU5/hyx86KP/Dvs=
 shared/res/gearcon_m.png__DEL__1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=
 tizen-manifest.xml__DEL__EvO9RjwUfaxf+JCsRuJdGUXDG0FVt7CXTcVkNLVBwsQ=
-<<<<<<< HEAD
-author-signature.xml__DEL__rJzbrGKRW0srVRvxRrXAlM4H47KAjxCilRcD56vcwMU=
-bin/gearcon_m__DEL__w0Z6zfN00io8T0RdkI6HfNp5MSIlI6jurk74poUcqjg=
-=======
-author-signature.xml__DEL__/IrhAh1zt3k9Nmr5f5ZGVe/5fQw2r6/TtBF+NScEKlY=
-res/gearcon_m.edc__DEL__YS+mv8V3snAii6tfIjRfYk8Fu6wD2j3E4i41M5buBGM=
-res/gearcon_m.edj__DEL__4k6PgniUOfN0e/YkcF+mtna+wLRV9EsNYlu85X08uwY=
->>>>>>> 2c095e3d3fa40f2c727786c91406784fc421ecb5
+author-signature.xml__DEL__/XcP4ll0tVaPQRpXjpss8velWe2s+aY+Hg23m71HKzg=
+res/up_and_down_buttons.edc__DEL__w9exW6bqbzacP+83dX2cXu+ccF7yKtGBO+Om8+ORW70=
+res/gearcon_m.edc__DEL__8bk1MFRk+hBtrdf5Bxkdi+FlBkufkc13btBayYSDOSU=
+res/gearcon_m.edj__DEL__aUGeG/nnx02LNd8m046eU0NoGOtS+q7C0jFJYXONYWk=
+bin/gearcon_m__DEL__KR92dCiylGNOfz2BhMjMiMgEeW/mIrSRGt62VR4BWis=

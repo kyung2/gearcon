@@ -297,13 +297,13 @@ rule clean_all
 build clean: clean_all || clean_sa
 
 rule sa_report_clean
-  command = rm -rf $sareportdir/*.xml rm -rf $sareportdir/src
+  command = rm -rf "$sareportdir/*.xml" rm -rf "$sareportdir/src"
   description = Cleaning SA Report files ..
 
-build clean_sa: sa_report_clean
+build clean_sa: sa_report_clean || clean_cov
 
 rule cov_report_clean
-  command = rm -rf $coveragedir/src rm -rf $coveragedir/report.txt
+  command = rm -rf "$coveragedir/src" rm -rf "$coveragedir/report.txt"
   description = Cleaning Coverage Reports..
 
 build clean_cov: cov_report_clean

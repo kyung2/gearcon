@@ -20,7 +20,7 @@ int mouseControl::setFocus(int moveX, int moveY){
     return returnType::sussecc;
 }
 
-int mouseControl::scroll(int upDownToggle){
+int mouseControl::scroll(bool upDownToggle){
 
     INPUT    Input={0};
     Input.type      = INPUT_MOUSE;

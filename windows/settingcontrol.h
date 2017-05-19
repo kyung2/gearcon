@@ -6,8 +6,8 @@ class settingControl
 {
 public:
     settingControl();
-    int soundControl(int upDownToggle);
-    int brightControl(int upDownToggle);
+    int soundControl(bool upDownToggle);
+    int brightControl(bool upDownToggle);
 };
 
 #endif // SETTINGCONTROL_H

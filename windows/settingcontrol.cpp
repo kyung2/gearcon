@@ -3,14 +3,14 @@
 #include <mmdeviceapi.h>
 #include <endpointvolume.h>
 #include <Audioclient.h>
-
+#include <QDebug>
 
 settingControl::settingControl()
 {
 
 }
 
-int settingControl::soundControl(int upDownToggle){
+int settingControl::soundControl(bool upDownToggle){
     HRESULT hr;
     CoInitialize(NULL);
         IMMDeviceEnumerator *deviceEnumerator = NULL;
@@ -30,9 +30,7 @@ int settingControl::soundControl(int upDownToggle){
         float currentVolume = 0;
 
         hr = endpointVolume->GetMasterVolumeLevelScalar(&currentVolume);
-
-        qDebug(QByteArray::number(currentVolume));
-
+\
         if(upDownToggle)
             currentVolume += 0.01; // 기어에서 / 감소 받아와서 적용
         else
@@ -46,7 +44,9 @@ int settingControl::soundControl(int upDownToggle){
 }
 
 
-int settingControl::brightControl(int upDownToggle){
+int settingControl::brightControl(bool upDownToggle){
+
+    qDebug("start bright control");
 
     WORD  GammaArray[3][256];
     HDC   hGammaDC = GetDC(0);
@@ -63,6 +63,7 @@ int settingControl::brightControl(int upDownToggle){
         wBrightness = 128;  // true = up
     else
         wBrightness = 68;
+
     for (int ik = 0; ik < 256; ik++) {
         int iArrayValue = ik * (wBrightness + 128);
         if (iArrayValue > 0xffff) iArrayValue = 0xffff;
@@ -72,5 +73,5 @@ int settingControl::brightControl(int upDownToggle){
     }
 
     SetDeviceGammaRamp (hGammaDC, GammaArray);
-
+    return 0;
 }

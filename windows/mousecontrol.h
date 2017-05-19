@@ -6,7 +6,7 @@ class mouseControl
 public:
     mouseControl();
     int setFocus(int , int );
-    int scroll(int upDownToggle);
+    int scroll(bool upDownToggle);
     int leftClick();
     int rightClick();
     int doubleClick();

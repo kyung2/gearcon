@@ -3,6 +3,10 @@
 #include "ui_mainwindow.h"
 #include "videocontrol.h"
 #include "mousecontrol.h"
+#include "settingcontrol.h"
+#include <mmdeviceapi.h>
+#include <endpointvolume.h>
+#include <Audioclient.h>
 #include <QImage>
 #include <QPixmap>
 #include <QLabel>
@@ -59,6 +63,15 @@ void MainWindow::keyPressEvent( QKeyEvent *e )
         arguments << "shutdown -s";
         exitProcess->execute(processPath, arguments);*/
     }
+
+    if( e->key() == Qt::Key_2){
+       settingControl settings;
+       for(int i = 0; i < 5; i++){
+            settings.brightControl(true);
+            Sleep(1000);
+        }
+    }
+
     if( e->key() == Qt::Key_0){
         videoControl a;
         a.executeTimer();

@@ -8,13 +8,13 @@ keyBoardControl::keyBoardControl()
 
 // use ppt and video
 int keyBoardControl::next(){
-    pressKey = 39; // ->
+    pressKey = 39; // right arrow
     keyPress();
 }
 
 // use ppt and video
 int keyBoardControl::previous(){
-    pressKey = 37; // <-
+    pressKey = 37; // left arrow
     keyPress();
 }
 
@@ -32,17 +32,12 @@ int keyBoardControl::videoStartStopToggle(){
 
 
 int keyBoardControl::pdfNext(){
-    pressKey = 27;//F5
+    pressKey = 40; // down arrow
     keyPress();
 }
 
 int keyBoardControl::pdfPrevious(){
-    pressKey = 27;//F5
-    keyPress();
-}
-
-int keyBoardControl::pdfscroll(){
-    pressKey = 27;//F5
+    pressKey = 38; // up arrow
     keyPress();
 }
 

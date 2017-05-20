@@ -26,7 +26,7 @@ left_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 static void
 double_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"BUTTON CLICKED x2  ")
+	dlog_print(DLOG_DEBUG,LOG_TAG,"BUTTON CLICKED x2  ");
 
 }
 static Evas_Object*
@@ -53,8 +53,8 @@ create_button_view(Evas_Object *parent)
 	evas_object_show(box);
 
 	btn = elm_button_add(box);
-	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "up");
+	evas_object_smart_callback_add(btn, "clicked", left_btn_clicked_cb,NULL);
+	snprintf(buf, sizeof(buf), "prev");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
@@ -62,8 +62,8 @@ create_button_view(Evas_Object *parent)
 
 	//down
 	btn = elm_button_add(box);
-	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "down");
+	evas_object_smart_callback_add(btn, "clicked", right_btn_clicked_cb,NULL);
+	snprintf(buf, sizeof(buf), "next");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);

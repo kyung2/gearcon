@@ -109,6 +109,9 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 //		   progressbar_cb(data,obj,event_info);
 		   //TODO 이부분 쓰면 프로그레스바 나옴
 	   }
+	   else if(!strncmp(text,"PDF",sizeof("Pdf"))) {
+		   view_control_pdf(data);
+	   }
 
 }
 
@@ -183,7 +186,7 @@ create_rotary_selector(appdata_s *ad)
 }
 
 /*
- * @brief: Make genlist and circle_genlist for circular shape
+ * @brief: Make genlist and circle_genlistview_pdf_control(void *data) for circular shape
  * @param[parent]: Naviframe to which you want to set the genlist
  */
 Evas_Object *view_create_circle_genlist(Evas_Object *parent)

@@ -108,8 +108,11 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 //		   progressbar_cb(data,obj,event_info);
 		   //TODO 이부분 쓰면 프로그레스바 나옴
 	   }
-	   else if(!strncmp(text,"PDF",sizeof("Pdf"))) {
+	   else if(!strncmp(text,"PDF",sizeof("PDF"))) {
 		   view_control_pdf(data);
+	   }
+	   else if(!strncmp(text,"PPT",sizeof("PPT"))) {
+		   view_control_ppt(data);
 	   }
 
 }

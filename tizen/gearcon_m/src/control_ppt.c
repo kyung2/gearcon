@@ -41,7 +41,7 @@ create_button_view(Evas_Object *parent)
 	box = elm_box_add(parent);
 	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(box, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_box_padding_set(box, 0, 5 * elm_config_scale_get());
+	elm_box_padding_set(box, 0, 1* elm_config_scale_get());
 	evas_object_show(box);
 
 	btn = elm_button_add(box);
@@ -66,7 +66,7 @@ create_button_view(Evas_Object *parent)
 }
 
 void
-_default_btn_cb(void *data)
+view_control_ppt(void *data)
 {
 	appdata_s *ad = (appdata_s *)data;
 	Evas_Object *scroller, *circle_scroller, *layout;

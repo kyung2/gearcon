@@ -29,7 +29,7 @@ void view_control_volume(void *data);
 void view_control_pdf(void *data);
 void view_control_ppt(void *data);
 void view_control_mouse(void *data);
-
+//elm_box_padding_set(box, 0, 1* elm_config_scale_get()); (여백 사이즈)
 
 
 void progressbar_cb(void *data, Evas_Object * obj, void *event_info);

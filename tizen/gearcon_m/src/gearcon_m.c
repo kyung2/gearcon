@@ -142,18 +142,10 @@ _item_create(Evas_Object *rs)
 	Eext_Object_Item * item;
 	int idx;
 
-	//다른방법은 그냥 하나하나 append 하는 방법 해보기
-
-
-
-	//ver1
 		for ( idx = 0; main_menu_names[idx];idx++) {
 			item = eext_rotary_selector_item_append(rs);
 			image = elm_image_add(rs);
 			elm_image_file_set(image,main_menu_icons[idx],NULL);
-
-			//elm_image_file_set(image,main_menu_icons[idx],NULL);
-
 			eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
 
 			eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
@@ -174,7 +166,6 @@ create_rotary_selector(appdata_s *ad)
 	//rotary selector = rs 라고 약어 (헤드에 정의)
 	ad->rs = eext_rotary_selector_add(ad->nf);
 	eext_rotary_object_event_activated_set(ad->rs, EINA_TRUE);
-//코드 아이템어팬드로 코드 옮긴거
 	_item_create(ad->rs);
 	//callback event
 	evas_object_smart_callback_add(ad->rs, "item,selected", _item_selected_cb, NULL);

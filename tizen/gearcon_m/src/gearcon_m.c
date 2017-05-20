@@ -99,7 +99,7 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 		   view_PC_Setting(data);
 	   }
 	   else if(!strncmp(text,"Mouse",sizeof("Mouse"))) {
-		   my_A_cb(data);
+		   view_control_mouse(data);
 	   }
 	   else if(!strncmp(text,"Info",sizeof("Info"))){
 		   view_app_info(data);

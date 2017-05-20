@@ -27,7 +27,7 @@ void view_PC_Setting(void *data);
 void view_app_info(void *data);
 void view_control_volume(void *data);
 void view_control_pdf(void *data);
-void view_mouse_control(void *data);
+void view_control_mouse(void *data);
 
 
 void progressbar_cb(void *data, Evas_Object * obj, void *event_info);

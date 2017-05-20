@@ -54,7 +54,7 @@ create_button_view(Evas_Object *parent)
 
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", left_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "prev");
+	snprintf(buf, sizeof(buf), "left");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
@@ -63,7 +63,7 @@ create_button_view(Evas_Object *parent)
 	//down
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", right_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "next");
+	snprintf(buf, sizeof(buf), "right");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
@@ -74,7 +74,7 @@ create_button_view(Evas_Object *parent)
 }
 
 void
-view_mouse_control(void *data)
+view_control_mouse(void *data)
 {
 	appdata_s *ad = (appdata_s *)data;
 	Evas_Object *scroller, *circle_scroller, *layout;

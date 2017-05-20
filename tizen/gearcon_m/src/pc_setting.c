@@ -8,11 +8,8 @@
 //함수 여기다가 선언좀 해놓기!
 
 static Evas_Object* create_scroller(Evas_Object *parent);
-static Evas_Object* create_button_view(Evas_Object *parent);
 static Eina_Bool _setting_finished_cb(void *data, Elm_Object_Item *it);
 
-void up_btn_clicked_cb(void* data);
-void down_btn_clicked_cb(void* data);
 
 
 typedef struct _item_data {
@@ -26,9 +23,7 @@ static char *main_menu_names[] = {
 	/*** 1line styles ***/
 	"밝기",
 	"배터리",
-	"블륨",
-	"와이파이",
-	"블루투스",
+	"볼륨",
 	"전원",
 	/* do not delete below */
 	NULL
@@ -52,6 +47,72 @@ my_A_cb (void *data)
 
 //a페이지 생성코드
 }
+
+
+static void
+gl_selected_cb(void *data, Evas_Object *obj, void *event_info)
+{
+	Elm_Object_Item *it = (Elm_Object_Item *)event_info;
+	elm_genlist_item_selected_set(it, EINA_FALSE);
+}
+
+/*
+ * @brief Function to get string on genlist title item's text part
+ * @param[in] data The data to be passed to the callback function
+ * @param[in] obj The Evas object handle to be passed to the callback function
+ * @param[in] part The name of text part
+ * @param[out] char* A string with the characters to use as genlist title item's text part
+ */
+static char*
+_gl_title_text_get(void *data, Evas_Object *obj, const char *part)
+{
+	char buf[1024];
+
+	snprintf(buf, 1023, "%s", "Setting");
+
+	return strdup(buf);
+}
+
+/*
+ * @brief Function to get string on genlist item's text part
+ * @param[in] data The data to be passed to the callback function
+ * @param[in] obj The Evas object handle to be passed to the callback function
+ * @param[in] part The name of text part
+ * @param[out] char* A string with the characters to use as genlist item's text part
+ */
+static char *
+_gl_main_text_get(void *data, Evas_Object *obj, const char *part)
+{
+	char buf[1024];
+	item_data *id = data;
+	int index = id->index;
+
+	if (!strcmp(part, "elm.text")) {
+		snprintf(buf, 1023, "%s", main_menu_names[index]);
+		return strdup(buf);
+	}
+	return NULL;
+}
+
+/*
+ * @brief Function will be operated when genlist is deleted.
+ * @param[in] data The data to be passed to the callback function
+ * @param[in] obj The Evas object handle to be passed to the callback function
+ */
+static void _gl_del(void *data, Evas_Object *obj)
+{
+	// FIXME: Unrealized callback can be called after this.
+	// Accessing Item_Data can be dangerous on unrealized callback.
+	item_data *id = data;
+	if (id) free(id);
+}
+
+/*
+ * @brief Function will be operated when naviframe pop its own item
+ * @param[in] data The data to be passed to the callback function
+ * @param[in] it The item to be popped from naviframe
+ */
+
 static Eina_Bool
 _setting_finished_cb(void *data, Elm_Object_Item *it)
 {
@@ -294,62 +355,6 @@ _setting_information_cb(void *data, Evas_Object *obj, void *event_info EINA_UNUS
 
 
 
-/*
- * @brief Function to get string on genlist title item's text part
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] part The name of text part
- * @param[out] char* A string with the characters to use as genlist title item's text part
- */
-static char*
-_gl_title_text_get(void *data, Evas_Object *obj, const char *part)
-{
-	char buf[1024];
-
-	snprintf(buf, 1023, "%s", "Setting");
-
-	return strdup(buf);
-}
-
-/*
- * @brief Function to get string on genlist item's text part
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] part The name of text part
- * @param[out] char* A string with the characters to use as genlist item's text part
- */
-static char *
-_gl_main_text_get(void *data, Evas_Object *obj, const char *part)
-{
-	char buf[1024];
-	item_data *id = data;
-	int index = id->index;
-
-	if (!strcmp(part, "elm.text")) {
-		snprintf(buf, 1023, "%s", main_menu_names[index]);
-		return strdup(buf);
-	}
-	return NULL;
-}
-
-/*
- * @brief Function will be operated when genlist is deleted.
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- */
-static void _gl_del(void *data, Evas_Object *obj)
-{
-	// FIXME: Unrealized callback can be called after this.
-	// Accessing Item_Data can be dangerous on unrealized callback.
-	item_data *id = data;
-	if (id) free(id);
-}
-
-/*
- * @brief Function will be operated when naviframe pop its own item
- * @param[in] data The data to be passed to the callback function
- * @param[in] it The item to be popped from naviframe
- */
 static Eina_Bool
 _naviframe_pop_cb(void *data, Elm_Object_Item *it)
 {
@@ -417,14 +422,6 @@ view_PC_Setting(void *data)
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
 	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_control_volume, ad);
-//와이파이
-	id = calloc(sizeof(item_data), 1);
-	id->index = index++;
-	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
-	//블투
-	id = calloc(sizeof(item_data), 1);
-	id->index = index++;
-	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 //전원
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
@@ -434,5 +431,8 @@ view_PC_Setting(void *data)
 
 	nf_it = elm_naviframe_item_push(naviframe, NULL, NULL, NULL, genlist, "empty");
 	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);
+	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
+
 }
+
 

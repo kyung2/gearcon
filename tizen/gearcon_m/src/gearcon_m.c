@@ -15,7 +15,6 @@ static Eina_Bool _naviframe_pop_cb(void *data, Elm_Object_Item *it);
 static void create_rotary_selector(appdata_s *ad);
 static Eina_Bool _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev);
 
-//ghuhuhuhus
 
 char *main_menu_names[] = {
 
@@ -110,6 +109,7 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 //		   progressbar_cb(data,obj,event_info);
 		   //TODO 이부분 쓰면 프로그레스바 나옴
 	   }
+
 }
 
 
@@ -142,17 +142,6 @@ _item_create(Evas_Object *rs)
 	//다른방법은 그냥 하나하나 append 하는 방법 해보기
 
 
-/*
- * 	item = eext_rotary_selector_item_append(rs);
-		image = elm_image_add(rs);
-		eext_rotary_selector_item_part_text_set(item,"selector,main_text","GearCon");
-		eext_rotary_selector_item_part_text_set(item,"selector,sub_text","keyboard");
-		elm_image_file_set(image,"/images/temp.png", NULL);
-	//	elm_image_file_set(image, icon_path_list[j % 4], NULL);
-		eext_rotary_selector_item_part_content_set(item,"item,icon",EEXT_ROTARY_SELECTOR_ITEM_STATE_NORMAL,image);
-*/
-
-
 
 	//ver1
 		for ( idx = 0; main_menu_names[idx];idx++) {
@@ -169,16 +158,6 @@ _item_create(Evas_Object *rs)
 
 		}
 
-
-
-		//ver3
-		/*
-	 *
-			eext_more_option_item_part_text_set(item, "selector,main_text", "test4");
-			eext_more_option_item_part_content_set(item, "item,icon", img);
-			elm_image_file_set(img, ICON_DIR"/music_controller_btn_mobile.png", NULL);
-
-	}*/
 
 }
 
@@ -199,6 +178,8 @@ create_rotary_selector(appdata_s *ad)
 	evas_object_smart_callback_add(ad->rs , "item,clicked", item_clicked_cb,ad);
 	nf_it = elm_naviframe_item_push(ad->nf,NULL,NULL,NULL,ad->rs,"empty");
 	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);
+	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
+
 }
 
 /*
@@ -233,8 +214,6 @@ Evas_Object *view_create_circle_genlist(Evas_Object *parent)
 
 	return genlist;
 }
-//genlist로 이용하여 만드는거 그냥 한곳에 다 때려받을래 ^^
-
 
 
 static void

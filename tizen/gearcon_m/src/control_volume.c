@@ -14,12 +14,13 @@ typedef struct _item_data
 static void
 up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	//up down
+	dlog_print(DLOG_DEBUG,LOG_TAG,"up button click (volume)");
 }
 
 static void
 down_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
+	dlog_print(DLOG_DEBUG,LOG_TAG,"down button clicke(volume)");
 }
 
 static Evas_Object*

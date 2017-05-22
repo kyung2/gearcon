@@ -115,6 +115,9 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   else if(!strncmp(text,"PPT",sizeof("PPT"))) {
 		   view_control_ppt(data);
 	   }
+	   else if(!strncmp(text,"VIDEO",sizeof("VIDEO"))) {
+		   view_control_player(data);
+	   }
 
 }
 

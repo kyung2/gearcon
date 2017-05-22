@@ -29,6 +29,7 @@ void view_control_volume(void *data);
 void view_control_pdf(void *data);
 void view_control_ppt(void *data);
 void view_control_mouse(void *data);
+void view_control_player(void *data);
 //elm_box_padding_set(box, 0, 1* elm_config_scale_get()); (여백 사이즈)
 
 
@@ -38,6 +39,7 @@ typedef struct appdata {
 	Evas_Object *win;
 	Evas_Object *conform;
 	Evas_Object *layout;
+	Evas_Object *label;
 	Evas_Object *nf;
 	Evas_Object *button;
 	Eext_Circle_Surface *circle_surface;

@@ -31,6 +31,7 @@ char *main_menu_names[] = {
 	NULL
 
 };
+//icon image_
 char *main_menu_icons[] = {
 		ICON_DIR"/pc_setting.png",
 		ICON_DIR"/mouse.png",
@@ -158,6 +159,7 @@ _item_create(Evas_Object *rs)
 
 }
 
+//create_ rotaty
 
 static void
 create_rotary_selector(appdata_s *ad)

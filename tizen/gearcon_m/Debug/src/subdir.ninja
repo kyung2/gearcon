@@ -66,3 +66,8 @@ build src/pc_setting.o.ast: build_c_fast_ast ../src/pc_setting.c
 build $sareportdir/src/pc_setting.o.xml: build_c_fast_sa src/pc_setting.o.ast || externalFnMap.txt
 build src/pc_setting.o.txt: build_c_api ../src/pc_setting.c 
 build $coveragedir/src/pc_setting.o.cov: build_cov ../src/pc_setting.c 
+build src/progressbar.o: build_c ../src/progressbar.c 
+build src/progressbar.o.ast: build_c_fast_ast ../src/progressbar.c 
+build $sareportdir/src/progressbar.o.xml: build_c_fast_sa src/progressbar.o.ast || externalFnMap.txt
+build src/progressbar.o.txt: build_c_api ../src/progressbar.c 
+build $coveragedir/src/progressbar.o.cov: build_cov ../src/progressbar.c 

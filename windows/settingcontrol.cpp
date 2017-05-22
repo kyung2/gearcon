@@ -4,6 +4,8 @@
 #include <endpointvolume.h>
 #include <Audioclient.h>
 #include <QDebug>
+#include "PhysicalMonitorEnumerationAPI.h"
+#include "HighLevelMonitorConfigurationAPI.h"
 
 settingControl::settingControl()
 {
@@ -32,7 +34,7 @@ int settingControl::soundControl(bool upDownToggle){
         hr = endpointVolume->GetMasterVolumeLevelScalar(&currentVolume);
 \
         if(upDownToggle)
-            currentVolume += 0.01; // 기어에서 / 감소 받아와서 적용
+            currentVolume += 0.01; // increse
         else
             currentVolume -= 0.01;
 
@@ -46,23 +48,94 @@ int settingControl::soundControl(bool upDownToggle){
 
 int settingControl::brightControl(bool upDownToggle){
 
-    qDebug("start bright control");
+
+
+/*    HMONITOR hMonitor = NULL;
+        DWORD cPhysicalMonitors = 1;
+        LPPHYSICAL_MONITOR pPhysicalMonitors;
+
+        HWND hWnd = GetDesktopWindow();
+
+        // Get the monitor handle.
+        hMonitor = MonitorFromWindow(hWnd, MONITOR_DEFAULTTOPRIMARY);
+
+        // Get the number of physical monitors.
+        BOOL bSuccess = GetNumberOfPhysicalMonitorsFromHMONITOR(hMonitor, &cPhysicalMonitors);
+
+        if (bSuccess)
+        {
+            // Allocate the array of PHYSICAL_MONITOR structures.
+            pPhysicalMonitors = (LPPHYSICAL_MONITOR)malloc(cPhysicalMonitors* sizeof(PHYSICAL_MONITOR));
+
+            if (pPhysicalMonitors != NULL)
+            {
+                // Get the array.
+                bSuccess = GetPhysicalMonitorsFromHMONITOR( hMonitor, cPhysicalMonitors, pPhysicalMonitors);
+                if (bSuccess == FALSE)
+                {
+
+                    qDebug("GetPhysicalMonitorsFromHMONITOR");
+                }
+                // Get physical monitor handle.
+                HANDLE hPhysicalMonitor = pPhysicalMonitors[0].hPhysicalMonitor;
+                DWORD pdwMonitorCapabilities = 0;
+                DWORD pdwSupportedColorTemperatures = 0;
+                bSuccess = GetMonitorCapabilities(hPhysicalMonitor, &pdwMonitorCapabilities, &pdwSupportedColorTemperatures);
+                if (bSuccess == FALSE)
+                {
+
+                    DWORD a = GetLastError();
+
+                    qDebug(QByteArray::number((WORD)a));
+                    qDebug("GetMonitorCapabilities");
+                }
+
+                DWORD pdwMinimumBrightness = 0;
+                DWORD pdwCurrentBrightness = 0;
+                DWORD pdwMaximumBrightness = 0;
+                bSuccess = GetMonitorBrightness(hPhysicalMonitor, &pdwMinimumBrightness, &pdwCurrentBrightness, &pdwMaximumBrightness);
+                if (bSuccess == FALSE)
+                {
+
+                    DWORD a = GetLastError();
+
+                    qDebug(QByteArray::number((WORD)a));
+                    qDebug("GetMonitorBrightness");
+                }
+
+                qDebug(QByteArray::number(bSuccess));
+
+                qDebug(QByteArray::number((WORD)pdwMinimumBrightness));
+                qDebug(QByteArray::number((WORD)pdwCurrentBrightness));
+                qDebug(QByteArray::number((WORD)pdwMaximumBrightness));
+                // Close the monitor handles.
+                bSuccess = DestroyPhysicalMonitors(cPhysicalMonitors, pPhysicalMonitors);
+
+                // Free the array.
+                free(pPhysicalMonitors);
+            }
+        }
+
+
+    //setMonitorBrightness(pmh,(DWORD)pdwCurrentBrightness);
+*/
 
     WORD  GammaArray[3][256];
-    HDC   hGammaDC = GetDC(0);
+    HDC   hGammaDC = GetDC(NULL);
     WORD  wBrightness;
-
-    HDC h = hGammaDC;
-    WORD r[3][256];
 
     GetDeviceGammaRamp(hGammaDC, GammaArray);
 
-    GetDeviceGammaRamp(h, r);
+    wBrightness = GammaArray[1][1] - 128;
 
-    if(upDownToggle)
-        wBrightness = 128;  // true = up
-    else
-        wBrightness = 68;
+   if(upDownToggle){
+        if(wBrightness < 128)
+            wBrightness += 16;  // true = up
+    }
+    else{
+        if(wBrightness > 0)
+            wBrightness -= 16;    // reduce the brightness
+    }
 
     for (int ik = 0; ik < 256; ik++) {
         int iArrayValue = ik * (wBrightness + 128);
@@ -73,5 +146,6 @@ int settingControl::brightControl(bool upDownToggle){
     }
 
     SetDeviceGammaRamp (hGammaDC, GammaArray);
+
     return 0;
 }

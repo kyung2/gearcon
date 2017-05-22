@@ -69,7 +69,6 @@ void videoControl::closeExcute()
 
 void videoControl::pressLeftKey(int moveX, int moveY)
 {
-
     HWND hWnd;
     HWND myHWnd;
     myHWnd = GetActiveWindow();
@@ -124,5 +123,4 @@ void videoControl::getHandle(){
          }
        ::SetForegroundWindow(hWnd);
        ::BringWindowToTop(hWnd);
-
 }

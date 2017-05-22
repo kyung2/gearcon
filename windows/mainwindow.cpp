@@ -66,15 +66,12 @@ void MainWindow::keyPressEvent( QKeyEvent *e )
 
     if( e->key() == Qt::Key_2){
        settingControl settings;
-       for(int i = 0; i < 5; i++){
-            settings.brightControl(true);
-            Sleep(1000);
-        }
+            settings.brightControl(false);
     }
 
     if( e->key() == Qt::Key_0){
-        videoControl a;
-        a.executeTimer();
+        settingControl settings;
+             settings.brightControl(true);
     }
 
     if( e->key() == Qt::Key_Escape ){

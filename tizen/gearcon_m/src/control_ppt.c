@@ -21,58 +21,25 @@ typedef struct _item_data
 } item_data;
 
 
-static float get_entry_value()
-{
-	char* text = elm_object_text_get(entry);
-	float value = atof(text);
-	return value;
-}
-
-static void
-append_number_label(char str_new)
-{
-	char buf[100];
-
-
-    char* text = elm_object_text_get(entry);
-    float value = get_entry_value();
-    if( value == 0.f )
-    	 sprintf(buf, "%c", str_new);
-    else
-    	sprintf(buf, "%s%c", text, str_new);
-
-    elm_object_text_set(entry, buf);
-}
-
 static void
 prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"prev button (play)");
+	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ prev button (ppt)");
 }
 
 static void
 next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"next button (play)");
+	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ next button (ppt)");
 }
 
 static void
 show_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"show button (ppt)");
+	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ show button (ppt)");
 
 }
-static void
-play_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	dlog_print(DLOG_DEBUG,LOG_TAG,"pl button (play)");
-}
 
-static void
-stop_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	dlog_print(DLOG_DEBUG,LOG_TAG,"stop button (play)");
-}
 
 static Evas_Object*
 create_scroller(Evas_Object *parent)
@@ -101,35 +68,41 @@ create_button_view(Evas_Object *parent)
 	elm_box_horizontal_set(box,EINA_TRUE);
 
 	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(box, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_box_padding_set(box, 0, 1 * elm_config_scale_get());
+	evas_object_size_hint_align_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	elm_box_padding_set(box, 5, 1 * elm_config_scale_get());
+
 	evas_object_show(box);
 
+	//font size change 	snprintf(buf, sizeof(buf), "<font_size=20><b>next</b></font_size>");
 
+
+	//prev
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", prev_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "prev");
+	snprintf(buf, sizeof(buf), "<font_size=20>prev</font_size>");
 	elm_object_text_set(btn, buf);
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(80), ELM_SCALE_SIZE(80));
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
 	//시발좆같은 타이젠 이것도안되면 ㅏㄹㄴ아런알 안되면 또해야지 씨빨...
 
-	//next
+	//slide show start
 	btn = elm_button_add(box);
-	evas_object_smart_callback_add(btn, "clicked", next_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "stop");
+	evas_object_smart_callback_add(btn, "clicked", show_btn_clicked_cb,NULL);
+	snprintf(buf, sizeof(buf), "<font_size=20>show</font_size>");
 	elm_object_text_set(btn, buf);
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(80), ELM_SCALE_SIZE(80));
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
+	//next
+
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", next_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "next");
+	snprintf(buf, sizeof(buf), "<font_size=20>next</font_size>");
 	elm_object_text_set(btn, buf);
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(80), ELM_SCALE_SIZE(80));
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
@@ -143,14 +116,9 @@ view_control_ppt(void *data)
 {
 	appdata_s *ad = (appdata_s *)data;
 	Evas_Object *scroller, *circle_scroller, *layout;
-	Evas_Object *box;
-	Evas_Object *rect;
-	Evas_Object *btn;
-
 
 	Evas_Object *nf = ad->nf;
 	Elm_Object_Item *nf_it;
-	Evas_Coord w,h;
 
 	scroller = create_scroller(nf);
 	layout = create_button_view(scroller);
@@ -159,13 +127,6 @@ view_control_ppt(void *data)
 	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
-
-
-
-
-
-
-
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

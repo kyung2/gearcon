@@ -1,8 +1,4 @@
 collections {
    base_scale: 3.0;
-   #include "../edc_resource/scroller.edc"
-   #include "../edc_resource/progressbar.edc"
-   #include "../edc_resource/up_and_down.edc"
-
 }
 

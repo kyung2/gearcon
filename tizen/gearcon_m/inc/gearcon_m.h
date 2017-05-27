@@ -20,6 +20,9 @@
 #define GRP_MAIN "main"
 #define ICON_DIR "/opt/usr/apps/org.example.gearcon_m/res/images"
 
+//void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info);
+
+//void _popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info);
 
 void my_A_cb (void *data);
 void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);

@@ -69,7 +69,8 @@ create_button_view(Evas_Object *parent)
 	elm_object_part_text_set(layout, "elm.text.title", "Connect");
 
 
-	elm_object_part_text_set(layout,"elm.text", set_pckey);
+	elm_object_part_text_set(layout,"elm.text","<font_size=100>1234</font_size>");
+	//elm_object_part_text_set(layout,"elm.text", set_pckey);
 	snprintf(buf, sizeof(buf), "next");
 
 
@@ -82,8 +83,9 @@ create_button_view(Evas_Object *parent)
 void
 set_pckey(void *data, char * text)
 {
-	char buf[999];
 	appdata_s *ad = (appdata_s *)data;
+
+
 	elm_object_part_text_set(ad->layout,"elm.text", text);
 }
 void

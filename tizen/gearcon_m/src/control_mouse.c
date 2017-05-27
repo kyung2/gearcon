@@ -1,4 +1,4 @@
-/*
+///*
  *hyunkyung
  */
 #include "gearcon_m.h"
@@ -7,8 +7,8 @@
 
 typedef struct _item_data
 {
-	int index;
-	Elm_Object_Item *item;
+   int index;
+   Elm_Object_Item *item;
 } item_data;
 
 
@@ -149,43 +149,43 @@ flick_abort(void *data, void *event_info)
 static Evas_Object*
 create_button_view(void *data)
 {
-	Evas_Object *btn;
-	Evas_Object *popup;
-	Evas_Object *layout;
-	appdata_s *ad = (appdata_s *) data;
+   Evas_Object *btn;
+   Evas_Object *popup;
+   Evas_Object *layout;
+   appdata_s *ad = (appdata_s *) data;
 
-	popup = elm_popup_add(ad->win);
-	elm_object_style_set(popup, "circle");
-	evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+   popup = elm_popup_add(ad->win);
+   elm_object_style_set(popup, "circle");
+   evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 
-	layout = elm_layout_add(popup);
-	elm_layout_theme_set(layout, "layout", "popup", "content/circle/buttons2");
-	//elm_object_part_text_set(layout, "elm.text.title", "Popup title");
+   layout = elm_layout_add(popup);
+   elm_layout_theme_set(layout, "layout", "popup", "content/circle/buttons2");
+   //elm_object_part_text_set(layout, "elm.text.title", "Popup title");
 
-	elm_object_part_text_set(layout, "elm.text", "This is scrollable popup text."
-		"This part is made by adding long text in popup. Popup internally added "
-		"scroller to this layout when size of text is greater than total popup "
-			"height. This has two buttons in action area and title text in title area");
-		elm_object_content_set(popup, layout);
+   elm_object_part_text_set(layout, "elm.text", "This is scrollable popup text."
+      "This part is made by adding long text in popup. Popup internally added "
+      "scroller to this layout when size of text is greater than total popup "
+         "height. This has two buttons in action area and title text in title area");
+      elm_object_content_set(popup, layout);
 
-		//동글이
+      //동글이
 
 
 
-		//left
-		btn = elm_button_add(popup);
-		elm_object_style_set(btn, "popup/circle/left");
-		elm_object_text_set(btn,"L");
-		evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-		elm_object_part_content_set(popup, "button1", btn);
+      //left
+      btn = elm_button_add(popup);
+      elm_object_style_set(btn, "popup/circle/left");
+      elm_object_text_set(btn,"L");
+      evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+      elm_object_part_content_set(popup, "button1", btn);
 
-		//right
-		btn = elm_button_add(popup);
-		elm_object_style_set(btn, "popup/circle/right");
-		elm_object_text_set(btn,"R");
-		evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-		elm_object_part_content_set(popup, "button2", btn);
-		evas_object_show(popup);
+      //right
+      btn = elm_button_add(popup);
+      elm_object_style_set(btn, "popup/circle/right");
+      elm_object_text_set(btn,"R");
+      evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+      elm_object_part_content_set(popup, "button2", btn);
+      evas_object_show(popup);
 
 
 
@@ -200,36 +200,35 @@ n_finger_tap_end(void *data, void *event_info)
 void
 view_control_mouse(void *data)
 {
-	appdata_s *ad = (appdata_s *) data;
-	Evas_Object *win;
-	Evas_Object *r; /* Gesture layer transparent object */
-	Evas_Object *g; /* Gesture layer object */
-	Elm_Object_Item *nf_it, *tabbar_it;
-	Evas_Object *box, *rect;
+   appdata_s *ad = (appdata_s *) data;
+   Evas_Object *win;
+   Evas_Object *r; /* Gesture layer transparent object */
+   Evas_Object *g; /* Gesture layer object */
+   Elm_Object_Item *nf_it, *tabbar_it;
+   Evas_Object *box, *rect;
 
 
-	box= elm_box_add(ad->nf);
-	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	elm_box_padding_set(box, 0, 5 * elm_config_scale_get());
-	evas_object_show(box);
+   box= elm_box_add(ad->nf);
+   evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+   elm_box_padding_set(box, 0, 5 * elm_config_scale_get());
+   evas_object_show(box);
 
-	  rect = evas_object_rectangle_add(evas_object_evas_get(box));
-	  evas_object_size_hint_weight_set(rect, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	  evas_object_size_hint_align_set(rect, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	  evas_object_color_set(rect, 204, 204, 204, 255);
-	  evas_object_repeat_events_set(rect, EINA_TRUE);
+     rect = evas_object_rectangle_add(evas_object_evas_get(box));
+     evas_object_size_hint_weight_set(rect, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+     evas_object_size_hint_align_set(rect, EVAS_HINT_FILL, EVAS_HINT_FILL);
+     evas_object_color_set(rect, 204, 204, 204, 255);
+     evas_object_repeat_events_set(rect, EINA_TRUE);
 
 
 
-		g = elm_gesture_layer_add(win);
-		elm_gesture_layer_attach(g, rect);
-		elm_box_pack_end(box,rect);
-		evas_object_show(rect);
+      g = elm_gesture_layer_add(win);
+      elm_gesture_layer_attach(g, rect);
+      elm_box_pack_end(box,rect);
+      evas_object_show(rect);
 
 
 
 }
-
 
 
 

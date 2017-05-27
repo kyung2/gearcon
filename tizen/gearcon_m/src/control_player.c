@@ -85,12 +85,11 @@ create_button_view(Evas_Object *parent)
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
-	//시발좆같은 타이젠 이것도안되면 ㅏㄹㄴ아런알 안되면 또해야지 씨빨...
 
 	//slide show start
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", play_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20><br>play</br>stop</font_size>");
+	snprintf(buf, sizeof(buf), "<font_size=20><align = center > <br>play</br>stop</align></font_size>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);

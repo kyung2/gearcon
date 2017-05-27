@@ -12,6 +12,7 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QProcess>
+#include "udplibrary.h"
 
 #include "videocontrol.h"
 
@@ -26,6 +27,8 @@ MainWindow::MainWindow(QWidget *parent) :
     thread = new networkUDP(this);
     thread->start();
     test();
+    UdpLibrary UDP;
+    UDP.enroll();
 }
 
 MainWindow::~MainWindow()

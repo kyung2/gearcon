@@ -28,21 +28,51 @@ SOURCES += main.cpp\
     mousecontrol.cpp \
     singleapplication.cpp \
     videocontrol.cpp \
-    networkudp.cpp
+    networkudp.cpp \
+    keyboradcontrol.cpp \
+    settingcontrol.cpp
 
 HEADERS  += mainwindow.h \
     communicationtserver.h \
     mousecontrol.h \
     singleapplication.h \
     videocontrol.h \
-    networkudp.h
+    networkudp.h \
+    keyboradcontrol.h \
+    settingcontrol.h
 
 FORMS    += mainwindow.ui
 
-LIBS+= -luser32
-LIBS+= -lGdi32
-LIBS+= -lole32
-
+LIBS += -luser32
+LIBS += -lGdi32
+LIBS += -lole32
+LIBS += -lDxva2
 
 RESOURCES += \
     img.qrc
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Release/release/ -ludpLibrary
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Release/debug/ -ludpLibrary
+else:unix: LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Release/ -ludpLibrary
+
+INCLUDEPATH += $$PWD/../../udpLibrary/Windows/udpLibrary
+DEPENDPATH += $$PWD/../../udpLibrary/Windows/udpLibrary
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Release/release/libudpLibrary.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Release/debug/libudpLibrary.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Release/release/udpLibrary.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Release/debug/udpLibrary.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Release/libudpLibrary.a
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/release/ -ludpLibrary
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/debug/ -ludpLibrary
+else:unix: LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/ -ludpLibrary
+
+INCLUDEPATH += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/debug
+DEPENDPATH += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/debug
+
+win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/release/libudpLibrary.a
+else:win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/debug/libudpLibrary.a
+else:win32:!win32-g++:CONFIG(release, debug|release): PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/release/udpLibrary.lib
+else:win32:!win32-g++:CONFIG(debug, debug|release): PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/debug/udpLibrary.lib
+else:unix: PRE_TARGETDEPS += $$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/libudpLibrary.a

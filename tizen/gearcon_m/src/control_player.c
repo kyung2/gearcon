@@ -24,20 +24,19 @@ typedef struct _item_data
 static void
 prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ prev button (ppt)");
+	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ prev_button");
 }
 
 static void
 next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ next button (ppt)");
+	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ next_button");
 }
 
 static void
 play_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ show button (ppt)");
-
+	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ show button");
 }
 
 
@@ -89,7 +88,7 @@ create_button_view(Evas_Object *parent)
 	//slide show start
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", play_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20><align = center > <br>play</br>stop</align></font_size>");
+	snprintf(buf, sizeof(buf), "<font_size=20><align = center > <br>play</br>stop<br>　</br></align></font_size>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);

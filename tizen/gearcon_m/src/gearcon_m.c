@@ -119,6 +119,10 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 		   view_control_player(data);
 	   }
 
+	   else if(!strncmp(text,"Connect",sizeof("CONNECT"))) {
+		   view_connect(data);
+	   }
+
 }
 
 

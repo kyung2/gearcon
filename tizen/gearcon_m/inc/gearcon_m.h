@@ -23,7 +23,8 @@
 //void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info);
 
 //void _popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info);
-
+static char _key_get(void *data, Evas_Object *obj,const char *part);
+void set_pckey(void *data, char * text);
 void my_A_cb (void *data);
 void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);
 void view_PC_Setting(void *data);
@@ -33,6 +34,8 @@ void view_control_pdf(void *data);
 void view_control_ppt(void *data);
 void view_control_mouse(void *data);
 void view_control_player(void *data);
+void view_connect(void *data);
+void view_disconnect(void *data);
 //elm_box_padding_set(box, 0, 1* elm_config_scale_get()); (여백 사이즈)
 
 
@@ -51,6 +54,10 @@ typedef struct appdata {
 	Evas_Object *circle_genlist;
 	Evas_Object *parent;
 	Evas_Object *image;
+	Evas_Object *box;
+	// mouse point
+	Evas_Object *point;
+
 
 
 	//using pc_setting

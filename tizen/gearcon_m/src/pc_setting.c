@@ -169,192 +169,6 @@ _volume_changed_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 
-//내가 써야할 원형
-/*
- * @brief Function will be operated when brightness value is changed
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] event_info The system event information
- */
-static void
-_brightness_changed_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	appdata_s *ad = data;
-	int i, value;
-
-	/* Get Circle Object Value */
-	value = eext_circle_object_value_get(obj);
-
-	for (i = 0; i < 10; ++i) {
-		if (i < value)
-			evas_object_color_set(ad->rect[i], 0, 255, 0, 150);
-		else
-			evas_object_color_set(ad->rect[i], 0, 255, 0, 75);
-	}
-}
-
-/*
- * @brief Function will be operated when "Volume" menu is clicked
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] event_info The system event information
- */
-static void
-_setting_volume_cb(void *data, Evas_Object *obj, void *event_info EINA_UNUSED)
-{
-	char edj_path[PATH_MAX] = {0, };
-	appdata_s *ad = data;
-	Evas_Object *nf = ad->nf;
-	Evas_Object *layout = NULL;
-	Evas_Object *slider = NULL;
-	Elm_Object_Item *nf_it = NULL;
-
-	/* Unhighlight Item */
-	elm_genlist_item_selected_set((Elm_Object_Item *)event_info, EINA_FALSE);
-
-	layout = elm_layout_add(nf);
-	elm_layout_file_set(layout, edj_path, "slider_layout");
-	elm_object_part_text_set(layout, "elm.text.slider", "3.0");
-	evas_object_show(layout);
-
-	/* Create Circle Slider */
-	slider = eext_circle_object_slider_add(layout, ad->circle_surface);
-
-	/* Set Circle Slider Range, Value and Step */
-	eext_circle_object_value_min_max_set(slider, 0.0, 15.0);
-	eext_circle_object_value_set(slider, 3.0);
-	eext_circle_object_slider_step_set(slider, 0.5);
-
-	/* Activate Rotary Event */
-	eext_rotary_object_event_activated_set(slider, EINA_TRUE);
-	evas_object_smart_callback_add(slider, "value,changed", _volume_changed_cb, layout);
-
-	nf_it = elm_naviframe_item_push(nf, _("Slider"), NULL, NULL, layout, "empty");
-	elm_naviframe_item_pop_cb_set(nf_it, _setting_finished_cb, ad);
-}
-
-/*
- * @brief Function will be operated when "Brightness" menu is clicked
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] event_info The system event information
- */
-static void
-_setting_brigteness_cb(void *data, Evas_Object *obj, void *event_info EINA_UNUSED)
-{
-	char edj_path[PATH_MAX] = {0, };
-	appdata_s *ad = data;
-	Evas_Object *nf = ad->nf;
-	Evas_Object *layout = NULL;
-	Evas_Object *slider = NULL;
-	Evas_Object *box = NULL;
-	Evas_Object *rect[10] = {NULL, };
-	Elm_Object_Item *nf_it = NULL;
-	int i = 0;
-
-	/* Unhighlight Item */
-	elm_genlist_item_selected_set((Elm_Object_Item *)event_info, EINA_FALSE);
-
-	layout = elm_layout_add(nf);
-	elm_layout_file_set(layout, edj_path, "slider_layout");
-	evas_object_show(layout);
-
-	box = elm_box_add(layout);
-	elm_box_horizontal_set(box, EINA_TRUE);
-	elm_box_padding_set(box, 3, 0);
-	evas_object_show(box);
-
-	elm_object_part_content_set(layout, "elm.swallow.content", box);
-
-	for (i = 0; i < 10; ++i) {
-		rect[i] = evas_object_rectangle_add(evas_object_evas_get(layout));
-		evas_object_color_set(rect[i], 0, 255, 0, 75);
-		evas_object_size_hint_min_set(rect[i], 20, 20);
-		evas_object_show(rect[i]);
-		elm_box_pack_end(box, rect[i]);
-	}
-
-	for (i = 0; i < 10; ++i)
-		ad->rect[i] = rect[i];
-
-	/* Create Circle Slider */
-	slider = eext_circle_object_slider_add(layout, ad->circle_surface);
-
-	/* Set Circle Slider Range, Value and Step */
-	eext_circle_object_value_min_max_set(slider, 0.0, 10.0);
-	eext_circle_object_value_set(slider, 0.0);
-	eext_circle_object_slider_step_set(slider, 1.0);
-
-	/* Activate Rotary Event */
-	eext_rotary_object_event_activated_set(slider, EINA_TRUE);
-	evas_object_smart_callback_add(slider, "value,changed", _brightness_changed_cb, ad);
-
-	nf_it = elm_naviframe_item_push(nf, _("Slider"), NULL, NULL, layout, "empty");
-	elm_naviframe_item_pop_cb_set(nf_it, _setting_finished_cb, ad);
-}
-
-/*
- * @brief Function will be operated when "Information" menu is clicked
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] event_info The system event information
- */
-static void
-_setting_information_cb(void *data, Evas_Object *obj, void *event_info EINA_UNUSED)
-{
-	char edj_path[PATH_MAX] = {0, };
-	appdata_s *ad = data;
-	Evas_Object *nf = ad->nf;
-	Evas_Object *layout = NULL;
-	Evas_Object *label = NULL;
-	Evas_Object *button = NULL;
-	Evas_Object *scroller = NULL;
-	Evas_Object *circle_scroller = NULL;
-	Elm_Object_Item *nf_it = NULL;
-
-	/* Unhighlight Item */
-	elm_genlist_item_selected_set((Elm_Object_Item *)event_info, EINA_FALSE);
-
-
-	layout = elm_layout_add(nf);
-	elm_layout_file_set(layout, edj_path, "info_layout");
-	evas_object_show(layout);
-
-	scroller = elm_scroller_add(layout);
-	evas_object_show(scroller);
-
-	elm_object_part_content_set(layout, "elm.swallow.content", scroller);
-
-	/* Create Circle Scroller */
-	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
-
-	/* Set Scroller Policy */
-	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
-
-	/* Activate Rotary Event */
-	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
-
-	label = elm_label_add(scroller);
-	elm_label_line_wrap_set(label, ELM_WRAP_MIXED);
-	elm_object_text_set(label, "<br/><br/>This is setting application, "
-								"By using the movement of the rotary, "
-								"you can change the value of volume and brightness.<br/><br/><br/>");
-	evas_object_show(label);
-
-	elm_object_content_set(scroller, label);
-
-	button = elm_button_add(layout);
-	elm_object_style_set(button, "bottom");
-	elm_object_text_set(button, "OK");
-	elm_object_part_content_set(layout, "elm.swallow.button", button);
-	evas_object_smart_callback_add(button, "clicked", _button_clicked_cb, ad);
-	evas_object_show(button);
-
-	nf_it = elm_naviframe_item_push(nf, _("Slider"), NULL, NULL, layout, "empty");
-}
-
-
-
 static Eina_Bool
 _naviframe_pop_cb(void *data, Elm_Object_Item *it)
 {
@@ -417,7 +231,7 @@ view_PC_Setting(void *data)
 	//배터리
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
-	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, _setting_brigteness_cb, ad);
+	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_control_volume, ad);
 	//볼륨
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
@@ -430,7 +244,7 @@ view_PC_Setting(void *data)
 	elm_genlist_item_append(genlist, pitc, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 
 	nf_it = elm_naviframe_item_push(naviframe, NULL, NULL, NULL, genlist, "empty");
-	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);
+//	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);
 	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
 
 }

@@ -1,5 +1,7 @@
 #delete
 #add
+res/images/no.png
+res/images/yes.png
 #modify
 author-signature.xml
 signature1.xml

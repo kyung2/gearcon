@@ -54,6 +54,10 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>ZtWqHSZkzGY+2u5vkXy70lGx3Etz08k5SEFeK2aLaFQ=</DigestValue>
 </Reference>
+<Reference URI="res%2Fimages%2Fno.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>nKAidX/UKOZL+48KktHApiylhgf4LJiA7vs3OCbjjmw=</DigestValue>
+</Reference>
 <Reference URI="res%2Fimages%2Fno.png.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>C9z5ujW41R6NjYkcKcFA9ET3ijpR9j80wz5A8qjswlU=</DigestValue>
@@ -86,6 +90,10 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>96RZCfUovrVpIJ7OGLapQ4ZfdsH5mRQcCZAo4ZUgyt0=</DigestValue>
 </Reference>
+<Reference URI="res%2Fimages%2Fyes.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>mOiWarD1KXAs7Y03mFrsA2HBiO1Q+bpJCxEVU6o7Wm8=</DigestValue>
+</Reference>
 <Reference URI="res%2Fimages%2Fyes.png.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>vV8cGSpTEONJ/gbB2nN1rphBcUFvNlor+ILCiOI6jDk=</DigestValue>
@@ -107,9 +115,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-Ho/uRYyV4XxPkgxotCXUFEYsRkgLXAShnbqH0cgOwJghRGZCkO67Vw+l14lPQJXBcE5tAuqbFYpX
-jqYqnrMVKCYDsi0Qt5gPuhNGRXAQ4nUu/MRQu8LDMDdZ8BZy5XqMtpCr+xapUxrsxATQvePvNow2
-0dQFdXMZVYkTAj+vOs8=
+ZV/BZ9FCjA36Xw5ND5cXK0Gx+wT7g6824Jk9jkJuExElbKOfs49TBUy2Af1lHpsph0G1IvYVZ5pB
+IV0WdCEsNX5OGmqaLOyt0J0jQQP12xqwMPLorgt3ELsWyLX3RmLpD3Xjki9YRCdYpA/GH8TSd8iL
+xBS1Tnn1RW6YWYv71ks=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>metmAXRnV5+/egwnUUVLP0DJVZbJjFcMYvXNtBd9smc=</DigestValue>
+<DigestValue>+t2AREQO2eYpznkYbc9GOOiKJa6L4wf7rveIsHIBmb8=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fgearcon_m">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -58,6 +58,10 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>ZtWqHSZkzGY+2u5vkXy70lGx3Etz08k5SEFeK2aLaFQ=</DigestValue>
 </Reference>
+<Reference URI="res%2Fimages%2Fno.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>nKAidX/UKOZL+48KktHApiylhgf4LJiA7vs3OCbjjmw=</DigestValue>
+</Reference>
 <Reference URI="res%2Fimages%2Fno.png.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>C9z5ujW41R6NjYkcKcFA9ET3ijpR9j80wz5A8qjswlU=</DigestValue>
@@ -90,6 +94,10 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>96RZCfUovrVpIJ7OGLapQ4ZfdsH5mRQcCZAo4ZUgyt0=</DigestValue>
 </Reference>
+<Reference URI="res%2Fimages%2Fyes.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>mOiWarD1KXAs7Y03mFrsA2HBiO1Q+bpJCxEVU6o7Wm8=</DigestValue>
+</Reference>
 <Reference URI="res%2Fimages%2Fyes.png.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>vV8cGSpTEONJ/gbB2nN1rphBcUFvNlor+ILCiOI6jDk=</DigestValue>
@@ -111,9 +119,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-XPClj1VXAzKpDkS+8VXE3UL4rvjTugzkAQzP+nSt2InzPpvjTYdurCwZEwfAUed7gBehlqx1ZlsY
-lOIp+j0EQDCKBZwfWR5SKVJqZ0Kdgp6VNq5VBJ0/b8d4Wv6d3j5em2MRzdW9w69Hu/4lJUDuDFu7
-zTcLvV9UY5N/+sV0mcM=
+ByLs+CxiTxtU0Hn0wZTuNtkyHzd6K9msPJfqkkAIq5CRTatIBB+fObQ5DUpwyVb2Ov41ckXT7F8A
+DQPgRv3W6GSk3E9OyARLJmxHKRz0RmQkCSNf0lhDhOaZLdOmHyMfVsYPhoIZylyQU9hXpni86CUW
+YoM5WTHDhyZE7T5SMag=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

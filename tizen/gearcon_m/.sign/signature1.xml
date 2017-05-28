@@ -4,11 +4,11 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>xm/8UpooJsep3zwHhPPbFu0GtiHsjukkFbW2KMsuhT8=</DigestValue>
+<DigestValue>metmAXRnV5+/egwnUUVLP0DJVZbJjFcMYvXNtBd9smc=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fgearcon_m">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>+VeN+jS3QMHf54sKk/zgqQPTdliqU8CveKjB8YGcgI8=</DigestValue>
+<DigestValue>jcl0plvQqPcG3z0Pe0jSDsJJgS171zEA6JFfEN2+RqE=</DigestValue>
 </Reference>
 <Reference URI="res%2Fgearcon_m.edc">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -58,6 +58,10 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>ZtWqHSZkzGY+2u5vkXy70lGx3Etz08k5SEFeK2aLaFQ=</DigestValue>
 </Reference>
+<Reference URI="res%2Fimages%2Fno.png.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>C9z5ujW41R6NjYkcKcFA9ET3ijpR9j80wz5A8qjswlU=</DigestValue>
+</Reference>
 <Reference URI="res%2Fimages%2Fpc_setting.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>BG/n3RdsDu+AZwAi5wrmy8TkmfXyYhr6nm7KVZ60+n0=</DigestValue>
@@ -86,6 +90,10 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>96RZCfUovrVpIJ7OGLapQ4ZfdsH5mRQcCZAo4ZUgyt0=</DigestValue>
 </Reference>
+<Reference URI="res%2Fimages%2Fyes.png.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>vV8cGSpTEONJ/gbB2nN1rphBcUFvNlor+ILCiOI6jDk=</DigestValue>
+</Reference>
 <Reference URI="shared%2Fres%2Fgearcon_m.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=</DigestValue>
@@ -103,9 +111,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-sNeabD72Xdvmo+LlW4kp8ynvS0cG8zG8zmYMe6jbSr+WK/WuVjze8BVbmnwGhSQ7wi8EjSetgVHg
-SWpr/GLMSZIgfX3cEIl824MKraUSGDZH0wGv62AxJZKkFZNMumtBoXm9yH5USEJqeEtEWxinjG9/
-rWDf0f0nLGt62clEM1I=
+XPClj1VXAzKpDkS+8VXE3UL4rvjTugzkAQzP+nSt2InzPpvjTYdurCwZEwfAUed7gBehlqx1ZlsY
+lOIp+j0EQDCKBZwfWR5SKVJqZ0Kdgp6VNq5VBJ0/b8d4Wv6d3j5em2MRzdW9w69Hu/4lJUDuDFu7
+zTcLvV9UY5N/+sV0mcM=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

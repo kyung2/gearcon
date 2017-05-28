@@ -122,6 +122,9 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   else if(!strncmp(text,"Connect",sizeof("CONNECT"))) {
 		   view_connect(data);
 	   }
+	   else if(!strncmp(text,"Disconnect",sizeof("DisCONNECT"))) {
+		   view_disconnect(data);
+	   }
 
 }
 

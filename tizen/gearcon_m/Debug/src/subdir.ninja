@@ -11,11 +11,6 @@ build src/app_info.o.ast: build_c_fast_ast ../src/app_info.c
 build $sareportdir/src/app_info.o.xml: build_c_fast_sa src/app_info.o.ast || externalFnMap.txt
 build src/app_info.o.txt: build_c_api ../src/app_info.c 
 build $coveragedir/src/app_info.o.cov: build_cov ../src/app_info.c 
-build src/app_setting.o: build_c ../src/app_setting.c 
-build src/app_setting.o.ast: build_c_fast_ast ../src/app_setting.c 
-build $sareportdir/src/app_setting.o.xml: build_c_fast_sa src/app_setting.o.ast || externalFnMap.txt
-build src/app_setting.o.txt: build_c_api ../src/app_setting.c 
-build $coveragedir/src/app_setting.o.cov: build_cov ../src/app_setting.c 
 build src/connect.o: build_c ../src/connect.c 
 build src/connect.o.ast: build_c_fast_ast ../src/connect.c 
 build $sareportdir/src/connect.o.xml: build_c_fast_sa src/connect.o.ast || externalFnMap.txt

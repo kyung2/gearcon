@@ -73,17 +73,7 @@ static void _gl_del(void *data, Evas_Object *obj)
 	if (id) free(id);
 }
 
-/*
- * @brief Function will be operated when naviframe pop its own item
- * @param[in] data The data to be passed to the callback function
- * @param[in] it The item to be popped from naviframe
- */
-static Eina_Bool
-_naviframe_pop_cb(void *data, Elm_Object_Item *it)
-{
-	ui_app_exit();
-	return EINA_FALSE;
-}
+
 
 /*
  * @brief Function to create gui object
@@ -144,5 +134,5 @@ view_app_info(void *data)
 	elm_genlist_item_append(genlist, pitc, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 
 	nf_it = elm_naviframe_item_push(naviframe, NULL, NULL, NULL, genlist, "empty");
-	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);
+	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
 }

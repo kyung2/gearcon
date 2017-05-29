@@ -89,3 +89,7 @@
 2923	4192	0	src/control_mouse.o	db611cafd85d1858
 3080	4213	0	src/connect.o	1cb530d08a85d6a6
 4213	4496	0	gearcon_m	282b44f5123b640e
+2	480	0	src/gearcon_m.o	64065032c27b9986
+480	816	0	gearcon_m	282b44f5123b640e
+3	458	0	src/app_info.o	1c20a52c8a65e34e
+459	776	0	gearcon_m	7d27b93df29211d8

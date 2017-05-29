@@ -9,17 +9,14 @@
 #define ICON_WIDTH 80
 #define ICON_HEIGHT 80
 
-
 Evas_Object *entry;
 Evas_Object *box;
-
 
 typedef struct _item_data
 {
 	int index;
 	Elm_Object_Item *item;
 } item_data;
-
 
 static void
 prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo)
@@ -84,8 +81,6 @@ create_button_view(Evas_Object *parent)
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
-
-	//시발좆같은 타이젠 이것도안되면 ㅏㄹㄴ아런알 안되면 또해야지 씨빨...
 
 	//slide show start
 	btn = elm_button_add(box);

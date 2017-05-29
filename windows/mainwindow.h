@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QKeyEvent>
 #include "networkudp.h"
+#include "udplibrary.h"
 
 enum returnType
 {
@@ -26,12 +27,16 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-    int test();
     void keyPressEvent( QKeyEvent *e );
+
+public slots:
+    int test();
+
 
 private:
     networkUDP *thread;
     Ui::MainWindow *ui;
+    UdpLibrary* UDP;
 };
 
 #endif // MAINWINDOW_H

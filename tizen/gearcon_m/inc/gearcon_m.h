@@ -36,6 +36,7 @@ void view_control_mouse(void *data);
 void view_control_player(void *data);
 void view_connect(void *data);
 void view_disconnect(void *data);
+void view_pcoff(void *data);
 //elm_box_padding_set(box, 0, 1* elm_config_scale_get()); (여백 사이즈)
 
 
@@ -55,16 +56,14 @@ typedef struct appdata {
 	Evas_Object *parent;
 	Evas_Object *image;
 	Evas_Object *box;
-	Evas_Object *rect;
 	char *text;
 	// mouse point
 	Evas_Object *point;
+	Evas_Object *rect;
 
 
 
 	//using pc_setting
-	Evas_Object *rect[10];
-
 } appdata_s;
 
 

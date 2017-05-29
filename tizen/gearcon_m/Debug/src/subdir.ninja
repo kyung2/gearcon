@@ -61,6 +61,11 @@ build src/gearcon_m.o.ast: build_c_fast_ast ../src/gearcon_m.c
 build $sareportdir/src/gearcon_m.o.xml: build_c_fast_sa src/gearcon_m.o.ast || externalFnMap.txt
 build src/gearcon_m.o.txt: build_c_api ../src/gearcon_m.c 
 build $coveragedir/src/gearcon_m.o.cov: build_cov ../src/gearcon_m.c 
+build src/pc_off.o: build_c ../src/pc_off.c 
+build src/pc_off.o.ast: build_c_fast_ast ../src/pc_off.c 
+build $sareportdir/src/pc_off.o.xml: build_c_fast_sa src/pc_off.o.ast || externalFnMap.txt
+build src/pc_off.o.txt: build_c_api ../src/pc_off.c 
+build $coveragedir/src/pc_off.o.cov: build_cov ../src/pc_off.c 
 build src/pc_setting.o: build_c ../src/pc_setting.c 
 build src/pc_setting.o.ast: build_c_fast_ast ../src/pc_setting.c 
 build $sareportdir/src/pc_setting.o.xml: build_c_fast_sa src/pc_setting.o.ast || externalFnMap.txt

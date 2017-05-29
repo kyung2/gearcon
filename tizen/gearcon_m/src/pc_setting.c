@@ -206,7 +206,7 @@ view_PC_Setting(void *data)
 	//전원
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
-	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
+	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_pcoff, ad);
 	/* Padding Item Here */
 	elm_genlist_item_append(genlist, pitc, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 

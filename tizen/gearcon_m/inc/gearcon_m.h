@@ -37,6 +37,8 @@ void view_control_player(void *data);
 void view_connect(void *data);
 void view_disconnect(void *data);
 void view_pcoff(void *data);
+void view_control_brightness(void *data);
+
 //elm_box_padding_set(box, 0, 1* elm_config_scale_get()); (여백 사이즈)
 
 

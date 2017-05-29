@@ -22,7 +22,6 @@ typedef struct _item_data {
 static char *main_menu_names[] = {
 	/*** 1line styles ***/
 	"밝기",
-	"배터리",
 	"볼륨",
 	"전원",
 	/* do not delete below */
@@ -198,7 +197,7 @@ view_PC_Setting(void *data)
 //밝기
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
-	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
+	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_control_brightness, ad);
 	//배터리
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;

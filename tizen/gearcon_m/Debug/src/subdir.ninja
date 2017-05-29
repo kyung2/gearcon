@@ -21,6 +21,11 @@ build src/connect.o.ast: build_c_fast_ast ../src/connect.c
 build $sareportdir/src/connect.o.xml: build_c_fast_sa src/connect.o.ast || externalFnMap.txt
 build src/connect.o.txt: build_c_api ../src/connect.c 
 build $coveragedir/src/connect.o.cov: build_cov ../src/connect.c 
+build src/control_brightness.o: build_c ../src/control_brightness.c 
+build src/control_brightness.o.ast: build_c_fast_ast ../src/control_brightness.c 
+build $sareportdir/src/control_brightness.o.xml: build_c_fast_sa src/control_brightness.o.ast || externalFnMap.txt
+build src/control_brightness.o.txt: build_c_api ../src/control_brightness.c 
+build $coveragedir/src/control_brightness.o.cov: build_cov ../src/control_brightness.c 
 build src/control_keyboard.o: build_c ../src/control_keyboard.c 
 build src/control_keyboard.o.ast: build_c_fast_ast ../src/control_keyboard.c 
 build $sareportdir/src/control_keyboard.o.xml: build_c_fast_sa src/control_keyboard.o.ast || externalFnMap.txt

@@ -9,7 +9,7 @@ typedef struct _item_data
    int index;
    Elm_Object_Item *item;
 } item_data;
-char *icons[] = {
+char *icons_pc[] = {
 		ICON_DIR"/yes.png",
 		ICON_DIR"/no.png",
 		NULL

@@ -147,23 +147,7 @@ _button_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	elm_naviframe_item_pop(ad->nf);
 }
 
-/*
- * @brief Function will be operated when volume value is changed
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] event_info The system event information
- */
-static void
-_volume_changed_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	char buf[PATH_MAX];
-	Evas_Object *layout = data;
 
-	/* Get Circle Object Value */
-	snprintf(buf, sizeof(buf), "%.1lf", eext_circle_object_value_get(obj));
-	printf("Slider value = %s\n", buf);
-	elm_object_part_text_set(layout, "elm.text.slider", buf);
-}
 void
 view_PC_Setting(void *data)
 {
@@ -219,11 +203,7 @@ view_PC_Setting(void *data)
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
 	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_control_volume, ad);
-	//볼륨
-	id = calloc(sizeof(item_data), 1);
-	id->index = index++;
-	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_control_volume, ad);
-//전원
+	//전원
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
 	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);

@@ -55,6 +55,7 @@ typedef struct appdata {
 	Evas_Object *parent;
 	Evas_Object *image;
 	Evas_Object *box;
+	Evas_Object *rect;
 	char *text;
 	// mouse point
 	Evas_Object *point;
@@ -71,5 +72,22 @@ struct _menu_item {
    char *name;
    void (*func)(void *data, Evas_Object *obj, void *event_info);
 };
+
+struct Elm_Gesture_Momentum_Info {
+    Evas_Coord x1; /* Final-swipe direction with starting point on X */
+    Evas_Coord y1; /* Final-swipe direction with starting point on Y */
+    Evas_Coord x2; /* Final-swipe direction with ending point on X */
+    Evas_Coord y2; /* Final-swipe direction with ending point on Y */
+
+    unsigned int tx; /* Timestamp of the start of the final X swipe */
+    unsigned int ty; /* Timestamp of the start of the final Y swipe */
+
+    Evas_Coord mx; /* Momentum on X */
+    Evas_Coord my; /* Momentum on Y */
+
+    unsigned int n; /* Number of fingers */
+};
+
+
 
 #endif /* __gearcon_m_H__ */

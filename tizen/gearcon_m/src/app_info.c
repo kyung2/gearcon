@@ -1,8 +1,6 @@
 #include "gearcon_m.h"
 
 void view_app_info(void *data);
-void bg_cb(void *data, Evas_Object *obj, void *event_info);
-
 static char *main_menu_names[] = {
 	/*** 1line styles ***/
 		"서상원",
@@ -12,32 +10,10 @@ static char *main_menu_names[] = {
 	NULL
 };
 
-
-
-static Eina_Bool
-_setting_finished_cb(void *data, Elm_Object_Item *it)
-{
-	appdata_s *ad = data;
-
-	/* Activate Rotary Event */
-	eext_rotary_object_event_activated_set(ad->circle_genlist, EINA_TRUE);
-	return EINA_TRUE;
-}
-
-static void
-_button_clicked_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	appdata_s *ad = data;
-	elm_naviframe_item_pop(ad->nf);
-}
-
-
-
 typedef struct _item_data {
 	int index;
 	Elm_Object_Item *item;
 } item_data;
-
 
 /*
  * @brief Function to get string on genlist item's text part
@@ -72,15 +48,10 @@ static void _gl_del(void *data, Evas_Object *obj)
 	item_data *id = data;
 	if (id) free(id);
 }
-
-
-
 /*
  * @brief Function to create gui object
  * @param[in] ad The data structure to manage gui object
  */
-
-
 void
 view_app_info(void *data)
 {
@@ -103,9 +74,6 @@ view_app_info(void *data)
 	/* Create Circle Genlist */
 	ad->circle_genlist = eext_circle_object_genlist_add(genlist, ad->circle_surface);
 
-	/* Set Scroller Policy */
-	eext_circle_object_genlist_scroller_policy_set(ad->circle_genlist, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
-
 	/* Activate Rotary Event */
 	eext_rotary_object_event_activated_set(ad->circle_genlist, EINA_TRUE);
 
@@ -114,10 +82,6 @@ view_app_info(void *data)
 	itc->func.text_get = _gl_main_text_get;
 	itc->func.del = _gl_del;
 
-	/* Genlist Padding Item Style */
-	//pitc->item_style = "padding";
-
-//밝기
 	//서상원
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;

@@ -9,14 +9,32 @@
 
 static Evas_Object* create_scroller(Evas_Object *parent);
 static Eina_Bool _setting_finished_cb(void *data, Elm_Object_Item *it);
-
-
+static void yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info);
+static void no_btn_clicekd_cb(void *data, Evas_Object *obj , void *event_info);
 
 typedef struct _item_data {
 	int index;
 	Elm_Object_Item *item;
 } item_data;
+char *icons_off[] = {
+		ICON_DIR"/yes.png",
+		ICON_DIR"/no.png",
+		NULL
 
+};
+static void
+_popup_hide_cb(void *data, Evas_Object *obj, void *event_info)
+{
+   if(!obj) return;
+   elm_popup_dismiss(obj);
+}
+
+static void
+_popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info)
+{
+   if(!obj) return;
+   evas_object_del(obj);
+}
 
 	 // PC CONTROL - > PCSETTING(밝기.배터리,볼륨,와이파이,블투,전원
 static char *main_menu_names[] = {
@@ -67,7 +85,7 @@ _gl_title_text_get(void *data, Evas_Object *obj, const char *part)
 {
 	char buf[1024];
 
-	snprintf(buf, 1023, "%s", "Setting");
+	snprintf(buf, 1023, "%s", "");
 
 	return strdup(buf);
 }
@@ -147,6 +165,21 @@ _button_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 
+static void
+yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+{
+   dlog_print(DLOG_DEBUG,LOG_TAG,"mouse_right ");
+}
+
+static void
+no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+{
+	//
+   dlog_print(DLOG_DEBUG,LOG_TAG,"Disconncect: no_Dis");
+   EEXT_CALLBACK_BACK;
+}
+
+
 void
 view_PC_Setting(void *data)
 {
@@ -156,7 +189,6 @@ view_PC_Setting(void *data)
 	Evas_Object *naviframe = ad->nf;
 	Elm_Object_Item *nf_it = NULL;
 	Elm_Genlist_Item_Class *itc = elm_genlist_item_class_new();
-	Elm_Genlist_Item_Class *titc = elm_genlist_item_class_new();
 	Elm_Genlist_Item_Class *pitc = elm_genlist_item_class_new();
 	item_data *id = NULL;
 	int index = 0;
@@ -170,7 +202,7 @@ view_PC_Setting(void *data)
 	ad->circle_genlist = eext_circle_object_genlist_add(genlist, ad->circle_surface);
 
 	/* Set Scroller Policy */
-	eext_circle_object_genlist_scroller_policy_set(ad->circle_genlist, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+//	eext_circle_object_genlist_scroller_policy_set(ad->circle_genlist, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 
 	/* Activate Rotary Event */
 	eext_rotary_object_event_activated_set(ad->circle_genlist, EINA_TRUE);
@@ -180,16 +212,8 @@ view_PC_Setting(void *data)
 	itc->func.text_get = _gl_main_text_get;
 	itc->func.del = _gl_del;
 
-	/* Genlist Title Item Style */
-	titc->item_style = "title";
-	titc->func.text_get = _gl_title_text_get;
-	titc->func.del = _gl_del;
-
 	/* Genlist Padding Item Style */
 	pitc->item_style = "padding";
-
-	/* Title Item Here */
-	elm_genlist_item_append(genlist, titc, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 
 	/* Main Menu Items Here */
 
@@ -213,5 +237,62 @@ view_PC_Setting(void *data)
 	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
 
 }
+
+void
+view_pcoff(void *data)
+{
+	   Evas_Object *btn,*icon;
+	   Evas_Object *popup;
+	   Evas_Object *layout;
+	   appdata_s *ad = (appdata_s *)data;
+	   Evas_Object *nf = ad->nf;
+   //naviframe item
+	   Elm_Object_Item *nf_it;
+
+   popup = elm_popup_add(nf);
+   elm_object_style_set(popup, "circle");
+   evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+   eext_object_event_callback_add(popup, EEXT_CALLBACK_BACK, _popup_hide_cb, NULL);
+   evas_object_smart_callback_add(popup, "dismissed", _popup_hide_finished_cb, NULL);
+
+   layout = elm_layout_add(popup);
+   elm_layout_theme_set(layout, "layout", "popup", "content/circle/buttons2");
+   //elm_object_part_text_set(layout, "elm.text.title", "Popup title");
+
+   elm_object_part_text_set(layout, "elm.text", "연결꾾니");
+   elm_object_content_set(popup, layout);
+
+   //left(no_
+   	  btn = elm_button_add(popup);
+      elm_object_style_set(btn, "popup/circle/left");
+      evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+      elm_object_part_content_set(popup, "button1", btn);
+      evas_object_smart_callback_add(btn, "clicked", no_btn_clicked_cb, popup);
+
+      icon = elm_image_add(btn);
+      elm_image_file_set(icon, ICON_DIR"/no.png", NULL);
+      elm_object_part_content_set(btn, "elm.swallow.content", icon);
+      evas_object_show(icon);
+
+
+      //right
+      btn = elm_button_add(popup);
+      elm_object_style_set(btn, "popup/circle/right");
+      evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+      elm_object_part_content_set(popup, "button2", btn);
+      evas_object_smart_callback_add(btn, "clicked", yes_btn_clicked_cb, popup);
+
+      //icon
+      icon = elm_image_add(btn);
+      elm_image_file_set(icon, ICON_DIR"/yes.png", NULL);
+      elm_object_part_content_set(btn, "elm.swallow.content", icon);
+      evas_object_show(icon);
+
+      evas_object_show(popup);
+  	//elm_naviframe_item_push(nf, "Popup", NULL, NULL, genlist, "empty");
+
+}
+
+
 
 

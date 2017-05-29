@@ -15,26 +15,6 @@ typedef struct _item_data
 	Elm_Object_Item *item;
 } item_data;
 
-
-static void
-prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo)
-{
-	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ prev_button");
-}
-
-static void
-next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ next_button");
-}
-
-static void
-play_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
-{
-	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ show button");
-}
-
-
 static Evas_Object*
 create_scroller(Evas_Object *parent)
 {
@@ -46,9 +26,8 @@ create_scroller(Evas_Object *parent)
 	evas_object_show(scroller);
 
 	return scroller;
-
-
 }
+
 static Evas_Object*
 create_button_view(Evas_Object *parent)
 {
@@ -67,12 +46,9 @@ create_button_view(Evas_Object *parent)
 	elm_layout_theme_set(layout, "layout", "popup", "content/circle");
 
 	elm_object_part_text_set(layout, "elm.text.title", "Connect");
-
-
 	elm_object_part_text_set(layout,"elm.text","<font_size=100>1234</font_size>");
 	//elm_object_part_text_set(layout,"elm.text", set_pckey);
 	snprintf(buf, sizeof(buf), "next");
-
 
 	elm_object_content_set(popup, layout);
 
@@ -80,14 +56,14 @@ create_button_view(Evas_Object *parent)
 
 	return popup;
 }
+
 void
 set_pckey(void *data, char * text)
 {
 	appdata_s *ad = (appdata_s *)data;
-
-
 	elm_object_part_text_set(ad->layout,"elm.text", text);
 }
+
 void
 view_connect(void *data)
 {

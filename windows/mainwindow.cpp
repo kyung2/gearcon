@@ -21,14 +21,18 @@
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{
+ {
     ui->setupUi(this);
     statusBar()->setVisible( false );
-    thread = new networkUDP(this);
-    thread->start();
-    test();
-    UdpLibrary UDP;
-    UDP.enroll();
+
+    UDP= UdpLibrary::getInstance();
+//    UDP->bindSocket(3456);
+
+    UDP->init("165.194.17.3", 23272);
+    UDP->bindSocket(3456);
+
+    UDP->enroll("B","1");
+//    connect(UDP,UDP->set_listen_callback(),this,test());
 }
 
 MainWindow::~MainWindow()
@@ -40,7 +44,9 @@ MainWindow::~MainWindow()
 
 int MainWindow::test(){
     qDebug("test start");
-
+    while(UDP->udpSocket->hasPendingDatagrams()){
+        qDebug(UDP->udpSocket->receiveDatagram().data());
+    }
     videoControl vi;
 
     vi.stToggle();

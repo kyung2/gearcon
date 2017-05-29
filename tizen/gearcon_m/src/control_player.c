@@ -6,6 +6,9 @@
 #include <Elementary.h>
 #include <dlog.h>
 
+/*
+ * 여기에는 그 로터리 핸들 이벤트 처리 XXXX
+ * */
 #define ICON_WIDTH 80
 #define ICON_HEIGHT 80
 
@@ -51,7 +54,6 @@ create_scroller(Evas_Object *parent)
 	evas_object_show(scroller);
 
 	return scroller;
-
 
 }
 
@@ -105,7 +107,6 @@ create_button_view(Evas_Object *parent)
 	elm_box_pack_end(box, btn);
 
 	return box;
-
 
 }
 

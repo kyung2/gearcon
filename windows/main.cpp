@@ -5,7 +5,7 @@
 int main(int argc, char *argv[])
 {
     QApplication::setApplicationName("Gear-con");
-    QApplication::setOrganizationName("apstoneProject");
+    QApplication::setOrganizationName("capstoneProject");
 
     //singleApplication 선언
     QApplication a(argc, argv);

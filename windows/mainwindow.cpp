@@ -12,6 +12,7 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QProcess>
+#include <QStringList>
 #include "udplibrary.h"
 
 #include "videocontrol.h"
@@ -22,16 +23,25 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
  {
+
     ui->setupUi(this);
     statusBar()->setVisible( false );
 
-    }
+    UDP= UdpLibrary::getInstance();
+    QObject::connect(UDP,SIGNAL(sendToUser(QStringList)),this,SLOT(receiveMessage(QStringList)));
+
+}
 
 MainWindow::~MainWindow()
 {
     delete ui;
 }
 
+void MainWindow::receiveMessage(QStringList message){
+    if(!message.isEmpty()){
+        qDebug() << message;
+    }
+}
 
 int MainWindow::test(){
     qDebug("test start");
@@ -99,13 +109,14 @@ void MainWindow::keyPressEvent( QKeyEvent *e )
 
 void MainWindow::on_pushButton_clicked()
 {
-    UDP= UdpLibrary::getInstance();
+
 //    UDP->bindSocket(3456);
 
     UDP->init("165.194.17.3", 23272);
     UDP->bindSocket(3456);
 
     UDP->enroll("B","1");
+
 //    connect(UDP->udpSocket,SIGNAL(readyRead()),this,SLOT(test()));
 //    connect(UDP,UDP->set_listen_callback(),this,test());
 

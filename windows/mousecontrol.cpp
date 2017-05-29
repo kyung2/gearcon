@@ -14,7 +14,7 @@ int mouseControl::setFocus(int moveX, int moveY){
     for(i = 0; i<5; i++){
         GetCursorPos(&mousepos);
         SetCursorPos(mousepos.x+moveX,mousepos.y+moveY);
-        QThread::msleep(10);
+        Sleep(10);
     }
     GetCursorPos(&mousepos);
     return returnType::sussecc;

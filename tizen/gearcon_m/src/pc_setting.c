@@ -134,9 +134,6 @@ create_scroller(Evas_Object *parent)
 	return scroller;
 }
 
-
-
-
 /*
  * @brief Function will be operated when button is clicked
  * @param[in] data The data to be passed to the callback function
@@ -167,16 +164,6 @@ _volume_changed_cb(void *data, Evas_Object *obj, void *event_info)
 	printf("Slider value = %s\n", buf);
 	elm_object_part_text_set(layout, "elm.text.slider", buf);
 }
-
-
-static Eina_Bool
-_naviframe_pop_cb(void *data, Elm_Object_Item *it)
-{
-	ui_app_exit();
-	return EINA_FALSE;
-}
-
-
 void
 view_PC_Setting(void *data)
 {
@@ -244,7 +231,6 @@ view_PC_Setting(void *data)
 	elm_genlist_item_append(genlist, pitc, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 
 	nf_it = elm_naviframe_item_push(naviframe, NULL, NULL, NULL, genlist, "empty");
-//	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);
 	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
 
 }

@@ -33,7 +33,19 @@ create_scroller(Evas_Object *parent)
 
 	return scroller;
 }
+Eina_Bool
+_rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev)
+{
+    if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE) {
+        dlog_print(DLOG_DEBUG, LOG_TAG,
+                   "Rotary device rotated in clockwise direction");
+    } else {
+        dlog_print(DLOG_DEBUG, LOG_TAG,
+                   "Rotary device rotated in counter-clockwise direction");
+    }
 
+    return EINA_FALSE;
+}
 static Evas_Object*
 create_button_view(Evas_Object *parent)
 {

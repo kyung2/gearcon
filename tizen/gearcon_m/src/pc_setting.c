@@ -164,19 +164,18 @@ _button_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	elm_naviframe_item_pop(ad->nf);
 }
 
-
 static void
 yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
    dlog_print(DLOG_DEBUG,LOG_TAG,"mouse_right ");
 }
-
 static void
 no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	//
    dlog_print(DLOG_DEBUG,LOG_TAG,"Disconncect: no_Dis");
-   EEXT_CALLBACK_BACK;
+   evas_object_smart_callback_call(data,"clicked",NULL);
+
 }
 
 
@@ -202,7 +201,7 @@ view_PC_Setting(void *data)
 	ad->circle_genlist = eext_circle_object_genlist_add(genlist, ad->circle_surface);
 
 	/* Set Scroller Policy */
-//	eext_circle_object_genlist_scroller_policy_set(ad->circle_genlist, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	eext_circle_object_genlist_scroller_policy_set(ad->circle_genlist, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 
 	/* Activate Rotary Event */
 	eext_rotary_object_event_activated_set(ad->circle_genlist, EINA_TRUE);
@@ -259,7 +258,7 @@ view_pcoff(void *data)
    elm_layout_theme_set(layout, "layout", "popup", "content/circle/buttons2");
    //elm_object_part_text_set(layout, "elm.text.title", "Popup title");
 
-   elm_object_part_text_set(layout, "elm.text", "연결꾾니");
+   elm_object_part_text_set(layout, "elm.text", "전원종료");
    elm_object_content_set(popup, layout);
 
    //left(no_
@@ -289,7 +288,6 @@ view_pcoff(void *data)
       evas_object_show(icon);
 
       evas_object_show(popup);
-  	//elm_naviframe_item_push(nf, "Popup", NULL, NULL, genlist, "empty");
 
 }
 

@@ -74,6 +74,9 @@ view_app_info(void *data)
 	/* Create Circle Genlist */
 	ad->circle_genlist = eext_circle_object_genlist_add(genlist, ad->circle_surface);
 
+	/* Set Scroller Policy */
+	eext_circle_object_genlist_scroller_policy_set(ad->circle_genlist, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+
 	/* Activate Rotary Event */
 	eext_rotary_object_event_activated_set(ad->circle_genlist, EINA_TRUE);
 

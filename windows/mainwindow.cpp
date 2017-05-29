@@ -25,19 +25,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     statusBar()->setVisible( false );
 
-    UDP= UdpLibrary::getInstance();
-//    UDP->bindSocket(3456);
-
-    UDP->init("165.194.17.3", 23272);
-    UDP->bindSocket(3456);
-
-    UDP->enroll("B","1");
-//    connect(UDP,UDP->set_listen_callback(),this,test());
-}
+    }
 
 MainWindow::~MainWindow()
 {
-    thread->exit();
     delete ui;
 }
 
@@ -45,8 +36,9 @@ MainWindow::~MainWindow()
 int MainWindow::test(){
     qDebug("test start");
     while(UDP->udpSocket->hasPendingDatagrams()){
-        qDebug(UDP->udpSocket->receiveDatagram().data());
+        qDebug() << UDP->udpSocket->receiveDatagram().data();
     }
+
     videoControl vi;
 
     vi.stToggle();
@@ -103,4 +95,18 @@ void MainWindow::keyPressEvent( QKeyEvent *e )
         videoControl a;
         a.pressLeftKey(+5,0);
     }
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    UDP= UdpLibrary::getInstance();
+//    UDP->bindSocket(3456);
+
+    UDP->init("165.194.17.3", 23272);
+    UDP->bindSocket(3456);
+
+    UDP->enroll("B","1");
+//    connect(UDP->udpSocket,SIGNAL(readyRead()),this,SLOT(test()));
+//    connect(UDP,UDP->set_listen_callback(),this,test());
+
 }

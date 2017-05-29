@@ -3,7 +3,6 @@
 
 #include <QMainWindow>
 #include <QKeyEvent>
-#include "networkudp.h"
 #include "udplibrary.h"
 
 enum returnType
@@ -33,8 +32,10 @@ public slots:
     int test();
 
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
-    networkUDP *thread;
     Ui::MainWindow *ui;
     UdpLibrary* UDP;
 };

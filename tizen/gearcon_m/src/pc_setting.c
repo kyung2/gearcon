@@ -74,29 +74,23 @@ gl_selected_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 /*
- * @brief Function to get string on genlist title item's text part
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] part The name of text part
- * @param[out] char* A string with the characters to use as genlist title item's text part
- */
-static char*
-_gl_title_text_get(void *data, Evas_Object *obj, const char *part)
-{
-	char buf[1024];
-
-	snprintf(buf, 1023, "%s", "");
-
-	return strdup(buf);
-}
-
-/*
  * @brief Function to get string on genlist item's text part
  * @param[in] data The data to be passed to the callback function
  * @param[in] obj The Evas object handle to be passed to the callback function
  * @param[in] part The name of text part
  * @param[out] char* A string with the characters to use as genlist item's text part
  */
+
+static char*
+_gl_title_text_get(void *data, Evas_Object *obj, const char *part)
+{
+	char buf[1024];
+
+	snprintf(buf, 1023, "%s", "Setting");
+
+	return strdup(buf);
+}
+
 static char *
 _gl_main_text_get(void *data, Evas_Object *obj, const char *part)
 {
@@ -188,6 +182,7 @@ view_PC_Setting(void *data)
 	Evas_Object *naviframe = ad->nf;
 	Elm_Object_Item *nf_it = NULL;
 	Elm_Genlist_Item_Class *itc = elm_genlist_item_class_new();
+	Elm_Genlist_Item_Class *ttc = elm_genlist_item_class_new();
 	Elm_Genlist_Item_Class *pitc = elm_genlist_item_class_new();
 	item_data *id = NULL;
 	int index = 0;
@@ -206,6 +201,12 @@ view_PC_Setting(void *data)
 	/* Activate Rotary Event */
 	eext_rotary_object_event_activated_set(ad->circle_genlist, EINA_TRUE);
 
+
+	/* Genlist Title Item Style */
+	ttc->item_style = "title";
+	ttc->func.text_get = _gl_title_text_get;
+	ttc->func.del = _gl_del;
+
 	/* Genlist Item Style */
 	itc->item_style = "default";
 	itc->func.text_get = _gl_main_text_get;
@@ -215,13 +216,14 @@ view_PC_Setting(void *data)
 	pitc->item_style = "padding";
 
 	/* Main Menu Items Here */
+	elm_genlist_item_append(genlist,ttc,NULL,NULL,ELM_GENLIST_ITEM_NONE,NULL,ad);
+	 // PC CONTROL - > PCSETTING(밝기,볼륨,전원)
 
-	 // PC CONTROL - > PCSETTING(밝기.배터리,볼륨,와이파이,블투,전원
-//밝기
+
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
 	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_control_brightness, ad);
-	//배터리
+	//볼륨
 	id = calloc(sizeof(item_data), 1);
 	id->index = index++;
 	id->item = elm_genlist_item_append(genlist, itc, id, NULL, ELM_GENLIST_ITEM_NONE, view_control_volume, ad);
@@ -232,8 +234,11 @@ view_PC_Setting(void *data)
 	/* Padding Item Here */
 	elm_genlist_item_append(genlist, pitc, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 
+
 	nf_it = elm_naviframe_item_push(naviframe, NULL, NULL, NULL, genlist, "empty");
-	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
+
+
+	//	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
 
 }
 

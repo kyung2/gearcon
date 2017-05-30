@@ -105,6 +105,8 @@ _gl_main_text_get(void *data, Evas_Object *obj, const char *part)
 	return NULL;
 }
 
+
+
 /*
  * @brief Function will be operated when genlist is deleted.
  * @param[in] data The data to be passed to the callback function

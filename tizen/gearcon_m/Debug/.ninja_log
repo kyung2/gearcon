@@ -33,3 +33,16 @@
 460	740	0	gearcon_m	7d27b93df29211d8
 3	667	0	src/pc_setting.o	461dc7c43dd9d2fa
 668	1010	0	gearcon_m	7d27b93df29211d8
+3	535	0	src/pc_setting.o	461dc7c43dd9d2fa
+535	897	0	gearcon_m	7d27b93df29211d8
+10	544	0	src/control_brightness.o	f112c60d92e9eb8
+3	568	0	src/pc_setting.o	461dc7c43dd9d2fa
+568	940	0	gearcon_m	7d27b93df29211d8
+2	611	0	src/control_brightness.o	f112c60d92e9eb8
+612	853	0	gearcon_m	7d27b93df29211d8
+4	444	0	src/control_brightness.o	f112c60d92e9eb8
+445	706	0	gearcon_m	7d27b93df29211d8
+3	512	0	src/control_brightness.o	f112c60d92e9eb8
+512	782	0	gearcon_m	7d27b93df29211d8
+3	504	0	src/control_brightness.o	f112c60d92e9eb8
+505	819	0	gearcon_m	7d27b93df29211d8

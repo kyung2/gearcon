@@ -22,7 +22,6 @@ create_scroller(Evas_Object *parent)
 	elm_scroller_bounce_set(scroller, EINA_FALSE, EINA_TRUE);
 	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	elm_object_scroll_lock_y_set(scroller,EINA_TRUE);
-
 	evas_object_show(scroller);
 
 	return scroller;
@@ -36,11 +35,9 @@ create_button_view(Evas_Object *parent)
 
 	char buf[64];
 
-
 	popup = elm_popup_add(parent);
 	elm_object_style_set(popup, "circle");
 	evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-
 
 	layout = elm_layout_add(popup);
 	elm_layout_theme_set(layout, "layout", "popup", "content/circle");
@@ -51,7 +48,6 @@ create_button_view(Evas_Object *parent)
 	snprintf(buf, sizeof(buf), "next");
 
 	elm_object_content_set(popup, layout);
-
 	evas_object_show(popup);
 
 	return popup;
@@ -85,7 +81,3 @@ view_connect(void *data)
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
 
 }
-
-
-
-

@@ -10,6 +10,22 @@ typedef struct _item_data
 	Elm_Object_Item *item;
 } item_data;
 
+Eina_Bool
+_rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev)
+{
+	   if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
+	   {
+	      dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
+	   }
+	   else
+	   {
+	      dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
+	   }
+
+	   return EINA_FALSE;
+}
+
+
 
 static void
 up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
@@ -82,6 +98,7 @@ view_control_volume(void *data)
 	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
+	eext_rotary_object_event_callback_add(scroller,_rotary_handler_cb,EINA_TRUE);
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

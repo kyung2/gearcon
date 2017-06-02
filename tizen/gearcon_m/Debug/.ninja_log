@@ -77,3 +77,8 @@
 515	844	0	gearcon_m	7d27b93df29211d8
 3	477	0	src/control_brightness.o	f112c60d92e9eb8
 477	779	0	gearcon_m	7d27b93df29211d8
+19	924	0	src/pc_setting.o	461dc7c43dd9d2fa
+5	929	0	src/control_volume.o	796d3b021d8a0e06
+972	1620	0	gearcon_m	7d27b93df29211d8
+4	5407	0	src/pc_setting.o	461dc7c43dd9d2fa
+5408	9017	0	gearcon_m	7d27b93df29211d8

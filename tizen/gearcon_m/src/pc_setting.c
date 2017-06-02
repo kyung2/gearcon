@@ -103,9 +103,6 @@ _gl_main_text_get(void *data, Evas_Object *obj, const char *part)
 	}
 	return NULL;
 }
-
-
-
 /*
  * @brief Function will be operated when genlist is deleted.
  * @param[in] data The data to be passed to the callback function
@@ -162,15 +159,12 @@ _button_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 static void
 yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-   dlog_print(DLOG_DEBUG,LOG_TAG,"mouse_right ");
+   dlog_print(DLOG_DEBUG,LOG_TAG,"pc_종료  ");
 }
 static void
 no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	//
-   dlog_print(DLOG_DEBUG,LOG_TAG,"Disconncect: no_Dis");
-   evas_object_smart_callback_call(data,"clicked",NULL);
-
+   dlog_print(DLOG_DEBUG,LOG_TAG,"PC 켜짐 ");
 }
 
 

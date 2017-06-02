@@ -14,6 +14,8 @@ Eina_Bool _rotary_handler_volume_cb(void *data, Eext_Rotary_Event_Info *ev);
 Eina_Bool
 _rotary_handler_volume_cb(void *data, Eext_Rotary_Event_Info *ev)
 {
+	dlog_print(DLOG_DEBUG,LOG_TAG,"value %d ",&ev->direction);
+
 	   if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
 	   {
 		   //시계 방향이면 볼륨 upup

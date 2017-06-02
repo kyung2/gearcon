@@ -54,7 +54,6 @@ create_scroller(Evas_Object *parent)
 	evas_object_show(scroller);
 
 	return scroller;
-
 }
 
 static Evas_Object*

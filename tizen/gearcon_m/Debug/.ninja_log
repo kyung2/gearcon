@@ -90,3 +90,9 @@
 447	703	0	gearcon_m	7d27b93df29211d8
 2	552	0	src/control_mouse.o	db611cafd85d1858
 552	849	0	gearcon_m	7d27b93df29211d8
+16	844	0	src/control_brightness.o	f112c60d92e9eb8
+5	897	0	src/gearcon_m.o	64065032c27b9986
+898	1467	0	gearcon_m	7d27b93df29211d8
+12	702	0	src/control_brightness.o	f112c60d92e9eb8
+3	746	0	src/control_player.o	632541c3bd065daa
+747	1018	0	gearcon_m	7d27b93df29211d8

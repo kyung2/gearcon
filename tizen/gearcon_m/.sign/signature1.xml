@@ -4,11 +4,11 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>q66XBx5tpAWuKSiORxCMfOI8jPerEVeMGa5hwY/UtEQ=</DigestValue>
+<DigestValue>d9FE7eBYwcFEmYt1pLuVN4jI/zsnOyc94LPdcJpZiQE=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fgearcon_m">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>aMmYkBkcC5rINFurwRG5c+R+sJMQHCRXZuJrmJVMoBo=</DigestValue>
+<DigestValue>bPJGQPfq92LsBHyhlcJFn5vYxrMWao0YEtthzRG0Au8=</DigestValue>
 </Reference>
 <Reference URI="res%2Fgearcon_m.edc">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -111,9 +111,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-MV1LXIZkum8LNQMASAL5DyShiuIsTS3HmgyGA4zA1Z4ZUi7V2bCDvB2g+SHg/W6/pjUMDBRZNIyF
-LJQ2XUlxrBAkdvF31CmK9OjYflFl6RqpssG+GA9FPzfMZ1/5YBpnTwEkIikTkSfzK+fUqqPWiwfl
-ESIfueCHSgLkfrUVbQE=
+XVn6rUT8x9iauIv490rhsq40dH4VtU/9fjnnMqTQ98rUmgsPuh8hlAKJYi+z2n7tdHZQQQyDWjpI
++iH6xxkeewP2f/IU+sPcQ9X74rEn6CN+yVyuaGk/cLxlXEft4GeXqW4GA420c3d35wFc8MjJjUgb
+CU/ojYabeJkbTYXgBZE=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

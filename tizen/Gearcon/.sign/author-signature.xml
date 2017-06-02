@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Fgearcon">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>miChiQYcs4GO8a2IjGtORlb78cD8n8WCkjX0KcBLRg4=</DigestValue>
+<DigestValue>1BRjLvrSbEZTaesGT3f+lZ0GzyVeu7CAXboVZN+HMkc=</DigestValue>
 </Reference>
 <Reference URI="res%2Fedje%2Fgearcon.edj">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -92,7 +92,7 @@
 </Reference>
 <Reference URI="tizen-manifest.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>TWyBv3Mb1r+duiMcVdr2zN0EQ/SBjc6z0rlC431UmNU=</DigestValue>
+<DigestValue>XmlJ/wXSs1nh+OIzYGGs/Sie1QL/ZHdY302CQ18/5ps=</DigestValue>
 </Reference>
 <Reference URI="#prop">
 <Transforms>
@@ -103,9 +103,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-M1IzZSLYa9iYLw5I7pM1UJCy7EVUPIwVOwc7jjYk+QvOguAruS1Gun3lo0T5N095EBTOUCW1nmir
-SwSePNRqrhT8ieU/gnrIT4irPZ71oVDydL/PbREjXyrBcyR1YRFl/+bqFzm6js2qVjViMnK8Uzsr
-uW3S+BmSGvQAYSNPnZ8=
+PzWjJQQ8/nxNIpjIqPTk5PcUcdl9m8bV3LdAv+q9TFdH8YuPT90swww2hNKEDADKbwQA3KmPuuSZ
+LblccDbdFi3XXeqIcxuKwbLUB+4WuqlX4MYR41vnXBvbcQeVtALIARDGwN9AcuvxGjG1f7twFxI8
+6+0NyU3aSJ/tf/HjVQE=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

@@ -67,8 +67,7 @@ create_popup(Evas_Object *parent)
 	popup = elm_popup_add(parent);
 	elm_object_style_set(popup,"circle");
 	evas_object_size_hint_weight_set(popup,EVAS_HINT_EXPAND,EVAS_HINT_EXPAND);
-	eext_object_event_callback_add(popup, EEXT_CALLBACK_BACK, _popup_hide_cb, NULL);
-	evas_object_smart_callback_add(popup, "dismissed", _popup_hide_finished_cb, NULL);
+
 	evas_object_show(popup);
 
 	return popup;
@@ -78,20 +77,20 @@ create_mouse_button_view(Evas_Object *parent) {
 	Evas_Object *layout;
 
 	Evas_Object *left_btn,*right_btn;
-	layout = elm_layout_add(parent);
 
 //add left btn
 
-	left_btn = elm_button_add(layout);
-	elm_object_style_set(left_btn,"layout");
+	left_btn = elm_button_add(parent);
+	elm_object_style_set(left_btn,"popup/circle/left");
 	elm_object_text_set(left_btn,"좌");
 	elm_object_part_content_set(layout,"left_btn",left_btn);
-
+	evas_object_show(left_btn);
 
 	//add right btn
-	right_btn = elm_button_add(layout);
-	elm_object_style_set(right_btn,"layout");
+	right_btn = elm_button_add(parent);
+	elm_object_style_set(right_btn,"popup/circle/left");
 	elm_object_text_set(right_btn,"우");
+	evas_object_show(right_btn);
 
 	/* Set the buttons to the action area */
 	elm_object_part_content_set(layout, "left_btn", left_btn);
@@ -99,7 +98,7 @@ create_mouse_button_view(Evas_Object *parent) {
 
 	// add a callback function to popup
 
-	return layout;
+	return parent;
 
 }
 /*
@@ -158,8 +157,8 @@ view_control_mouse(void *data)
 
 		popup = create_popup(nf);
 		layout = create_mouse_button_view(popup);
+		elm_object_content_set(popup,layout);
 
-		evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 		evas_object_event_callback_add(popup, EVAS_CALLBACK_MOUSE_DOWN, m_mousedown_cb, ad);
 		evas_object_event_callback_add(popup, EVAS_CALLBACK_MOUSE_UP, m_mouseup_cb, ad);
 

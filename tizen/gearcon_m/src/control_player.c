@@ -23,7 +23,6 @@ typedef struct _item_data
 	Elm_Object_Item *item;
 } item_data;
 
-
 static void
 prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo)
 {
@@ -42,7 +41,6 @@ play_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ show button");
 }
 
-
 static Evas_Object*
 create_scroller(Evas_Object *parent)
 {
@@ -54,7 +52,6 @@ create_scroller(Evas_Object *parent)
 	evas_object_show(scroller);
 
 	return scroller;
-
 }
 
 static Evas_Object*
@@ -63,7 +60,6 @@ create_button_view(Evas_Object *parent)
 	Evas_Object *btn, *box;
 	char buf[64];
 	btn = elm_button_add(parent);
-
 
 	box = elm_box_add(parent);
 	elm_box_horizontal_set(box,EINA_TRUE);
@@ -76,7 +72,6 @@ create_button_view(Evas_Object *parent)
 
 	//font size change 	snprintf(buf, sizeof(buf), "<font_size=20><b>next</b></font_size>");
 
-
 	//prev
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", prev_btn_clicked_cb,NULL);
@@ -85,7 +80,6 @@ create_button_view(Evas_Object *parent)
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
-
 
 	//slide show start
 	btn = elm_button_add(box);
@@ -97,7 +91,6 @@ create_button_view(Evas_Object *parent)
 	elm_box_pack_end(box, btn);
 
 	//next
-
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", next_btn_clicked_cb,NULL);
 	snprintf(buf, sizeof(buf), "<font_size=25>next</font_size>");
@@ -107,7 +100,6 @@ create_button_view(Evas_Object *parent)
 	elm_box_pack_end(box, btn);
 
 	return box;
-
 }
 
 void

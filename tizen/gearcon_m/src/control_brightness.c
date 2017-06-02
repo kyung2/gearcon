@@ -64,7 +64,7 @@ create_button_view(Evas_Object *parent)
 
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20><align = center > <br>brightness</br>UP<br>　</br></align></font_size>");
+	snprintf(buf, sizeof(buf), "<font_size=20><br>brightness</br><b>UP</b></align><br>　</br><br>　</br><br>　</br><br>　</br></font_size>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);

@@ -85,9 +85,8 @@ static char*
 _gl_title_text_get(void *data, Evas_Object *obj, const char *part)
 {
 	char buf[1024];
-
+//test
 	snprintf(buf, 1023, "%s", "Setting");
-
 	return strdup(buf);
 }
 

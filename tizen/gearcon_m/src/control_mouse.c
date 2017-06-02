@@ -24,7 +24,27 @@ next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	dlog_print(DLOG_DEBUG,LOG_TAG,"next button (pdf)");
 }
 
+static void
+m_mousedown_cb(void *data, Evas *evas, Evas_Object *obj, void *event_info){
+   appdata_s *ad = data;
+   dlog_print(DLOG_DEBUG,LOG_TAG,"down?");
+   Evas_Event_Mouse_Down *ev =event_info;
+   Evas_Coord x = ev->canvas.x;
+   Evas_Coord y = ev->canvas.y;
+   ad->ex_point = ev->canvas;
+   dlog_print(DLOG_DEBUG,LOG_TAG,"Mouse down, %d, %d", x, y);
+}
+static void
+m_mouseup_cb(void *data, Evas *evas, Evas_Object *obj, void *event_info){
 
+   appdata_s *ad = data;
+   dlog_print(DLOG_DEBUG,LOG_TAG,"up?");
+   Evas_Event_Mouse_Down *ev =event_info;
+   Evas_Coord x = ev->canvas.x;
+   Evas_Coord y = ev->canvas.y;
+   dlog_print(DLOG_DEBUG,LOG_TAG,"Mouse up, %d, %d", x, y);
+   dlog_print(DLOG_DEBUG,LOG_TAG,"Mouse moved, %d, %d", x-ad->ex_point.x, y- ad->ex_point.y);
+}
 static Evas_Object*
 create_scroller(Evas_Object *parent)
 {
@@ -78,8 +98,12 @@ view_control_mouse(void *data)
 		Elm_Object_Item *nf_it;
 
 		scroller = create_scroller(nf);
-		layout = create_button_view(scroller);
-		elm_object_content_set(scroller, layout);
+	//	layout = create_button_view(scroller);
+		//elm_object_content_set(scroller, layout);
+
+		evas_object_size_hint_weight_set(scroller, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+		evas_object_event_callback_add(scroller, EVAS_CALLBACK_MOUSE_DOWN, m_mousedown_cb, ad);
+		evas_object_event_callback_add(scroller, EVAS_CALLBACK_MOUSE_UP, m_mouseup_cb, ad);
 
 		circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 		eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
@@ -87,9 +111,6 @@ view_control_mouse(void *data)
 
 		nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 		elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
-
-
-
 
 }
 

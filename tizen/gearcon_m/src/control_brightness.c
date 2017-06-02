@@ -99,6 +99,8 @@ view_control_brightness(void *data)
 	eext_rotary_object_event_callback_add(scroller,_rotary_handler_brightness_cb,EINA_FALSE);
 	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 
+
+
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
 

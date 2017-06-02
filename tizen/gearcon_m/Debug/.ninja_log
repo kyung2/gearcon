@@ -28,3 +28,9 @@
 456	722	0	gearcon_m	7d27b93df29211d8
 3	470	0	src/control_brightness.o	f112c60d92e9eb8
 470	773	0	gearcon_m	7d27b93df29211d8
+5	479	0	src/control_brightness.o	f112c60d92e9eb8
+479	734	0	gearcon_m	7d27b93df29211d8
+3	599	0	src/control_player.o	632541c3bd065daa
+599	1017	0	gearcon_m	7d27b93df29211d8
+5	725	0	src/control_player.o	632541c3bd065daa
+726	1017	0	gearcon_m	7d27b93df29211d8

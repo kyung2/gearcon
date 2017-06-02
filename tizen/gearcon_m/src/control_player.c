@@ -54,6 +54,7 @@ create_scroller(Evas_Object *parent)
 	evas_object_show(scroller);
 
 	return scroller;
+
 }
 
 static Evas_Object*
@@ -79,7 +80,7 @@ create_button_view(Evas_Object *parent)
 	//prev
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", prev_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20>prev</font_size>");
+	snprintf(buf, sizeof(buf), "<font_size=50>prev</font_size>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);
@@ -89,7 +90,7 @@ create_button_view(Evas_Object *parent)
 	//slide show start
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", play_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20><align = center > <br>play</br>stop<br>　</br></align></font_size>");
+	snprintf(buf, sizeof(buf), "<font_size=30><align = center > <br>play</br>stop<br>　</br></align></font_size>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);
@@ -99,7 +100,7 @@ create_button_view(Evas_Object *parent)
 
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", next_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20>next</font_size>");
+	snprintf(buf, sizeof(buf), "<font_size=40>next</font_size>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(70), ELM_SCALE_SIZE(70));
 	evas_object_show(btn);

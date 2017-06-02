@@ -1,0 +1,19 @@
+# ninja log v5
+34	2526	0	src/control_player.o	632541c3bd065daa
+1917	3862	0	src/pc_setting.o	461dc7c43dd9d2fa
+22	2313	0	src/control_volume.o	796d3b021d8a0e06
+3	2060	0	src/app_info.o	1c20a52c8a65e34e
+0	3201	0	res/edje/gearcon.edj	9a4f1f6f3f5d35bd
+16	2069	0	src/disconnect.o	18a1aefe2c247c06
+10	1916	0	src/control_ppt.o	20b66ce92fa5d82c
+22	617	0	src/pc_off.o	16950d0122304faf
+2069	3942	0	src/control_pdf.o	9bcc10793ae8e370
+3826	5440	0	src/control_keyboard.o	40b2ce337eb3cad9
+1924	3874	0	src/progressbar.o	74801b3663d2225e
+3	569	0	src/control_mouse.o	db611cafd85d1858
+2314	4043	0	src/connect.o	1cb530d08a85d6a6
+2526	4661	0	src/control_brightness.o	f112c60d92e9eb8
+6	940	0	src/gearcon.o	2dd69127b1f6707
+570	1116	0	gearcon	5710ff7b9a03063b
+5	615	0	src/control_mouse.o	db611cafd85d1858
+615	1139	0	gearcon	5710ff7b9a03063b

@@ -64,7 +64,7 @@ create_button_view(Evas_Object *parent)
 
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20><br>brightness</br><b>UP</b></font_size>");
+	snprintf(buf, sizeof(buf), "<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
@@ -73,7 +73,7 @@ create_button_view(Evas_Object *parent)
 	//down
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20><br>brightness</br><b>DOWN</b></font_size>");
+	snprintf(buf, sizeof(buf), "<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
@@ -98,8 +98,6 @@ view_control_brightness(void *data)
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	eext_rotary_object_event_callback_add(scroller,_rotary_handler_brightness_cb,EINA_FALSE);
 	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
-
-
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

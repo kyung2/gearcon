@@ -85,3 +85,5 @@
 3	658	0	src/pc_setting.o	461dc7c43dd9d2fa
 6	780	0	src/control_mouse.o	db611cafd85d1858
 780	1087	0	gearcon_m	7d27b93df29211d8
+3	540	0	src/control_mouse.o	db611cafd85d1858
+540	1106	0	gearcon_m	7d27b93df29211d8

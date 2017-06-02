@@ -59,9 +59,12 @@ typedef struct appdata {
 	Evas_Object *image;
 	Evas_Object *box;
 	char *text;
+
 	// mouse point
-	Evas_Object *point;
-	Evas_Object *rect;
+	//Evas_Object *point;
+	//Evas_Object *rect;
+	Evas_Coord_Point ex_point;
+
 
 
 

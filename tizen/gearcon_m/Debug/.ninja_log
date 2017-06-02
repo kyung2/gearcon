@@ -46,3 +46,15 @@
 512	782	0	gearcon_m	7d27b93df29211d8
 3	504	0	src/control_brightness.o	f112c60d92e9eb8
 505	819	0	gearcon_m	7d27b93df29211d8
+509	3439	0	src/connect.o	1cb530d08a85d6a6
+4	3440	0	src/control_ppt.o	20b66ce92fa5d82c
+501	3443	0	src/control_volume.o	796d3b021d8a0e06
+518	3485	0	src/control_brightness.o	f112c60d92e9eb8
+16	717	0	src/control_brightness.o	f112c60d92e9eb8
+4	724	0	src/control_volume.o	796d3b021d8a0e06
+5	644	0	src/control_volume.o	796d3b021d8a0e06
+15	706	0	src/control_brightness.o	f112c60d92e9eb8
+720	1065	0	gearcon_m	7d27b93df29211d8
+3	464	0	src/control_brightness.o	f112c60d92e9eb8
+5	618	0	src/control_brightness.o	f112c60d92e9eb8
+618	875	0	gearcon_m	7d27b93df29211d8

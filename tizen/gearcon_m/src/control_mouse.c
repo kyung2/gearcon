@@ -56,6 +56,7 @@ create_scroller(Evas_Object *parent)
 	return scroller;
 }
 
+
 static Evas_Object*
 create_button_view(Evas_Object *parent)
 {

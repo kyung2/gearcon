@@ -167,7 +167,6 @@ no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
    dlog_print(DLOG_DEBUG,LOG_TAG,"PC 켜짐 ");
 }
 
-
 void
 view_PC_Setting(void *data)
 {
@@ -229,7 +228,6 @@ view_PC_Setting(void *data)
 	/* Padding Item Here */
 	elm_genlist_item_append(genlist, pitc, NULL, NULL, ELM_GENLIST_ITEM_NONE, NULL, ad);
 
-
 	nf_it = elm_naviframe_item_push(naviframe, NULL, NULL, NULL, genlist, "empty");
 
 
@@ -261,7 +259,7 @@ view_pcoff(void *data)
    elm_object_part_text_set(layout, "elm.text", "전원종료");
    elm_object_content_set(popup, layout);
 
-   //left(no_
+   //next button
    	  btn = elm_button_add(popup);
       elm_object_style_set(btn, "popup/circle/left");
       evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -272,7 +270,6 @@ view_pcoff(void *data)
       elm_image_file_set(icon, ICON_DIR"/no.png", NULL);
       elm_object_part_content_set(btn, "elm.swallow.content", icon);
       evas_object_show(icon);
-
 
       //right
       btn = elm_button_add(popup);

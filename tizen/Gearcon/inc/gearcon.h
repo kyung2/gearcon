@@ -7,8 +7,6 @@
 #include <efl_extension.h>
 #include <dlog.h>
 
-
-
 //#define EDJ_FILE "/opt/usr/apps/org.example.gearcon_m/res/gearcon_m.edj"
 
 #ifdef  LOG_TAG
@@ -28,7 +26,7 @@
 //void _popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info);
 static char _key_get(void *data, Evas_Object *obj,const char *part);
 void set_pckey(void *data, char * text);
-void my_A_cb (void *data);
+void my_A_cb (void *dataz);
 void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);
 void view_PC_Setting(void *data);
 void view_app_info(void *data);

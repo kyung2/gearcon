@@ -65,7 +65,6 @@ create_button_view(Evas_Object *parent)
 	elm_box_pack_end(box, btn);
 
 	return box;
-
 }
 
 void

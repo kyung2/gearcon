@@ -7,9 +7,21 @@
 #include "PhysicalMonitorEnumerationAPI.h"
 #include "HighLevelMonitorConfigurationAPI.h"
 
-settingControl::settingControl()
+settingControl::settingControl(QStringList message)
 {
-
+    this->sendMessage = message;
+    if(sendMessage[0] == "sound"){
+        if(sendMessage[1] == "up")
+           soundControl(true);
+        else if(sendMessage[1] == "down")
+           soundControl(false);
+    }
+    else if(sendMessage[0] == "brightness"){
+        if(sendMessage[1] == "up")
+            brightControl(true);
+        else if(sendMessage[1] == "down")
+            brightControl(false);
+    }
 }
 
 int settingControl::soundControl(bool upDownToggle){

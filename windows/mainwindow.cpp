@@ -1,7 +1,7 @@
 #include <Windows.h>
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "videocontrol.h"
+#include "keyboardcontrol.h"
 #include "mousecontrol.h"
 #include "settingcontrol.h"
 #include <mmdeviceapi.h>
@@ -38,12 +38,34 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::receiveMessage(QStringList message){
-    if(!message.isEmpty()){
-        qDebug() << message;
+    if(message.isEmpty()){
+        qDebug() << returnType::error_get;
+        //return returnType::error_get;
+    }
+
+    if(message[0] == "mouse"){
+        qDebug() << "mouse";
+        message.removeFirst();
+        mouseControl m(message);
+        //emit mouseEvent(message);
+    }
+    else if(message[0] == "ppt" || message[0] == "video" || message[0] == "pdf"){
+        qDebug() << message[0];
+        keyBoardControl k(message);
+        //emit keboardEvent(message);
+    }
+    else if(message[0] == "setting"){
+        qDebug() << "setting";
+        message.removeFirst();
+        settingControl s(message);
+        //emit settingEvent(message);
+    }
+    else if(message[0] == "pc"){
+         system("shutdown -s");
     }
 }
 
-int MainWindow::test(){
+/*int MainWindow::test(){
     qDebug("test start");
     while(UDP->udpSocket->hasPendingDatagrams()){
         qDebug() << UDP->udpSocket->receiveDatagram().data();
@@ -53,13 +75,13 @@ int MainWindow::test(){
 
     vi.stToggle();
     return returnType::sussecc;
-}
+}*/
 
 void MainWindow::keyPressEvent( QKeyEvent *e )
 {
     qDebug("press");
     //`qDebug("press key = " + e->key());
-    if( e->key() == Qt::Key_1){
+ /*   if( e->key() == Qt::Key_1){
         videoControl a;
 
         //a.jmpBack();
@@ -72,7 +94,7 @@ void MainWindow::keyPressEvent( QKeyEvent *e )
         exitProcess = new QProcess(this);
         QStringList arguments;
         arguments << "shutdown -s";
-        exitProcess->execute(processPath, arguments);*/
+        exitProcess->execute(processPath, arguments);
     }
 
     if( e->key() == Qt::Key_2){
@@ -104,7 +126,7 @@ void MainWindow::keyPressEvent( QKeyEvent *e )
     if( e->key() == Qt::Key_L){
         videoControl a;
         a.pressLeftKey(+5,0);
-    }
+    }*/
 }
 
 void MainWindow::on_pushButton_clicked()

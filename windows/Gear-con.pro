@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui network
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = Gear-con
@@ -29,8 +30,8 @@ SOURCES += main.cpp\
     singleapplication.cpp \
     videocontrol.cpp \
     networkudp.cpp \
-    keyboradcontrol.cpp \
-    settingcontrol.cpp
+    settingcontrol.cpp \
+    keyboardcontrol.cpp
 
 HEADERS  += mainwindow.h \
     communicationtserver.h \
@@ -38,8 +39,8 @@ HEADERS  += mainwindow.h \
     singleapplication.h \
     videocontrol.h \
     networkudp.h \
-    keyboradcontrol.h \
-    settingcontrol.h
+    settingcontrol.h \
+    keyboardcontrol.h
 
 FORMS    += mainwindow.ui
 

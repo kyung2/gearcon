@@ -1,10 +1,11 @@
 #ifndef mouseControl_H
 #define mouseControl_H
+#include <QStringList>
 
 class mouseControl
 {
 public:
-    mouseControl();
+    mouseControl(QStringList message);
     int setFocus(int , int );
     int scroll(bool upDownToggle);
     int leftClick();
@@ -14,6 +15,7 @@ public:
 private:
     int xCursorPosition();
     int yCursorPosition();
+    QStringList sendMessage;
 };
 
 #endif // mouseControl_H

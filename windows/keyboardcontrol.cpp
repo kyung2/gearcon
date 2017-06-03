@@ -1,7 +1,25 @@
-#include "keyboradcontrol.h"
+#include "keyboardcontrol.h"
 
-keyBoardControl::keyBoardControl()
+keyBoardControl::keyBoardControl(QStringList message)
 {
+    this->sendMessage = message;
+    if(sendMessage[0] == "ppt" || sendMessage[0] == "video"){
+        if(sendMessage[1] == "next")
+            next();
+        else if(sendMessage[1] == "pre")
+            previous();
+        else if(sendMessage[0] == "ppt" && sendMessage[1] == "start")
+            PPTstart();
+        else if(sendMessage[1] == "start" || sendMessage[1] == "stop")
+            videoStartStopToggle();
+
+    }
+    else if(sendMessage[0] == "pdf"){
+        if(sendMessage[1] == "next")
+            pdfNext();
+        else if(sendMessage[1] == "pre")
+            pdfPrevious();
+    }
 }
 
 

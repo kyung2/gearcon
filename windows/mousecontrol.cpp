@@ -2,8 +2,23 @@
 #include "mainwindow.h"
 #include <Windows.h>
 
-mouseControl::mouseControl()
+mouseControl::mouseControl(QStringList message)
 {
+    this->sendMessage = message;
+    if(sendMessage[0] == "move")
+        setFocus(sendMessage[1].toInt(),sendMessage[2].toInt());
+    else if(sendMessage[0] == "click"){
+        if(sendMessage[1] == "left")
+            leftClick();
+        else if(sendMessage[1] == "right")
+            rightClick();
+    }
+    else if(sendMessage[0] == "scroll"){
+        if(sendMessage[1] == "up")
+            scroll(false);
+        else if(sendMessage[1] == "down")
+            scroll(true);
+    }
 
 }
 

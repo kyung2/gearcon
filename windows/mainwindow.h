@@ -28,12 +28,14 @@ public:
     ~MainWindow();
     void keyPressEvent( QKeyEvent *e );
 
-public slots:
-    int test();
-
+signals:
+    //void mouseEvent (QStringList message);
+    //void keboardEvent (QStringList message);
+    //void settingEvent (QStringList message);
 
 private slots:
     void on_pushButton_clicked();
+    void receiveMessage(QStringList);
 
 private:
     Ui::MainWindow *ui;

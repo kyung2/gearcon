@@ -16,12 +16,13 @@ char temp_play[25] = "";
 Evas_Object *entry;
 Evas_Object *box;
 
-typedef struct _item_data {
+typedef struct _item_data
+{
 	int index;
 	Elm_Object_Item *item;
 } item_data;
-Eina_Bool _rotary_handler_player_cb(void *data, Evas_Object* obj,
-		Eext_Rotary_Event_Info *ev) {
+Eina_Bool _rotary_handler_player_cb(void *data, Evas_Object* obj,Eext_Rotary_Event_Info *ev)
+{
 	dlog_print(DLOG_DEBUG, LOG_TAG, "value %d ", &ev->direction);
 
 	if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE) {
@@ -35,21 +36,24 @@ Eina_Bool _rotary_handler_player_cb(void *data, Evas_Object* obj,
 	}
 	return EINA_FALSE;
 }
-static void prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo) {
+static void prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo)
+{
 	dlog_print(DLOG_DEBUG, LOG_TAG, "hyunkyung _ prev_button");
 	sprintf(temp_play, "video|pre|");
 	tul_send(temp_play, strlen(temp_play));
 
 }
 
-static void next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info) {
+static void next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+{
 	dlog_print(DLOG_DEBUG, LOG_TAG, "hyunkyung _ next_button");
 	sprintf(temp_play, "video|next|");
 	tul_send(temp_play, strlen(temp_play));
 
 }
 
-static void play_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info) {
+static void play_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+{
 	dlog_print(DLOG_DEBUG, LOG_TAG, "hyunkyung _ show button");
 	sprintf(temp_play, "video|start|");
 	tul_send(temp_play, strlen(temp_play));
@@ -57,11 +61,11 @@ static void play_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info) 
 }
 
 static Evas_Object*
-create_scroller(Evas_Object *parent) {
+create_scroller(Evas_Object *parent)
+{
 	Evas_Object *scroller = elm_scroller_add(parent);
 	elm_scroller_bounce_set(scroller, EINA_FALSE, EINA_TRUE);
-	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF,
-			ELM_SCROLLER_POLICY_AUTO);
+	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF,ELM_SCROLLER_POLICY_AUTO);
 	elm_object_scroll_lock_y_set(scroller, EINA_TRUE);
 
 	evas_object_show(scroller);
@@ -70,7 +74,8 @@ create_scroller(Evas_Object *parent) {
 }
 
 static Evas_Object*
-create_button_view(Evas_Object *parent) {
+create_button_view(Evas_Object *parent)
+{
 	Evas_Object *btn, *box;
 	char buf[64];
 	btn = elm_button_add(parent);
@@ -84,8 +89,6 @@ create_button_view(Evas_Object *parent) {
 
 	evas_object_show(box);
 
-	//font size change 	snprintf(buf, sizeof(buf), "<font_size=20><b>next</b></font_size>");
-
 	//prev
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", prev_btn_clicked_cb, NULL);
@@ -95,7 +98,6 @@ create_button_view(Evas_Object *parent) {
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
-	//slide show start
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", play_btn_clicked_cb, NULL);
 	snprintf(buf, sizeof(buf),
@@ -117,7 +119,8 @@ create_button_view(Evas_Object *parent) {
 	return box;
 }
 
-void view_control_player(void *data) {
+void view_control_player(void *data)
+{
 	appdata_s *ad = (appdata_s *) data;
 	Evas_Object *scroller, *circle_scroller, *layout;
 
@@ -128,14 +131,11 @@ void view_control_player(void *data) {
 	layout = create_button_view(scroller);
 	elm_object_content_set(scroller, layout);
 
-	circle_scroller = eext_circle_object_scroller_add(scroller,
-			ad->circle_surface);
-	eext_circle_object_scroller_policy_set(circle_scroller,
-			ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	circle_scroller = eext_circle_object_scroller_add(scroller,ad->circle_surface);
+	eext_circle_object_scroller_policy_set(circle_scroller,ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
 
-	eext_rotary_object_event_callback_add(scroller, _rotary_handler_player_cb,
-			EINA_TRUE);
+	eext_rotary_object_event_callback_add(scroller, _rotary_handler_player_cb,EINA_TRUE);
 
 	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 

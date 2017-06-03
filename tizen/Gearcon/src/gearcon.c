@@ -19,7 +19,6 @@ static Eina_Bool _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev);
 
 
 char *main_menu_names[] = {
-
 	"PC Setting",
 	"Mouse",
 	"Keyboard",
@@ -30,7 +29,6 @@ char *main_menu_names[] = {
 	"Disconnect",
 	"Info",
 	NULL
-
 };
 //icon image_
 char *main_menu_icons[] = {
@@ -53,15 +51,12 @@ typedef struct _item_data
 	Elm_Object_Item *item;
 } item_data;
 
-
-
 static void
 _gl_selected_cb(void *user_data, Evas_Object *obj, void *event_info)
 {
 	Elm_Object_Item *it = (Elm_Object_Item *)event_info;
 	elm_genlist_item_selected_set(it, EINA_FALSE);
 }
-
 static void
 _item_selected_cb(void *data, Evas_Object *obj, void *event_info)
 {
@@ -82,7 +77,6 @@ win_delete_request_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	ui_app_exit();
 }
-
 static void
 item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
@@ -128,7 +122,6 @@ progressbar_cb(data,obj,event_info);
 	   }
 
 }
-
 static Eina_Bool
 _naviframe_pop_cb(void *data, Elm_Object_Item *it)
 {
@@ -154,7 +147,6 @@ _item_create(Evas_Object *rs)
 	Evas_Object *image;
 	Eext_Object_Item * item;
 	int idx;
-
 		for ( idx = 0; main_menu_names[idx];idx++) {
 			item = eext_rotary_selector_item_append(rs);
 			image = elm_image_add(rs);
@@ -165,11 +157,9 @@ _item_create(Evas_Object *rs)
 			eext_rotary_selector_item_part_text_set(item,"selector,sub_text",main_menu_names[idx]);
 
 		}
-
-
 }
 
-//create_ rotaty
+//create_ rotaty _포 스레드 바인딩 어쩌고
 static void
 _init_exit(void *data, Evas_Object *obj, void *event_info)
 {
@@ -179,8 +169,6 @@ _init_exit(void *data, Evas_Object *obj, void *event_info)
 static void
 create_rotary_selector(appdata_s *ad)
 {
-
-
 	Elm_Object_Item *nf_it = NULL;
 	//rotary selector = rs 라고 약어 (헤드에 정의)
 	ad->rs = eext_rotary_selector_add(ad->nf);

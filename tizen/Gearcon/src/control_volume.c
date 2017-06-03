@@ -44,7 +44,7 @@ static void
 down_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"down button clicke(volume)");
-    sprintf(temp_vol,"setting|sound|up|");
+    sprintf(temp_vol,"setting|sound|down|");
                      tul_send(temp_vol,strlen(temp_vol));
 
 }

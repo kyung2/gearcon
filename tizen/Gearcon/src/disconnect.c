@@ -3,56 +3,63 @@
  */
 #include "gearcon.h"
 
-typedef struct _item_data {
-	int index;
-	Elm_Object_Item *item;
+typedef struct _item_data
+{
+   int index;
+   Elm_Object_Item *item;
 } item_data;
 char *icons[] = {
-ICON_DIR"/yes.png",
-ICON_DIR"/no.png",
-NULL
+		ICON_DIR"/yes.png",
+		ICON_DIR"/no.png",
+		NULL
 
 };
-static void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info) {
-	if (!obj)
-		return;
+static void
+_popup_hide_cb(void *data, Evas_Object *obj, void *event_info)
+{
+	if (!obj) return;
 	elm_popup_dismiss(obj);
 }
 
-static void _popup_hide_finished_cb(void *data, Evas_Object *obj,
-		void *event_info) {
-	if (!obj)
-		return;
+static void
+_popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info)
+{
+	if (!obj)return;
 	evas_object_del(obj);
 }
-static void yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info) {
+static void
+yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+{
 	dlog_print(DLOG_DEBUG, LOG_TAG, "mouse_right ");
-	tul_send("connect|shutdown", strlen("connect|shutdown"));
+	tul_send("connect|shutdown", strlen());
 	ui_app_exit();
 }
 
-static void no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info) {
+static void
+no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+{
 	//
 	dlog_print(DLOG_DEBUG, LOG_TAG, " no_Dis");
 	elm_popup_dismiss(data);
 
+
 }
 static Evas_Object*
-create_popup(Evas_Object *parent) {
+create_popup(Evas_Object *parent)
+{
 	Evas_Object *popup = elm_popup_add(parent);
 	elm_object_style_set(popup, "circle");
 	evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	eext_object_event_callback_add(popup, EEXT_CALLBACK_BACK, _popup_hide_cb,
-			NULL);
-	evas_object_smart_callback_add(popup, "dismissed", _popup_hide_finished_cb,
-			NULL);
+	eext_object_event_callback_add(popup, EEXT_CALLBACK_BACK, _popup_hide_cb, NULL);
+    evas_object_smart_callback_add(popup, "dismissed", _popup_hide_finished_cb, NULL);
 
-	evas_object_show(popup);
-	return popup;
+    evas_object_show(popup);
+    return popup;
 }
 
 static Evas_Object*
-create_button_view(Evas_Object *parent) {
+create_button_view(Evas_Object *parent)
+{
 	Evas_Object *btn, *icon;
 	Evas_Object *layout;
 
@@ -89,21 +96,22 @@ create_button_view(Evas_Object *parent) {
 	evas_object_show(icon);
 
 	evas_object_show(layout);
-	//path setting
 	return layout;
 
 }
-void view_disconnect(void *data) {
+void
+view_disconnect(void *data)
+{
 	appdata_s *ad = (appdata_s *) data;
 	Evas_Object *layout;
 	Evas_Object *popup;
-
 	Evas_Object *nf = ad->nf;
 	//naviframe item
 	Elm_Object_Item *nf_it;
 
 	popup = create_popup(nf);
-
 	layout = create_button_view(popup);
 }
+
+
 

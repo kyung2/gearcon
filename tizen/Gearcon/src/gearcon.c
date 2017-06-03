@@ -21,7 +21,6 @@ static Eina_Bool _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev);
 char *main_menu_names[] = {
 	"PC Setting",
 	"Mouse",
-	"Keyboard",
 	"PPT",
 	"VIDEO",
 	"PDF",
@@ -34,7 +33,6 @@ char *main_menu_names[] = {
 char *main_menu_icons[] = {
 		ICON_DIR"/pc_setting.png",
 		ICON_DIR"/mouse.png",
-		ICON_DIR"/keyboard.png",
 		ICON_DIR"/ppt.png",
 		ICON_DIR"/music_controller_btn_play.png",
 		ICON_DIR"/pdf.png",
@@ -96,13 +94,12 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   else if(!strncmp(text,"Mouse",sizeof("Mouse"))) {
 		   view_control_mouse(data);
 	   }
+
+	   else if(!strncmp(text,"Keyboard",sizeof("Keyboard"))) {
+		 //  view_control_keyboard(data);
+	   }
 	   else if(!strncmp(text,"Info",sizeof("Info"))){
 		   view_app_info(data);
-	   }
-	   else if(!strncmp (text,"Keyboard",sizeof("Keyboard"))) {
-		 //  view_control_volume(data);z
-progressbar_cb(data,obj,event_info);
-		   //TODO 이부분 쓰면 프로그레스바 나옴
 	   }
 	   else if(!strncmp(text,"PDF",sizeof("PDF"))) {
 		   view_control_pdf(data);
@@ -113,7 +110,6 @@ progressbar_cb(data,obj,event_info);
 	   else if(!strncmp(text,"VIDEO",sizeof("VIDEO"))) {
 		   view_control_player(data);
 	   }
-
 	   else if(!strncmp(text,"Connect",sizeof("CONNECT"))) {
 		   view_connect(data);
 	   }

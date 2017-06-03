@@ -182,7 +182,6 @@ create_popup(Evas_Object *parent)
 void
 view_PC_Setting(void *data)
 {
-
 	appdata_s *ad = (appdata_s *)data;
 	Evas_Object *genlist = NULL;
 	Evas_Object *naviframe = ad->nf;
@@ -292,19 +291,15 @@ create_pcoff_view(Evas_Object *parent)
 void
 view_pcoff(void *data)
 {
-	   appdata_s *ad = (appdata_s *)data;
-	   Evas_Object *layout;
-	   Evas_Object *popup;
+   appdata_s *ad = (appdata_s *)data;
+   Evas_Object *layout;
+   Evas_Object *popup;
 
-	   Evas_Object *nf = ad->nf;
-	   //naviframe item
-	   Elm_Object_Item *nf_it;
+   Evas_Object *nf = ad->nf;
+   //naviframe item
+   popup = create_popup(nf);
 
-	   popup = create_popup(nf);
-
-	   layout = create_pcoff_view(popup);
-
-
+   layout = create_pcoff_view(popup);
 }
 
 

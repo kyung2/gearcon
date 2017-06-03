@@ -21,6 +21,8 @@
 #define EDJ_FILE "/edje/gearcon.edj"
 #define GRP_MAIN "main"
 #define ICON_DIR "/opt/usr/apps/org.example.gearcon/res/images"
+#define ELM_DEMO_EDJ "/opt/usr/apps/org.example.gearcon/res/edje"
+
 //void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info);
 
 //void _popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info);
@@ -39,7 +41,7 @@ void view_connect(void *data);
 void view_disconnect(void *data);
 void view_pcoff(void *data);
 void view_control_brightness(void *data);
-
+void view_control_keyboard(void *data);
 //elm_box_padding_set(box, 0, 1* elm_config_scale_get()); (여백 사이즈)
 
 

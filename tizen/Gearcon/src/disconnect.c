@@ -38,7 +38,7 @@ static void
 no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	//
-   dlog_print(DLOG_DEBUG,LOG_TAG,"Disconncect: no_Dis");
+   dlog_print(DLOG_DEBUG,LOG_TAG," no_Dis");
    elm_popup_dismiss(data);
 
 
@@ -113,11 +113,6 @@ view_disconnect(void *data)
    popup = create_popup(nf);
 
    layout = create_button_view(popup);
-
-//   elm_object_content_set(popup,layout2);
-
-//   nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, popup, NULL);
-  // 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
 }
 
 

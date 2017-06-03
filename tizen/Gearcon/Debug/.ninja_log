@@ -84,3 +84,6 @@
 5279	5770	0	gearcon	99a418addd383e8a
 3	487	0	src/control_volume.o	b899644c6744896a
 488	790	0	gearcon	99a418addd383e8a
+10	576	0	src/control_volume.o	b899644c6744896a
+3	532	0	src/control_brightness.o	28c30f7d2c60777
+532	868	0	gearcon	99a418addd383e8a

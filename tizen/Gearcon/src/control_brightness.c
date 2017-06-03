@@ -10,8 +10,8 @@ typedef struct _item_data
 	Elm_Object_Item *item;
 } item_data;
 
-Eina_Bool _
-rotary_handler_brightness_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
+Eina_Bool
+_rotary_handler_brightness_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
 {
 	dlog_print(DLOG_DEBUG, LOG_TAG, "direction %d", ev->direction);
 	if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE) {

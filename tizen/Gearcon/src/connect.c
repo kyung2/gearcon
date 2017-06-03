@@ -43,13 +43,16 @@ create_button_view(Evas_Object *parent)
 	elm_layout_theme_set(layout, "layout", "popup", "content/circle");
 
 	elm_object_part_text_set(layout, "elm.text.title", "Connect");
-	elm_object_part_text_set(layout,"elm.text","<font_size=100>1234</font_size>");
-	//elm_object_part_text_set(layout,"elm.text", set_pckey);
+	//elm_object_part_text_set(layout,"elm.text","<font_size=100>1234</font_size>");
+
+	char * pckey;
+	tul_get_time_id(&pckey);
+	elm_object_part_text_set(layout,"elm.text", pckey);
 	snprintf(buf, sizeof(buf), "next");
 
 	elm_object_content_set(popup, layout);
 	evas_object_show(popup);
-
+	tul_connect(pckey,pckey);
 	return popup;
 }
 

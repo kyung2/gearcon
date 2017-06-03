@@ -283,12 +283,16 @@ static void
  app_control(app_control_h app_control, void *data)
 {
 	/* Handle the launch request. */
+   tul_init("165.194.17.5",23272);
+   tul_bind_port(1652);
+   tul_start_listen(NULL,NULL);
 }
 
 static void
 app_pause(void *data)
 {
 	/* Take necessary actions when application becomes invisible. */
+	ui_app_exit();
 }
 
 static void
@@ -301,6 +305,7 @@ static void
 app_terminate(void *data)
 {
 	/* Release all resources. */
+	tul_stop_listen();
 }
 
 static void

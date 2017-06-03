@@ -6,6 +6,7 @@
 #include <system_settings.h>
 #include <efl_extension.h>
 #include <dlog.h>
+#include <tizenudplibrary.h>
 
 //#define EDJ_FILE "/opt/usr/apps/org.example.gearcon_m/res/gearcon_m.edj"
 

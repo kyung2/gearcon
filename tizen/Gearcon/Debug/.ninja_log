@@ -77,3 +77,7 @@
 4	717	0	src/control_brightness.o	f112c60d92e9eb8
 5	682	0	src/control_mouse.o	db611cafd85d1858
 682	1130	0	gearcon	5710ff7b9a03063b
+3	469	0	src/control_brightness.o	f112c60d92e9eb8
+469	795	0	gearcon	5710ff7b9a03063b
+2	464	0	src/control_mouse.o	db611cafd85d1858
+465	722	0	gearcon	5710ff7b9a03063b

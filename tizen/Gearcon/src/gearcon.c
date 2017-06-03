@@ -96,13 +96,12 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   else if(!strncmp(text,"Mouse",sizeof("Mouse"))) {
 		   view_control_mouse(data);
 	   }
+
+	   else if(!strncmp(text,"Keyboard",sizeof("Keyboard"))) {
+		   view_control_keyboard(data);
+	   }
 	   else if(!strncmp(text,"Info",sizeof("Info"))){
 		   view_app_info(data);
-	   }
-	   else if(!strncmp (text,"Keyboard",sizeof("Keyboard"))) {
-		 //  view_control_volume(data);z
-progressbar_cb(data,obj,event_info);
-		   //TODO 이부분 쓰면 프로그레스바 나옴
 	   }
 	   else if(!strncmp(text,"PDF",sizeof("PDF"))) {
 		   view_control_pdf(data);
@@ -113,7 +112,6 @@ progressbar_cb(data,obj,event_info);
 	   else if(!strncmp(text,"VIDEO",sizeof("VIDEO"))) {
 		   view_control_player(data);
 	   }
-
 	   else if(!strncmp(text,"Connect",sizeof("CONNECT"))) {
 		   view_connect(data);
 	   }

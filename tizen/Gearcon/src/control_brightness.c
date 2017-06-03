@@ -9,25 +9,9 @@ typedef struct _item_data
 	Elm_Object_Item *item;
 } item_data;
 
-
-static void
-_value_changed(void *data, Evas_Object *obj, void *event_info)
-{
-	char buf[PATH_MAX];
-	Evas_Object *layout = (Evas_Object *)data;
-
-	snprintf(buf, sizeof(buf), "%.1lf", eext_circle_object_value_get(obj));
-	printf("Slider value = %s\n", buf);
-	elm_object_part_text_set(layout, "elm.text.slider", buf);
-}
-
-
 Eina_Bool
-_rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev)
+_rotary_handler_brightness_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
 {
-	appdata_s* ad = data;
-	int i, value;
-
 	dlog_print(DLOG_DEBUG ,LOG_TAG,"direction %d",ev->direction);
    if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
    {
@@ -43,13 +27,14 @@ _rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev)
 static void
 up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"밝아져라 ");
+	dlog_print(DLOG_DEBUG,LOG_TAG,"밝아져라 " );
 }
 static void
 down_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"어두워져라 ");
 }
+
 static Evas_Object*
 create_scroller(Evas_Object *parent)
 {
@@ -64,7 +49,6 @@ static Evas_Object*
 create_button_view(Evas_Object *parent)
 {
 	Evas_Object *btn, *box;
-	char buf[64];
 
 	box = elm_box_add(parent);
 	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -88,31 +72,25 @@ create_button_view(Evas_Object *parent)
 
 	return box;
 }
-
 void
 view_control_brightness(void *data)
 {
-	appdata_s *ad = (appdata_s *)data;
-	Evas_Object *scroller, *circle_scroller, *layout;
-	Evas_Object *nf = ad->nf;
-	Elm_Object_Item *nf_it;
+   appdata_s *ad = (appdata_s *)data;
+   Evas_Object *scroller, *circle_scroller, *layout;
+   Evas_Object *nf = ad->nf;
+   Elm_Object_Item *nf_it;
 
-	scroller = create_scroller(nf);
-	layout = create_button_view(scroller);
-	elm_object_content_set(scroller, layout);
+   scroller = create_scroller(nf);
+   layout = create_button_view(scroller);
+   elm_object_content_set(scroller, layout);
 
-	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
-	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
-eext_rotary_object_event_callback_add(circle_scroller,_rotary_handler_brightness_cb,nf);
-eext_rotary_object_event_callback_add(scroller,_rotary_handler_brightness_cb,nf);
+   circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
+   eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 
-	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
+   eext_rotary_object_event_callback_add(scroller ,_rotary_handler_brightness_cb,NULL);
+   eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 
-	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
-	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
-
+   nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
+   elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
 }
-
-
-
 

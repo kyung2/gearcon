@@ -35,6 +35,23 @@ create_scroller(Evas_Object *parent)
 	return scroller;
 }
 
+Eina_Bool
+_rotary_handler_pdf_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
+{
+	dlog_print(DLOG_DEBUG ,LOG_TAG,"direction %d",ev->direction);
+   if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
+   {
+      dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
+   }
+   else
+   {
+      dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
+   }
+
+   return EINA_FALSE;
+}
+
+
 static Evas_Object*
 create_button_view(Evas_Object *parent)
 {
@@ -82,6 +99,11 @@ view_control_pdf(void *data)
 	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
+
+
+	   eext_rotary_object_event_callback_add(scroller ,_rotary_handler_pdf_cb,NULL);
+	   eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
+
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

@@ -80,18 +80,14 @@ create_button_view(Evas_Object *parent)
 
    elm_object_content_set(parent, layout);
 
-   //left(no_
+   //left(no_"<color=#FF4500FF>Your text</color>"
    	  btn = elm_button_add(parent);
       elm_object_style_set(btn, "popup/circle/left");
       evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+    //  elm_object_part_text_set(btn,"<color=#FFFFFF>좌</color>");
       elm_object_part_content_set(parent , "button1", btn);
-      evas_object_smart_callback_add(btn, "clicked", right_btn_clicked_cb, parent);
-
-      icon = elm_image_add(btn);
-      elm_image_file_set(icon, ICON_DIR"/no.png", NULL);
-      elm_object_part_content_set(btn, "elm.swallow.content", icon);
-      evas_object_show(icon);
-
+      evas_object_smart_callback_add(btn, "clicked", left_btn_clicked_cb, parent);
+      evas_object_show(btn);
       //right
       btn = elm_button_add(parent);
       elm_object_style_set(btn, "popup/circle/right");

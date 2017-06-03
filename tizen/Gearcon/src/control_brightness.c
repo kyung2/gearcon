@@ -64,8 +64,8 @@ create_button_view(Evas_Object *parent)
 
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
-	elm_object_text_set(btn, buf);
+	//snprintf(buf, sizeof(buf), "<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
+	elm_object_text_set(btn, "<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
@@ -73,8 +73,8 @@ create_button_view(Evas_Object *parent)
 	//down
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
-	elm_object_text_set(btn, buf);
+//	snprintf(buf, sizeof(buf), "<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
+	elm_object_text_set(btn, "<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);

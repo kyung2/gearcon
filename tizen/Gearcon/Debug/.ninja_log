@@ -70,3 +70,10 @@
 2761	3426	0	src/control_pdf.o	9bcc10793ae8e370
 3	504	0	src/control_mouse.o	db611cafd85d1858
 505	801	0	gearcon	5710ff7b9a03063b
+3	502	0	src/control_mouse.o	db611cafd85d1858
+503	888	0	gearcon	5710ff7b9a03063b
+6	685	0	src/control_mouse.o	db611cafd85d1858
+686	1051	0	gearcon	5710ff7b9a03063b
+4	717	0	src/control_brightness.o	f112c60d92e9eb8
+5	682	0	src/control_mouse.o	db611cafd85d1858
+682	1130	0	gearcon	5710ff7b9a03063b

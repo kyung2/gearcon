@@ -10,8 +10,11 @@ public:
     keyBoardControl(QStringList message);
 
     int PPTstart();
+    int PPTstartHere();
 
     int videoStartStopToggle();
+    void videoSpeedUp();
+    void videoSpeedDown();
 
     int next();
     int previous();

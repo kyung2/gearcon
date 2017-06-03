@@ -14,6 +14,7 @@
 #include <QProcess>
 #include <QStringList>
 #include "udplibrary.h"
+#include <QByteArray>
 
 #include "videocontrol.h"
 
@@ -62,6 +63,10 @@ void MainWindow::receiveMessage(QStringList message){
     }
     else if(message[0] == "pc"){
          system("shutdown -s");
+    }
+    else if(message[0] == "connect"){
+         if(message[1] == "shutDown")
+            QApplication::quit();
     }
 }
 
@@ -133,11 +138,23 @@ void MainWindow::on_pushButton_clicked()
 {
 
 //    UDP->bindSocket(3456);
-
-    UDP->init("165.194.17.3", 23272);
+    UDP->init("165.194.17.5", 23272);
     UDP->bindSocket(3456);
-
-    UDP->enroll("B","1");
+    QByteArray token = ui->textEdit->toPlainText().toUtf8();
+    char s[99] = "";
+    sprintf(s, "%p", GetActiveWindow());
+//    QString s;
+//    int len = GetWindowTextLength(GetActiveWindow());
+//    if (len > 0)
+//    {
+//        s.resize(len + 1);
+//        len = GetWindowText(GetActiveWindow(), (LPWSTR)&s[0], s.size());
+//        s.resize(len);
+//     }
+//    id = ;
+    QString string (s);
+    qDebug() << string.right(6);
+    UDP->enroll(token,string.right(6).toUtf8());
 
 //    connect(UDP->udpSocket,SIGNAL(readyRead()),this,SLOT(test()));
 //    connect(UDP,UDP->set_listen_callback(),this,test());

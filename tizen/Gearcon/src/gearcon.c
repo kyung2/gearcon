@@ -170,7 +170,12 @@ _item_create(Evas_Object *rs)
 }
 
 //create_ rotaty
+static void
+_init_exit(void *data, Evas_Object *obj, void *event_info)
+{
+		ui_app_exit();
 
+}
 static void
 create_rotary_selector(appdata_s *ad)
 {
@@ -185,7 +190,7 @@ create_rotary_selector(appdata_s *ad)
 	evas_object_smart_callback_add(ad->rs, "item,selected", _item_selected_cb, NULL);
 	evas_object_smart_callback_add(ad->rs , "item,clicked", item_clicked_cb,ad);
 	nf_it = elm_naviframe_item_push(ad->nf,NULL,NULL,NULL,ad->rs,"empty");
-	elm_naviframe_item_pop_cb_set(nf_it, _naviframe_pop_cb, ad->win);
+	elm_naviframe_item_pop_cb_set(nf_it, _init_exit, ad->win);
 	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
 
 }

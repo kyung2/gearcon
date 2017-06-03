@@ -227,7 +227,7 @@ void view_PC_Setting(void *data) {
 
 	nf_it = elm_naviframe_item_push(naviframe, NULL, NULL, NULL, genlist,
 			"empty");
-
+	eext_rotary_object_event_activated_set(genlist,EINA_TRUE);
 	//eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
 
 }

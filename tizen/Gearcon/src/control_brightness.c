@@ -103,6 +103,9 @@ view_control_brightness(void *data)
 
 	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+eext_rotary_object_event_callback_add(circle_scroller,_rotary_handler_brightness_cb,nf);
+eext_rotary_object_event_callback_add(scroller,_rotary_handler_brightness_cb,nf);
+
 	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);

@@ -30,3 +30,7 @@
 5	552	0	src/disconnect.o	18a1aefe2c247c06
 13	557	0	src/control_brightness.o	f112c60d92e9eb8
 557	845	0	gearcon	5710ff7b9a03063b
+6	673	0	src/control_brightness.o	f112c60d92e9eb8
+674	1174	0	gearcon	5710ff7b9a03063b
+3	540	0	src/control_brightness.o	f112c60d92e9eb8
+541	964	0	gearcon	5710ff7b9a03063b

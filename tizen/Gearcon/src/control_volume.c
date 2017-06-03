@@ -2,6 +2,7 @@
  *hyunkyung
  */
 #include "gearcon.h"
+char temp_vol[25] = "";
 
 
 typedef struct _item_data
@@ -16,11 +17,15 @@ _rotary_handler_volume_cb(void *data, Evas_Object* obj, Eext_Rotary_Event_Info *
 
 	   if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
 	   {
-	      dlog_print(DLOG_DEBUG, LOG_TAG, "Volume UP");
+	      dlog_print(DLOG_DEBUG, LOG_TAG, "Volume dpwm");
+	      sprintf(temp_vol,"setting|sound|down|");
+	                       tul_send(temp_vol,strlen(temp_vol));
 	   }
 	   else
 	   {
-	      dlog_print(DLOG_DEBUG, LOG_TAG, "Volume Down ");
+	      dlog_print(DLOG_DEBUG, LOG_TAG, "Volume up ");
+	      sprintf(temp_vol,"setting|sound|up|");
+	                       tul_send(temp_vol,strlen(temp_vol));
 	   }
 	   return EINA_FALSE;
 }
@@ -30,12 +35,18 @@ static void
 up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"up button click (volume)");
+    sprintf(temp_vol,"setting|sound|up|");
+                     tul_send(temp_vol,strlen(temp_vol));
+
 }
 
 static void
 down_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"down button clicke(volume)");
+    sprintf(temp_vol,"setting|sound|up|");
+                     tul_send(temp_vol,strlen(temp_vol));
+
 }
 
 static Evas_Object*

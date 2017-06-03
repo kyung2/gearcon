@@ -9,6 +9,7 @@
 #define ICON_WIDTH 80
 #define ICON_HEIGHT 80
 
+char temp_ppt[25] = "";
 Evas_Object *entry;
 Evas_Object *box;
 
@@ -23,11 +24,16 @@ _rotary_handler_ppt_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
    if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
    {
       dlog_print(DLOG_DEBUG, LOG_TAG, "다음페이지  ~");
+      sprintf(temp_ppt,"ppt|next|");
+                  tul_send(temp_ppt,strlen(temp_ppt));
    }
    else
    {
       dlog_print(DLOG_DEBUG, LOG_TAG, "이전페이지~~ ");
+      sprintf(temp_ppt,"ppt|pre");
+                       tul_send(temp_ppt,strlen(temp_ppt));
    }
+
 
    return EINA_FALSE;
 }
@@ -35,18 +41,24 @@ static void
 prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ prev button (ppt)");
+	 sprintf(temp_ppt,"ppt|pre|");
+	                  tul_send(temp_ppt,strlen(temp_ppt));
 }
 
 static void
 next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ next button (ppt)");
+	 sprintf(temp_ppt,"ppt|next|");
+	                  tul_send(temp_ppt,strlen(temp_ppt));
 }
 
 static void
 show_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ show button (ppt)");
+	 sprintf(temp_ppt,"ppt|start|");
+	                  tul_send(temp_ppt,strlen(temp_ppt));
 
 }
 

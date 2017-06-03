@@ -3,7 +3,7 @@
  */
 #include "gearcon.h"
 
-
+char temp_pdf[25] = "";
 typedef struct _item_data
 {
 	int index;
@@ -15,12 +15,19 @@ static void
 prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"prev button (pdf)");
+
+	sprintf(temp_pdf,"pdf|pre|");
+	                 tul_send(temp_pdf,strlen(temp_pdf));
+
 }
 
 static void
 next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"next button (pdf)");
+
+	sprintf(temp_pdf,"pdf|next|");
+	                 tul_send(temp_pdf,strlen(temp_pdf));
 }
 
 
@@ -42,12 +49,17 @@ _rotary_handler_pdf_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
    if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
    {
       dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
+
+      sprintf(temp_pdf,"pdf|scroll|down");
+                       tul_send(temp_pdf,strlen(temp_pdf));
    }
    else
    {
       dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
-   }
 
+      sprintf(temp_pdf,"pdf|scroll|up");
+                       tul_send(temp_pdf,strlen(temp_pdf));
+   }
    return EINA_FALSE;
 }
 

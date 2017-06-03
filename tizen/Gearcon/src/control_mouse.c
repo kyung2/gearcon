@@ -1,5 +1,6 @@
 #include "gearcon.h"
 
+char temp_mouse[25] = "";
 
 typedef struct _item_data
 {
@@ -20,16 +21,42 @@ _popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info)
    if(!obj) return;
    evas_object_del(obj);
 }
+Eina_Bool
+_rotary_handler_mouse_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
+{
+	dlog_print(DLOG_DEBUG ,LOG_TAG,"direction %d",ev->direction);
+   if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
+   {
+      dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
+      sprintf(temp_mouse,"mouse|scroll|up|");
+              tul_send(temp_mouse,strlen(temp_mouse));
+   }
+   else
+   {
+      dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
+      sprintf(temp_mouse,"mouse|scroll|down|");
+              tul_send(temp_mouse,strlen(temp_mouse));
+   }
+
+   return EINA_FALSE;
+}
+
+
 static void
 right_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
    dlog_print(DLOG_DEBUG,LOG_TAG,"mouse_right ");
+   sprintf(temp_mouse,"mouse|click|right|");
+      tul_send(temp_mouse,strlen(temp_mouse));
 }
 
 static void
 left_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
    dlog_print(DLOG_DEBUG,LOG_TAG,"mouse_left");
+   sprintf(temp_mouse,"mouse|click|left|");
+        tul_send(temp_mouse,strlen(temp_mouse));
+
 }
 static void
 m_mousedown_cb(void *data, Evas *evas, Evas_Object *obj, void *event_info){
@@ -51,6 +78,8 @@ m_mouseup_cb(void *data, Evas *evas, Evas_Object *obj, void *event_info){
    Evas_Coord y = ev->canvas.y;
    dlog_print(DLOG_DEBUG,LOG_TAG,"Mouse up, %d, %d", x, y);
    dlog_print(DLOG_DEBUG,LOG_TAG,"Mouse moved, %d, %d", x-ad->ex_point.x, y- ad->ex_point.y);
+   sprintf(temp_mouse,"mouse|move|%d|%d",x-ad->ex_point.x,y- ad->ex_point.y);
+   tul_send(temp_mouse,strlen(temp_mouse));
 }
 static Evas_Object*
 create_popup(Evas_Object *parent)
@@ -116,6 +145,9 @@ view_control_mouse(void *data)
    evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
    evas_object_event_callback_add(popup, EVAS_CALLBACK_MOUSE_DOWN, m_mousedown_cb, ad);
    evas_object_event_callback_add(popup, EVAS_CALLBACK_MOUSE_UP, m_mouseup_cb, ad);
+   eext_rotary_object_event_callback_add(popup ,_rotary_handler_mouse_cb,NULL);
+   eext_rotary_object_event_activated_set(popup, EINA_TRUE);
+
 }
 
 

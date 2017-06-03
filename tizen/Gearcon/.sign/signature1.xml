@@ -4,15 +4,15 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>4hXX0kCBOpmx0doyoOWRalbA/POH3cXh5lOcPSSR0sY=</DigestValue>
+<DigestValue>dKwMJJLAh/g8KNKRm7ndGd7MSrwX7b/pT41Jdiy0vmU=</DigestValue>
 </Reference>
 <Reference URI="bin%2Fgearcon">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>/WSKhuCgNdVspg58WbXCzOA7tKO3E0+k+aoHxzphkLY=</DigestValue>
+<DigestValue>5QA00JA1xKo5+eYtodpp3CeZahgWjTINYx9C5ov0us4=</DigestValue>
 </Reference>
 <Reference URI="res%2Fedje%2Fgearcon.edj">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>5EN38DezC8qdEgrsFyQiH7mM5H2nB7nj+SI6PDwYJ8g=</DigestValue>
+<DigestValue>oA2Ge0HUT2DYwK5NO50D3SJv0P2lKnZjE7SwD4qqR7w=</DigestValue>
 </Reference>
 <Reference URI="res%2Fimages%2FL_icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -115,9 +115,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-KX6t9e/fvo5yeD9EhxutAfpqbYCq+av/2Ok5QLLqGPmlYr98+Bdjp+fqkj0kQuyKn5LeGHGIL0eA
-POxMUHlgrgFotyiRaaiu37HMqYkt174m1CezdMKGxj7EKg/pQOMhhVKosfdVQyRFCUWJM0O4DNfz
-IbvZIYURAyMeMFjrSOU=
+IbW6H3RP0A6gwciKNGOa37zyO8qnACHpQidS5epbn3b3ZRcplaI4DcFYUnv1hzbmrnMaS5/3gWLh
+FETmihFCNT1g4Z+Q91kl571YT2fzmFXhlDGoC0O8qoPWhTx4gNeT6+5Oof8adJ71JGBUDzHqY3DK
+5EPBPOpZvziWbPzF+g0=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

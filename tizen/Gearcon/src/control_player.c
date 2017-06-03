@@ -5,6 +5,8 @@
 #include <stdio.h>
 #include <Elementary.h>
 #include <dlog.h>
+char temp_play[25]="";
+
 
 /*
  * 여기에는 그 로터리 핸들 이벤트 처리 XXXX
@@ -27,18 +29,27 @@ static void
 prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_ifo)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ prev_button");
+	sprintf(temp_play,"video|pre|");
+		                       tul_send(temp_play,strlen(temp_play));
+
 }
 
 static void
 next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ next_button");
+	sprintf(temp_play,"video|next|");
+		                       tul_send(temp_play,strlen(temp_play));
+
 }
 
 static void
 play_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"hyunkyung _ show button");
+	sprintf(temp_play,"video|start|");
+		                       tul_send(temp_play,strlen(temp_play));
+
 }
 
 static Evas_Object*

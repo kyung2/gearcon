@@ -32,6 +32,8 @@ static void
 yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
    dlog_print(DLOG_DEBUG,LOG_TAG,"mouse_right ");
+   tul_send("connect|shutdown",strlen("connect|shutdown"));
+   ui_app_exit();
 }
 
 static void

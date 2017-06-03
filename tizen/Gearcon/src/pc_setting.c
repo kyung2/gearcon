@@ -1,4 +1,5 @@
 #include "gearcon.h"
+char temp_pcoff[25] = "";
 
 
 #define NUM_OF_ITEMS 101
@@ -160,6 +161,7 @@ static void
 yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
    dlog_print(DLOG_DEBUG,LOG_TAG,"pc_종료  ");
+   tul_send("pc|off",strlen("pc|off"));
 }
 static void
 no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)

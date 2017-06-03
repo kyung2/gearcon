@@ -5,50 +5,50 @@ char temp_pcoff[25] = "";
 #define NUM_OF_GENLIST_DEMO_NAMES 101
 #define NUM_OF_GENLIST_DEMO_LONG_TEXT 7
 
-//함수 여기다가 선언좀 해놓기!
-
 static Evas_Object* create_scroller(Evas_Object *parent);
 static Eina_Bool _setting_finished_cb(void *data, Elm_Object_Item *it);
 static void yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info);
 static void no_btn_clicekd_cb(void *data, Evas_Object *obj, void *event_info);
 
-typedef struct _item_data {
+typedef struct _item_data
+{
 	int index;
 	Elm_Object_Item *item;
 } item_data;
-char *icons_off[] = {
+char *icons_off[] =
+{
 ICON_DIR"/yes.png",
 ICON_DIR"/no.png",
 NULL
 
 };
-static void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info) {
+static void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info)
+{
 	if (!obj)
 		return;
 	elm_popup_dismiss(obj);
 }
 
-static void _popup_hide_finished_cb(void *data, Evas_Object *obj,
-		void *event_info) {
+static void _popup_hide_finished_cb(void *data, Evas_Object *obj,void *event_info)
+{
 	if (!obj)
 		return;
 	evas_object_del(obj);
 }
 
 // PC CONTROL - > PCSETTING(밝기.배터리,볼륨,와이파이,블투,전원
-static char *main_menu_names[] = {
+static char *main_menu_names[] =
+{
 /*** 1line styles ***/
-"밝기", "볼륨", "전원",
-/* do not delete below */
-NULL };
-//hyunkyunhg
-/*
- * @brief Function will be operated when manipulating setting value is finished
- * @param[in] data The data to be passed to the callback function
- * @param[in] it The item to be popped from naviframe
- */
+		"밝기",
+		"볼륨",
+		"전원",
+		/* do not delete below */
+		NULL
+};
 
-void my_A_cb(void *data) {
+void my_A_cb(void *data)
+{
 	appdata_s *ad = data;
 	Evas_Object *bg;
 
@@ -58,46 +58,30 @@ void my_A_cb(void *data) {
 
 //a페이지 생성코드
 }
-
-static void gl_selected_cb(void *data, Evas_Object *obj, void *event_info) {
-	Elm_Object_Item *it = (Elm_Object_Item *) event_info;
-	elm_genlist_item_selected_set(it, EINA_FALSE);
-}
-
-/*
- * @brief Function to get string on genlist item's text part
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] part The name of text part
- * @param[out] char* A string with the characters to use as genlist item's text part
- */
-
-static char*
-_gl_title_text_get(void *data, Evas_Object *obj, const char *part) {
+*
+_gl_title_text_get(void *data, Evas_Object *obj, const char *part)
+{
 	char buf[1024];
-//test
 	snprintf(buf, 1023, "%s", "Setting");
 	return strdup(buf);
 }
 
 static char *
-_gl_main_text_get(void *data, Evas_Object *obj, const char *part) {
+_gl_main_text_get(void *data, Evas_Object *obj, const char *part)
+{
 	char buf[1024];
 	item_data *id = data;
 	int index = id->index;
 
-	if (!strcmp(part, "elm.text")) {
+	if (!strcmp(part, "elm.text"))
+	{
 		snprintf(buf, 1023, "%s", main_menu_names[index]);
 		return strdup(buf);
 	}
 	return NULL;
 }
-/*
- * @brief Function will be operated when genlist is deleted.
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- */
-static void _gl_del(void *data, Evas_Object *obj) {
+static void _gl_del(void *data, Evas_Object *obj)
+{
 	// FIXME: Unrealized callback can be called after this.
 	// Accessing Item_Data can be dangerous on unrealized callback.
 	item_data *id = data;
@@ -105,52 +89,19 @@ static void _gl_del(void *data, Evas_Object *obj) {
 		free(id);
 }
 
-/*
- * @brief Function will be operated when naviframe pop its own item
- * @param[in] data The data to be passed to the callback function
- * @param[in] it The item to be popped from naviframe
- */
-
-static Eina_Bool _setting_finished_cb(void *data, Elm_Object_Item *it) {
-	appdata_s *ad = data;
-
-	/* Activate Rotary Event */
-	eext_rotary_object_event_activated_set(ad->circle_genlist, EINA_TRUE);
-	return EINA_TRUE;
-}
-
-static Evas_Object*
-create_scroller(Evas_Object *parent) {
-	Evas_Object *scroller = elm_scroller_add(parent);
-	elm_scroller_bounce_set(scroller, EINA_FALSE, EINA_TRUE);
-	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF,
-			ELM_SCROLLER_POLICY_AUTO);
-	evas_object_show(scroller);
-
-	return scroller;
-}
-
-/*
- * @brief Function will be operated when button is clicked
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] event_info The system event information
- */
-static void _button_clicked_cb(void *data, Evas_Object *obj, void *event_info) {
-	appdata_s *ad = data;
-	elm_naviframe_item_pop(ad->nf);
-}
-
-static void yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info) {
+static void yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+{
 	dlog_print(DLOG_DEBUG, LOG_TAG, "pc_종료  ");
 	tul_send("pc|off", strlen("pc|off"));
 }
-static void no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info) {
+static void no_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+{
 	dlog_print(DLOG_DEBUG, LOG_TAG, "PC 켜짐 ");
 	elm_popup_dismiss(data);
 }
 static Evas_Object*
-create_popup(Evas_Object *parent) {
+create_popup(Evas_Object *parent)
+{
 	Evas_Object *popup = elm_popup_add(parent);
 	elm_object_style_set(popup, "circle");
 	evas_object_size_hint_weight_set(popup, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -162,7 +113,8 @@ create_popup(Evas_Object *parent) {
 	evas_object_show(popup);
 	return popup;
 }
-void view_PC_Setting(void *data) {
+void view_PC_Setting(void *data)
+{
 	appdata_s *ad = (appdata_s *) data;
 	Evas_Object *genlist = NULL;
 	Evas_Object *naviframe = ad->nf;
@@ -233,18 +185,18 @@ void view_PC_Setting(void *data) {
 }
 
 static Evas_Object*
-create_pcoff_view(Evas_Object *parent) {
+create_pcoff_view(Evas_Object *parent)
+{
 	Evas_Object *btn, *icon;
 	Evas_Object *layout;
 
 	layout = elm_layout_add(parent);
 	elm_layout_theme_set(layout, "layout", "popup", "content/circle/buttons2");
-	//elm_object_part_text_set(layout, "elm.text.title", "Popup title");
 
 	elm_object_part_text_set(layout, "elm.text", "PC OFF?");
 	elm_object_content_set(parent, layout);
 
-	//left(no_
+	//left(no_Bten)
 	btn = elm_button_add(parent);
 	elm_object_style_set(btn, "popup/circle/left");
 	evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
@@ -256,13 +208,12 @@ create_pcoff_view(Evas_Object *parent) {
 	elm_object_part_content_set(btn, "elm.swallow.content", icon);
 	evas_object_show(icon);
 
-	//right
+	//right(yes_Btn)
 	btn = elm_button_add(parent);
 	elm_object_style_set(btn, "popup/circle/right");
 	evas_object_size_hint_weight_set(btn, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	elm_object_part_content_set(parent, "button2", btn);
 	evas_object_smart_callback_add(btn, "clicked", yes_btn_clicked_cb, parent);
-
 	//icon
 	icon = elm_image_add(btn);
 	elm_image_file_set(icon, ICON_DIR"/yes.png", NULL);
@@ -270,10 +221,10 @@ create_pcoff_view(Evas_Object *parent) {
 	evas_object_show(icon);
 
 	evas_object_show(layout);
-	//path setting
 	return layout;
 }
-void view_pcoff(void *data) {
+void view_pcoff(void *data)
+{
 	appdata_s *ad = (appdata_s *) data;
 	Evas_Object *layout;
 	Evas_Object *popup;

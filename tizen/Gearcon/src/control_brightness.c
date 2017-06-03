@@ -3,16 +3,31 @@
  */
 #include "gearcon.h"
 
-
 typedef struct _item_data
 {
 	int index;
 	Elm_Object_Item *item;
 } item_data;
 
+
+static void
+_value_changed(void *data, Evas_Object *obj, void *event_info)
+{
+	char buf[PATH_MAX];
+	Evas_Object *layout = (Evas_Object *)data;
+
+	snprintf(buf, sizeof(buf), "%.1lf", eext_circle_object_value_get(obj));
+	printf("Slider value = %s\n", buf);
+	elm_object_part_text_set(layout, "elm.text.slider", buf);
+}
+
+
 Eina_Bool
 _rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev)
 {
+	appdata_s* ad = data;
+	int i, value;
+
 	dlog_print(DLOG_DEBUG ,LOG_TAG,"direction %d",ev->direction);
    if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
    {
@@ -88,8 +103,7 @@ view_control_brightness(void *data)
 
 	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
-	eext_rotary_object_event_callback_add(scroller,_rotary_handler_brightness_cb,NULL);
-	eext_rotary_object_event_activated_set(scroller, EINA_FALSE);
+	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

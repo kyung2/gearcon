@@ -10,10 +10,8 @@ typedef struct _item_data
 	Elm_Object_Item *item;
 } item_data;
 
-
-//Eina_Bool _rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev);
-
-Eina_Bool _rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev)
+Eina_Bool
+_rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev)
 {
 	dlog_print(DLOG_DEBUG ,LOG_TAG,"direction %d",ev->direction);
    if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
@@ -27,19 +25,16 @@ Eina_Bool _rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev)
 
    return EINA_FALSE;
 }
-
 static void
 up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"밝아져라 ");
 }
-
 static void
 down_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG,LOG_TAG,"어두워져라 ");
 }
-
 static Evas_Object*
 create_scroller(Evas_Object *parent)
 {
@@ -64,16 +59,13 @@ create_button_view(Evas_Object *parent)
 
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
-	//snprintf(buf, sizeof(buf), "<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
 	elm_object_text_set(btn, "<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
-
 	//down
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb,NULL);
-//t 	snprintf(buf, sizeof(buf), "<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
 	elm_object_text_set(btn, "<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
@@ -96,8 +88,8 @@ view_control_brightness(void *data)
 
 	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
-	eext_rotary_object_event_callback_add(scroller,_rotary_handler_brightness_cb,EINA_FALSE);
-	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
+	eext_rotary_object_event_callback_add(scroller,_rotary_handler_brightness_cb,NULL);
+	eext_rotary_object_event_activated_set(scroller, EINA_FALSE);
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

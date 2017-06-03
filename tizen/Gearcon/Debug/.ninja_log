@@ -86,3 +86,14 @@
 10	652	0	src/control_mouse.o	db611cafd85d1858
 4	685	0	src/gearcon.o	2dd69127b1f6707
 686	962	0	gearcon	5710ff7b9a03063b
+2	593	0	src/control_mouse.o	db611cafd85d1858
+593	909	0	gearcon	5710ff7b9a03063b
+2	646	0	src/control_brightness.o	f112c60d92e9eb8
+10	651	0	src/control_mouse.o	db611cafd85d1858
+652	987	0	gearcon	5710ff7b9a03063b
+4	513	0	src/control_brightness.o	f112c60d92e9eb8
+513	770	0	gearcon	5710ff7b9a03063b
+3	570	0	src/control_brightness.o	f112c60d92e9eb8
+571	860	0	gearcon	5710ff7b9a03063b
+6	507	0	src/control_brightness.o	f112c60d92e9eb8
+508	795	0	gearcon	5710ff7b9a03063b

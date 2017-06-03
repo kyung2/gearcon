@@ -64,3 +64,7 @@
 2272	3881	0	src/pc_setting.o	3a84a2ed4baec18e
 2261	3944	0	src/disconnect.o	db538caf34648c05
 3946	4827	0	gearcon	99a418addd383e8a
+4	493	0	src/control_volume.o	b899644c6744896a
+494	799	0	gearcon	99a418addd383e8a
+3	484	0	src/control_player.o	46e7eb6ce3f98142
+484	806	0	gearcon	99a418addd383e8a

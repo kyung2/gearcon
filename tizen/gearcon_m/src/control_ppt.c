@@ -37,7 +37,6 @@ show_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 
 }
 
-
 static Evas_Object*
 create_scroller(Evas_Object *parent)
 {
@@ -49,8 +48,6 @@ create_scroller(Evas_Object *parent)
 	evas_object_show(scroller);
 
 	return scroller;
-
-
 }
 
 static Evas_Object*
@@ -59,7 +56,6 @@ create_button_view(Evas_Object *parent)
 	Evas_Object *btn, *box;
 	char buf[64];
 	btn = elm_button_add(parent);
-
 
 	box = elm_box_add(parent);
 	elm_box_horizontal_set(box,EINA_TRUE);
@@ -71,7 +67,6 @@ create_button_view(Evas_Object *parent)
 	evas_object_show(box);
 
 	//font size change 	snprintf(buf, sizeof(buf), "<font_size=20><b>next</b></font_size>");
-
 
 	//prev
 	btn = elm_button_add(box);
@@ -102,8 +97,6 @@ create_button_view(Evas_Object *parent)
 	elm_box_pack_end(box, btn);
 
 	return box;
-
-
 }
 
 void

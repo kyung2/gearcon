@@ -11,6 +11,23 @@ typedef struct _item_data
 } item_data;
 
 
+//Eina_Bool _rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev);
+
+Eina_Bool _rotary_handler_brightness_cb(void *data, Eext_Rotary_Event_Info *ev)
+{
+	dlog_print(DLOG_DEBUG ,LOG_TAG,"direction %d",ev->direction);
+   if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
+   {
+      dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
+   }
+   else
+   {
+      dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
+   }
+
+   return EINA_FALSE;
+}
+
 static void
 up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
@@ -33,19 +50,6 @@ create_scroller(Evas_Object *parent)
 
 	return scroller;
 }
-Eina_Bool
-_rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev)
-{
-    if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE) {
-        dlog_print(DLOG_DEBUG, LOG_TAG,
-                   "Rotary device rotated in clockwise direction");
-    } else {
-        dlog_print(DLOG_DEBUG, LOG_TAG,
-                   "Rotary device rotated in counter-clockwise direction");
-    }
-
-    return EINA_FALSE;
-}
 static Evas_Object*
 create_button_view(Evas_Object *parent)
 {
@@ -55,12 +59,12 @@ create_button_view(Evas_Object *parent)
 	box = elm_box_add(parent);
 	evas_object_size_hint_weight_set(box, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(box, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_box_padding_set(box, 0, 5 * elm_config_scale_get());
+	elm_box_padding_set(box, 0, 10 * elm_config_scale_get());
 	evas_object_show(box);
 
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "up");
+	snprintf(buf, sizeof(buf), "<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
@@ -69,14 +73,13 @@ create_button_view(Evas_Object *parent)
 	//down
 	btn = elm_button_add(box);
 	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb,NULL);
-	snprintf(buf, sizeof(buf), "down");
+	snprintf(buf, sizeof(buf), "<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
 	elm_object_text_set(btn, buf);
 	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
 	return box;
-
 }
 
 void
@@ -93,7 +96,8 @@ view_control_brightness(void *data)
 
 	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
-	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
+	eext_rotary_object_event_callback_add(scroller,_rotary_handler_brightness_cb,EINA_FALSE);
+	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

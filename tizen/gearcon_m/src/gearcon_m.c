@@ -103,7 +103,7 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 		   view_app_info(data);
 	   }
 	   else if(!strncmp (text,"Keyboard",sizeof("Keyboard"))) {
-		 //  view_control_volume(data);
+		 //  view_control_volume(data);z
 progressbar_cb(data,obj,event_info);
 		   //TODO 이부분 쓰면 프로그레스바 나옴
 	   }
@@ -125,7 +125,6 @@ progressbar_cb(data,obj,event_info);
 	   }
 
 }
-
 
 static Eina_Bool
 _naviframe_pop_cb(void *data, Elm_Object_Item *it)

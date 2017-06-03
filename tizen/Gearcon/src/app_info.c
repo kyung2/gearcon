@@ -14,13 +14,6 @@ typedef struct _item_data {
 	Elm_Object_Item *item;
 } item_data;
 
-/*
- * @brief Function to get string on genlist item's text part
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- * @param[in] part The name of text part
- * @param[out] char* A string with the characters to use as genlist item's text part
- */
 static char *
 _gl_main_text_get(void *data, Evas_Object *obj, const char *part)
 {
@@ -35,26 +28,18 @@ _gl_main_text_get(void *data, Evas_Object *obj, const char *part)
 	return NULL;
 }
 
-/*
- * @brief Function will be operated when genlist is deleted.
- * @param[in] data The data to be passed to the callback function
- * @param[in] obj The Evas object handle to be passed to the callback function
- */
 static void _gl_del(void *data, Evas_Object *obj)
 {
 	// FIXME: Unrealized callback can be called after this.
 	// Accessing Item_Data can be dangerous on unrealized callback.
 	item_data *id = data;
-	if (id) free(id);
+	if (id)
+		free(id);
 }
-/*
- * @brief Function to create gui object
- * @param[in] ad The data structure to manage gui object
- */
+
 void
 view_app_info(void *data)
 {
-
 	appdata_s *ad = (appdata_s *)data;
 	Evas_Object *genlist = NULL;
 	Evas_Object *naviframe = ad->nf;

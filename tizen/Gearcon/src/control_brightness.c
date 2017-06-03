@@ -10,41 +10,37 @@ typedef struct _item_data
 	Elm_Object_Item *item;
 } item_data;
 
-Eina_Bool
-_rotary_handler_brightness_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
+Eina_Bool _
+rotary_handler_brightness_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
 {
-	dlog_print(DLOG_DEBUG ,LOG_TAG,"direction %d",ev->direction);
-   if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
-   {
-      dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
-      sprintf(temp_brightness,"setting|brightness|down");
-                       tul_send(temp_brightness,strlen(temp_brightness));
+	dlog_print(DLOG_DEBUG, LOG_TAG, "direction %d", ev->direction);
+	if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE) {
+		dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
+		sprintf(temp_brightness, "setting|brightness|down");
+		tul_send(temp_brightness, strlen(temp_brightness));
 
-   }
-   else
-   {
-      dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
-      sprintf(temp_brightness,"setting|brightness|up");
-                            tul_send(temp_brightness,strlen(temp_brightness));
+	} else
+	{
+		dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
+		sprintf(temp_brightness, "setting|brightness|up");
+		tul_send(temp_brightness, strlen(temp_brightness));
 
-   }
+	}
 
-   return EINA_FALSE;
+	return EINA_FALSE;
 }
-static void
-up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+static void up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"밝아져라 " );
-	  sprintf(temp_brightness,"setting|brightness|up");
-	                            tul_send(temp_brightness,strlen(temp_brightness));
+	dlog_print(DLOG_DEBUG, LOG_TAG, "밝아져라 ");
+	sprintf(temp_brightness, "setting|brightness|up");
+	tul_send(temp_brightness, strlen(temp_brightness));
 
 }
-static void
-down_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
+static void down_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"어두워져라 ");
-	  sprintf(temp_brightness,"setting|brightness|down");
-	                            tul_send(temp_brightness,strlen(temp_brightness));
+	dlog_print(DLOG_DEBUG, LOG_TAG, "어두워져라 ");
+	sprintf(temp_brightness, "setting|brightness|down");
+	tul_send(temp_brightness, strlen(temp_brightness));
 
 }
 
@@ -53,7 +49,8 @@ create_scroller(Evas_Object *parent)
 {
 	Evas_Object *scroller = elm_scroller_add(parent);
 	elm_scroller_bounce_set(scroller, EINA_FALSE, EINA_TRUE);
-	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF,
+			ELM_SCROLLER_POLICY_AUTO);
 	evas_object_show(scroller);
 
 	return scroller;
@@ -70,40 +67,46 @@ create_button_view(Evas_Object *parent)
 	evas_object_show(box);
 
 	btn = elm_button_add(box);
-	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb,NULL);
-	elm_object_text_set(btn, "<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
+	evas_object_smart_callback_add(btn, "clicked", up_btn_clicked_cb, NULL);
+	elm_object_text_set(btn,
+			"<align=center><font_size=20><aligh<br>brightness</br><b>UP</b></font></align>");
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100),
+			ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 	//down
 	btn = elm_button_add(box);
-	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb,NULL);
-	elm_object_text_set(btn, "<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
+	evas_object_smart_callback_add(btn, "clicked", down_btn_clicked_cb, NULL);
+	elm_object_text_set(btn,
+			"<font_size=20><aligh<br>brightness</br><b>DOWN</b></font>");
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100),
+			ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
 	return box;
 }
-void
-view_control_brightness(void *data)
+void view_control_brightness(void *data)
 {
-   appdata_s *ad = (appdata_s *)data;
-   Evas_Object *scroller, *circle_scroller, *layout;
-   Evas_Object *nf = ad->nf;
-   Elm_Object_Item *nf_it;
+	appdata_s *ad = (appdata_s *) data;
+	Evas_Object *scroller, *circle_scroller, *layout;
+	Evas_Object *nf = ad->nf;
+	Elm_Object_Item *nf_it;
 
-   scroller = create_scroller(nf);
-   layout = create_button_view(scroller);
-   elm_object_content_set(scroller, layout);
+	scroller = create_scroller(nf);
+	layout = create_button_view(scroller);
+	elm_object_content_set(scroller, layout);
 
-   circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
-   eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	circle_scroller = eext_circle_object_scroller_add(scroller,
+			ad->circle_surface);
+	eext_circle_object_scroller_policy_set(circle_scroller,
+			ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 
-   eext_rotary_object_event_callback_add(scroller ,_rotary_handler_brightness_cb,NULL);
-   eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
+	eext_rotary_object_event_callback_add(scroller,
+			_rotary_handler_brightness_cb, NULL);
+	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 
-   nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
-   elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
+	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
+	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);
 }
 

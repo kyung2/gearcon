@@ -27,9 +27,9 @@
 //void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info);
 
 //void _popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info);
-static char _key_get(void *data, Evas_Object *obj,const char *part);
+static char _key_get(void *data, Evas_Object *obj, const char *part);
 void set_pckey(void *data, char * text);
-void my_A_cb (void *dataz);
+void my_A_cb(void *dataz);
 void bottom_button_cb(void *data, Evas_Object * obj, void *event_info);
 void view_PC_Setting(void *data);
 void view_app_info(void *data);
@@ -44,7 +44,6 @@ void view_pcoff(void *data);
 void view_control_brightness(void *data);
 void view_control_keyboard(void *data);
 //elm_box_padding_set(box, 0, 1* elm_config_scale_get()); (여백 사이즈)
-
 
 void progressbar_cb(void *data, Evas_Object * obj, void *event_info);
 
@@ -69,11 +68,9 @@ typedef struct appdata {
 	//using pc_setting
 } appdata_s;
 
-
 struct _menu_item {
-   char *name;
-   void (*func)(void *data, Evas_Object *obj, void *event_info);
+	char *name;
+	void (*func)(void *data, Evas_Object *obj, void *event_info);
 };
-
 
 #endif /* __gearcon_H__ */

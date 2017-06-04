@@ -12,19 +12,16 @@ typedef struct _item_data
 Eina_Bool
 _rotary_handler_volume_cb(void *data, Evas_Object* obj, Eext_Rotary_Event_Info *ev)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"value %d ",&ev->direction);
+	dlog_print(DLOG_DEBUG, LOG_TAG, "value %d ", &ev->direction);
 
-	   if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
-	   {
-	      dlog_print(DLOG_DEBUG, LOG_TAG, "Volume dpwm");
-	      sprintf(temp_vol,"setting|sound|down|");
-	                       tul_send(temp_vol,strlen(temp_vol));
-	   }
-	   else
-	   {
-	      dlog_print(DLOG_DEBUG, LOG_TAG, "Volume up ");
-	      sprintf(temp_vol,"setting|sound|up|");
-	                       tul_send(temp_vol,strlen(temp_vol));
+	if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE) {
+		dlog_print(DLOG_DEBUG, LOG_TAG, "Volume dpwm");
+		sprintf(temp_vol, "setting|sound|down|");
+		tul_send(temp_vol, strlen(temp_vol));
+	} else {
+		dlog_print(DLOG_DEBUG, LOG_TAG, "Volume up ");
+		sprintf(temp_vol, "setting|sound|up|");
+		tul_send(temp_vol, strlen(temp_vol));
 	   }
 	   return EINA_FALSE;
 }
@@ -33,18 +30,18 @@ _rotary_handler_volume_cb(void *data, Evas_Object* obj, Eext_Rotary_Event_Info *
 static void
 up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"up button click (volume)");
-    sprintf(temp_vol,"setting|sound|up|");
-                     tul_send(temp_vol,strlen(temp_vol));
+	dlog_print(DLOG_DEBUG, LOG_TAG, "up button click (volume)");
+	sprintf(temp_vol, "setting|sound|up|");
+	tul_send(temp_vol, strlen(temp_vol));
 
 }
 
 static void
 down_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"down button clicke(volume)");
-    sprintf(temp_vol,"setting|sound|down|");
-                     tul_send(temp_vol,strlen(temp_vol));
+	dlog_print(DLOG_DEBUG, LOG_TAG, "down button click(volume)");
+	sprintf(temp_vol, "setting|sound|down|");
+	tul_send(temp_vol, strlen(temp_vol));
 
 }
 
@@ -53,7 +50,7 @@ create_scroller(Evas_Object *parent)
 {
 	Evas_Object *scroller = elm_scroller_add(parent);
 	elm_scroller_bounce_set(scroller, EINA_FALSE, EINA_TRUE);
-	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF,ELM_SCROLLER_POLICY_AUTO);
 	evas_object_show(scroller);
 
 	return scroller;
@@ -95,7 +92,7 @@ create_button_view(Evas_Object *parent)
 void
 view_control_volume(void *data)
 {
-	appdata_s *ad = (appdata_s *)data;
+	appdata_s *ad = (appdata_s *) data;
 	Evas_Object *scroller, *circle_scroller, *layout;
 	Evas_Object *nf = ad->nf;
 	Elm_Object_Item *nf_it;
@@ -104,14 +101,12 @@ view_control_volume(void *data)
 	layout = create_button_view(scroller);
 	elm_object_content_set(scroller, layout);
 
-	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
-	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
-	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
-	eext_rotary_object_event_callback_add(scroller,_rotary_handler_volume_cb,EINA_TRUE);
+	circle_scroller = eext_circle_object_scroller_add(scroller,ad->circle_surface);
+	eext_circle_object_scroller_policy_set(circle_scroller,ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE)
+	eext_rotary_object_event_callback_add(scroller, _rotary_handler_volume_cb,NULL);
 
-	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
-
-
+	eext_rotary_object_event_activated_set(scroller, EINA_TRUE)
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

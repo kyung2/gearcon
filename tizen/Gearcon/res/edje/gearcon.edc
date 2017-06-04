@@ -1,4 +1,5 @@
 collections {
+   base_scale: 1.3;
    group { name: "entry_layout";
       parts {
          part { name: "bg";

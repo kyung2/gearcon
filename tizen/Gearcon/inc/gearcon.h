@@ -22,8 +22,7 @@
 #define EDJ_FILE "/edje/gearcon.edj"
 #define GRP_MAIN "main"
 #define ICON_DIR "/opt/usr/apps/org.example.gearcon/res/images"
-#define ELM_DEMO_EDJ "/opt/usr/apps/org.example.gearcon/res/edje"
-
+#define ELM_DEMO_EDJ "/opt/usr/apps/org.example.gearcon/res/edje/gearcon.edj"
 static char _key_get(void *data, Evas_Object *obj, const char *part);
 void set_pckey(void *data, char * text);
 void my_A_cb(void *dataz);

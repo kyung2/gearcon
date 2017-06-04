@@ -5,10 +5,7 @@ char temp_pcoff[25] = "";
 #define NUM_OF_GENLIST_DEMO_NAMES 101
 #define NUM_OF_GENLIST_DEMO_LONG_TEXT 7
 
-static Evas_Object* create_scroller(Evas_Object *parent);
-static Eina_Bool _setting_finished_cb(void *data, Elm_Object_Item *it);
 static void yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info);
-static void no_btn_clicekd_cb(void *data, Evas_Object *obj, void *event_info);
 
 typedef struct _item_data
 {

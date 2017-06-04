@@ -14,20 +14,20 @@ typedef struct _item_data
 static void
 prev_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"prev button (pdf)");
+	dlog_print(DLOG_DEBUG, LOG_TAG, "prev button (pdf)");
 
-	sprintf(temp_pdf,"pdf|pre|");
-	                 tul_send(temp_pdf,strlen(temp_pdf));
+	sprintf(temp_pdf, "pdf|pre|");
+	tul_send(temp_pdf, strlen(temp_pdf));
 
 }
 
 static void
 next_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
-	dlog_print(DLOG_DEBUG,LOG_TAG,"next button (pdf)");
+	dlog_print(DLOG_DEBUG, LOG_TAG, "next button (pdf)");
 
-	sprintf(temp_pdf,"pdf|next|");
-	                 tul_send(temp_pdf,strlen(temp_pdf));
+	sprintf(temp_pdf, "pdf|next|");
+	tul_send(temp_pdf, strlen(temp_pdf));
 }
 
 
@@ -48,17 +48,17 @@ _rotary_handler_pdf_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_Info *ev)
 	dlog_print(DLOG_DEBUG ,LOG_TAG,"direction %d",ev->direction);
    if (ev->direction == EEXT_ROTARY_DIRECTION_CLOCKWISE)
    {
-      dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
+		dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
 
-      sprintf(temp_pdf,"pdf|scroll|down");
-                       tul_send(temp_pdf,strlen(temp_pdf));
+		sprintf(temp_pdf, "pdf|scroll|down");
+		tul_send(temp_pdf, strlen(temp_pdf));
    }
    else
    {
-      dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
+		dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
 
-      sprintf(temp_pdf,"pdf|scroll|up");
-                       tul_send(temp_pdf,strlen(temp_pdf));
+		sprintf(temp_pdf, "pdf|scroll|up");
+		tul_send(temp_pdf, strlen(temp_pdf));
    }
    return EINA_FALSE;
 }
@@ -77,19 +77,21 @@ create_button_view(Evas_Object *parent)
 	evas_object_show(box);
 
 	btn = elm_button_add(box);
-	evas_object_smart_callback_add(btn, "clicked", prev_btn_clicked_cb,NULL);
+	evas_object_smart_callback_add(btn, "clicked", prev_btn_clicked_cb, NULL);
 	snprintf(buf, sizeof(buf), "prev");
 	elm_object_text_set(btn, buf);
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100),
+			ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
 	//down
 	btn = elm_button_add(box);
-	evas_object_smart_callback_add(btn, "clicked", next_btn_clicked_cb,NULL);
+	evas_object_smart_callback_add(btn, "clicked", next_btn_clicked_cb, NULL);
 	snprintf(buf, sizeof(buf), "next");
 	elm_object_text_set(btn, buf);
-	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100), ELM_SCALE_SIZE(100));
+	evas_object_size_hint_min_set(btn, ELM_SCALE_SIZE(100),
+			ELM_SCALE_SIZE(100));
 	evas_object_show(btn);
 	elm_box_pack_end(box, btn);
 
@@ -99,7 +101,7 @@ create_button_view(Evas_Object *parent)
 void
 view_control_pdf(void *data)
 {
-	appdata_s *ad = (appdata_s *)data;
+	appdata_s *ad = (appdata_s *) data;
 	Evas_Object *scroller, *circle_scroller, *layout;
 	Evas_Object *nf = ad->nf;
 	Elm_Object_Item *nf_it;
@@ -108,14 +110,12 @@ view_control_pdf(void *data)
 	layout = create_button_view(scroller);
 	elm_object_content_set(scroller, layout);
 
-	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
-	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
+	circle_scroller = eext_circle_object_scroller_add(scroller,ad->circle_surface);
+	eext_circle_object_scroller_policy_set(circle_scroller,ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
 
-
-	   eext_rotary_object_event_callback_add(scroller ,_rotary_handler_pdf_cb,NULL);
-	   eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
-
+	eext_rotary_object_event_callback_add(scroller, _rotary_handler_pdf_cb,NULL);
+	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

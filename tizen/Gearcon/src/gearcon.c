@@ -1,13 +1,5 @@
 #include "gearcon.h"
 
-static char *icon_path_list[] = {
-	ICON_DIR"/music_controller_btn_mobile.png",
-	ICON_DIR"/music_controller_btn_play.png",
-	ICON_DIR"/music_controller_btn_repeat_all.png",
-	ICON_DIR"/music_controller_btn_shuffle_on.png",
-	NULL
-};
-
 
 static void _gl_selected_cb(void *user_data, Evas_Object *obj, void *event_info);
 static void _item_selected_cb(void *data, Evas_Object *obj, void *event_info);
@@ -15,7 +7,6 @@ static void item_clicked_cb(void *data, Evas_Object *obj, void *event_info);
 static Eina_Bool _naviframe_pop_cb(void *data, Elm_Object_Item *it);
 static void create_rotary_selector(appdata_s *ad);
 static Eina_Bool _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev);
-
 
 
 char *main_menu_names[] = {
@@ -118,12 +109,7 @@ item_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 	   }
 
 }
-static Eina_Bool
-_naviframe_pop_cb(void *data, Elm_Object_Item *it)
-{
-	ui_app_exit();
-	return EINA_FALSE;
-}
+
 static Eina_Bool
 _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev)
 {
@@ -135,6 +121,7 @@ _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev)
 	{
 		dlog_print(DLOG_DEBUG,LOG_TAG,"ROTARY HANDLER : Rotary device in counter clockwise direction");
 	}
+	return FALSE;
 }
 
 void
@@ -166,23 +153,19 @@ static void
 create_rotary_selector(appdata_s *ad)
 {
 	Elm_Object_Item *nf_it = NULL;
-	//rotary selector = rs 라고 약어 (헤드에 정의)
 	ad->rs = eext_rotary_selector_add(ad->nf);
 	eext_rotary_object_event_activated_set(ad->rs, EINA_TRUE);
 	_item_create(ad->rs);
-	//callback event
+	nf_it = elm_naviframe_item_push(ad->nf,NULL,NULL,NULL,ad->rs,"empty");
+
 	evas_object_smart_callback_add(ad->rs, "item,selected", _item_selected_cb, NULL);
 	evas_object_smart_callback_add(ad->rs , "item,clicked", item_clicked_cb,ad);
-	nf_it = elm_naviframe_item_push(ad->nf,NULL,NULL,NULL,ad->rs,"empty");
+
 	elm_naviframe_item_pop_cb_set(nf_it, _init_exit, ad->win);
 	eext_object_event_callback_add(ad->nf, EEXT_CALLBACK_BACK, eext_naviframe_back_cb, NULL);
 
 }
 
-/*
- * @brief: Make genlist and circle_genlistview_pdf_control(void *data) for circular shape
- * @param[parent]: Naviframe to which you want to set the genlist
- */
 Evas_Object *view_create_circle_genlist(Evas_Object *parent)
 {
 	Evas_Object *genlist = NULL;
@@ -192,7 +175,6 @@ Evas_Object *view_create_circle_genlist(Evas_Object *parent)
 		dlog_print(DLOG_ERROR, LOG_TAG, "parent is NULL.");
 		return NULL;
 	}
-
 
 	genlist = elm_genlist_add(parent);
 	/* this make selected list item is shown compressed */
@@ -215,8 +197,6 @@ Evas_Object *view_create_circle_genlist(Evas_Object *parent)
 static void
 create_base_gui(appdata_s *ad)
 {
-
-
 	/* Window */
 	ad->win = elm_win_util_standard_add(PACKAGE, PACKAGE);
 	elm_win_autodel_set(ad->win, EINA_TRUE);

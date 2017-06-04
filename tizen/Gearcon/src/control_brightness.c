@@ -18,15 +18,12 @@ _rotary_handler_brightness_cb(void *data, Evas_Object *obj, Eext_Rotary_Event_In
 		dlog_print(DLOG_DEBUG, LOG_TAG, "hello~~ 돌아간다 ~");
 		sprintf(temp_brightness, "setting|brightness|down");
 		tul_send(temp_brightness, strlen(temp_brightness));
-
 	} else
 	{
 		dlog_print(DLOG_DEBUG, LOG_TAG, "반시계반향~ ");
 		sprintf(temp_brightness, "setting|brightness|up");
 		tul_send(temp_brightness, strlen(temp_brightness));
-
 	}
-
 	return EINA_FALSE;
 }
 static void up_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)

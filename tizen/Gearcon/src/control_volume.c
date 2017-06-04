@@ -103,10 +103,10 @@ view_control_volume(void *data)
 
 	circle_scroller = eext_circle_object_scroller_add(scroller,ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller,ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
-	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE)
+	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
 	eext_rotary_object_event_callback_add(scroller, _rotary_handler_volume_cb,NULL);
 
-	eext_rotary_object_event_activated_set(scroller, EINA_TRUE)
+	eext_rotary_object_event_activated_set(scroller, EINA_TRUE);
 
 	nf_it = elm_naviframe_item_push(nf, "", NULL, NULL, scroller, NULL);
 	elm_naviframe_item_title_enabled_set(nf_it, EINA_FALSE, EINA_FALSE);

@@ -9,13 +9,15 @@
 #define ICON_WIDTH 80
 #define ICON_HEIGHT 80
 
-typedef struct _item_data {
+typedef struct _item_data
+{
 	int index;
 	Elm_Object_Item *item;
 } item_data;
 
 static Evas_Object*
-create_scroller(Evas_Object *parent) {
+create_scroller(Evas_Object *parent)
+{
 	Evas_Object *scroller = elm_scroller_add(parent);
 	elm_scroller_bounce_set(scroller, EINA_FALSE, EINA_TRUE);
 	elm_scroller_policy_set(scroller, ELM_SCROLLER_POLICY_OFF,
@@ -27,7 +29,8 @@ create_scroller(Evas_Object *parent) {
 }
 
 static Evas_Object*
-create_button_view(Evas_Object *parent) {
+create_button_view(Evas_Object *parent)
+{
 	Evas_Object *popup;
 	Evas_Object *layout;
 
@@ -53,12 +56,14 @@ create_button_view(Evas_Object *parent) {
 	return popup;
 }
 
-void set_pckey(void *data, char * text) {
+void set_pckey(void *data, char * text)
+{
 	appdata_s *ad = (appdata_s *) data;
 	elm_object_part_text_set(ad->layout, "elm.text", text);
 }
 
-void view_connect(void *data) {
+void view_connect(void *data)
+{
 	appdata_s *ad = (appdata_s *) data;
 	Evas_Object *scroller, *circle_scroller, *layout;
 

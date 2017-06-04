@@ -10,7 +10,7 @@ shell = cmd /c
 bashshell = C:\tizen-studio\tools\msys2\usr\bin\sh.exe
 builddir = ../Debug
 sareportdir = ../SA_Report
-sa_checkers = cplusplus,core,deadcode,resourceLeak,security,unix
+sa_checkers = alpha,cplusplus,core,deadcode,resourceLeak,security,unix
 coveragedir = ../Coverage_Report
 
 subninja ../Debug/res/edje/subdir.ninja

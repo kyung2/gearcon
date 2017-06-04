@@ -31,7 +31,7 @@ static void
 yes_btn_clicked_cb(void *data, Evas_Object *obj, void *event_info)
 {
 	dlog_print(DLOG_DEBUG, LOG_TAG, "mouse_right ");
-	tul_send("connect|shutdown", strlen());
+	tul_send("connect|shutdown", strlen("shutdown"));
 	ui_app_exit();
 }
 
@@ -106,8 +106,6 @@ view_disconnect(void *data)
 	Evas_Object *layout;
 	Evas_Object *popup;
 	Evas_Object *nf = ad->nf;
-	//naviframe item
-	Elm_Object_Item *nf_it;
 
 	popup = create_popup(nf);
 	layout = create_button_view(popup);

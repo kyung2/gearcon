@@ -24,9 +24,6 @@
 #define ICON_DIR "/opt/usr/apps/org.example.gearcon/res/images"
 #define ELM_DEMO_EDJ "/opt/usr/apps/org.example.gearcon/res/edje"
 
-//void _popup_hide_cb(void *data, Evas_Object *obj, void *event_info);
-
-//void _popup_hide_finished_cb(void *data, Evas_Object *obj, void *event_info);
 static char _key_get(void *data, Evas_Object *obj, const char *part);
 void set_pckey(void *data, char * text);
 void my_A_cb(void *dataz);

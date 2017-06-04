@@ -12,7 +12,6 @@ static Eina_Bool _rotary_handler_cb(void *data, Eext_Rotary_Event_Info *ev);
 char *main_menu_names[] = {
 	"PC Setting",
 	"Mouse",
-	"Keyboard",
 	"PPT",
 	"VIDEO",
 	"PDF",
@@ -25,7 +24,6 @@ char *main_menu_names[] = {
 char *main_menu_icons[] = {
 		ICON_DIR"/pc_setting.png",
 		ICON_DIR"/mouse.png",
-		ICON_DIR"/keyboard.png",
 		ICON_DIR"/ppt.png",
 		ICON_DIR"/music_controller_btn_play.png",
 		ICON_DIR"/pdf.png",

@@ -13,7 +13,6 @@ sareportdir = ../SA_Report
 sa_checkers = alpha,cplusplus,core,deadcode,resourceLeak,security,unix
 coveragedir = ../Coverage_Report
 
-subninja ../Debug/res/edje/subdir.ninja
 subninja ../Debug/src/subdir.ninja
 
 targettool = clang++.exe
@@ -25,5 +24,4 @@ build externalFnMap.txt: fast_ext_fn src/app_info.o.ast src/connect.o.ast src/co
 build sa: phony $sareportdir/src/app_info.o.xml $sareportdir/src/connect.o.xml $sareportdir/src/control_brightness.o.xml $sareportdir/src/control_keyboard.o.xml $sareportdir/src/control_mouse.o.xml $sareportdir/src/control_pdf.o.xml $sareportdir/src/control_player.o.xml $sareportdir/src/control_ppt.o.xml $sareportdir/src/control_volume.o.xml $sareportdir/src/disconnect.o.xml $sareportdir/src/gearcon.o.xml $sareportdir/src/pc_off.o.xml $sareportdir/src/pc_setting.o.xml $sareportdir/src/progressbar.o.xml
 build apichecker: unusedapi_rule src/app_info.o.txt src/connect.o.txt src/control_brightness.o.txt src/control_keyboard.o.txt src/control_mouse.o.txt src/control_pdf.o.txt src/control_player.o.txt src/control_ppt.o.txt src/control_volume.o.txt src/disconnect.o.txt src/gearcon.o.txt src/pc_off.o.txt src/pc_setting.o.txt src/progressbar.o.txt
 build cov: cov_report $coveragedir/src/app_info.o.cov $coveragedir/src/connect.o.cov $coveragedir/src/control_brightness.o.cov $coveragedir/src/control_keyboard.o.cov $coveragedir/src/control_mouse.o.cov $coveragedir/src/control_pdf.o.cov $coveragedir/src/control_player.o.cov $coveragedir/src/control_ppt.o.cov $coveragedir/src/control_volume.o.cov $coveragedir/src/disconnect.o.cov $coveragedir/src/gearcon.o.cov $coveragedir/src/pc_off.o.cov $coveragedir/src/pc_setting.o.cov $coveragedir/src/progressbar.o.cov
-build res: phony res/edje/gearcon.edj
 

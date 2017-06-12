@@ -16,26 +16,39 @@
 #include "udplibrary.h"
 #include <QByteArray>
 
-#include "videocontrol.h"
-
 //http://ko11011.tistory.com/8 imgage 출력을 이하여 .
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
+    QWidget(parent),
     ui(new Ui::MainWindow)
  {
 
     ui->setupUi(this);
-    statusBar()->setVisible( false );
-
+    ui->textEdit->setStyleSheet("background:rgb(255,255,255)");
+    //statusBar()->setVisible( false );
     UDP= UdpLibrary::getInstance();
     QObject::connect(UDP,SIGNAL(sendToUser(QStringList)),this,SLOT(receiveMessage(QStringList)));
+    QObject::connect(UDP,SIGNAL(connectState(bool)),this,SLOT(checkConnect(bool)));
 
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::checkConnect(bool state){
+    qDebug() << "CURRENT : " << state;
+    if(state){
+        //hide(); // background
+        QMessageBox msg;
+        msg.information(this, "connect", "connect success");
+    } else{
+        QMessageBox msg;
+        msg.warning(this, "connect", "connect error : don't find any host");
+        this->close();
+    }
+
 }
 
 void MainWindow::receiveMessage(QStringList message){
@@ -65,8 +78,11 @@ void MainWindow::receiveMessage(QStringList message){
          system("shutdown -s");
     }
     else if(message[0] == "connect"){
-         if(message[1] == "shutDown")
-            QApplication::quit();
+         if(message[1] == "shutdown"){
+            show();
+            ui->textEdit->setText("");
+            //QApplication::quit();
+         }
     }
 }
 
@@ -110,12 +126,13 @@ void MainWindow::keyPressEvent( QKeyEvent *e )
     if( e->key() == Qt::Key_0){
         settingControl settings;
              settings.brightControl(true);
-    }
+    }*/
 
     if( e->key() == Qt::Key_Escape ){
         this->close();
     }
 
+/*
     if( e->key() == Qt::Key_I){
         videoControl a;
         a.pressLeftKey(0,-5);
@@ -138,7 +155,7 @@ void MainWindow::on_pushButton_clicked()
 {
 
 //    UDP->bindSocket(3456);
-    UDP->init("165.194.17.5", 23272);
+    UDP->init("222.108.245.162", 23272);
     UDP->bindSocket(3456);
     QByteArray token = ui->textEdit->toPlainText().toUtf8();
     char s[99] = "";

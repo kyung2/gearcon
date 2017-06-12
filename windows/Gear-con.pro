@@ -51,6 +51,7 @@ LIBS += -lDxva2
 
 RESOURCES += \
     img.qrc
+
 win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/release/ -ludpLibrary
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/debug/ -ludpLibrary
 else:unix: LIBS += -L$$PWD/../../udpLibrary/Windows/build-udpLibrary-Desktop_Qt_5_8_0_MSVC2015_64bit-Debug/ -ludpLibrary

@@ -18,7 +18,7 @@ namespace Ui {
 class MainWindow;
 }
 
-class MainWindow : public QMainWindow
+class MainWindow : public QWidget
 {
     Q_OBJECT
 
@@ -36,6 +36,7 @@ signals:
 private slots:
     void on_pushButton_clicked();
     void receiveMessage(QStringList);
+    void checkConnect(bool);
 
 private:
     Ui::MainWindow *ui;

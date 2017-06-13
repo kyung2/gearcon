@@ -45,7 +45,8 @@ void MainWindow::checkConnect(bool state){
         msg.information(this, "connect", "connect success");
     } else{
         QMessageBox msg;
-        msg.warning(this, "connect", "connect error : don't find any host");
+        msg.warning(this, "connect", "connect error : don't find any host"
+                                     "\n\t please restart gearcon!");
         this->close();
     }
 

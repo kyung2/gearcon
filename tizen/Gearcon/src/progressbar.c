@@ -19,7 +19,7 @@
 
 Ecore_Timer *p_timer = NULL;
 Eina_Bool stop_flag = EINA_FALSE;
-
+/*
 Evas_Object *
 _create_progressbar(appdata_s *ad)
 {
@@ -37,10 +37,6 @@ _create_progressbar(appdata_s *ad)
 	circle_scroller = eext_circle_object_scroller_add(scroller, ad->circle_surface);
 	eext_circle_object_scroller_policy_set(circle_scroller, ELM_SCROLLER_POLICY_OFF, ELM_SCROLLER_POLICY_AUTO);
 	eext_rotary_object_event_activated_set(circle_scroller, EINA_TRUE);
-
-	layout = elm_layout_add(nf);
-	elm_layout_file_set(layout, EDJ_FILE, "progessbar");
-	evas_object_size_hint_weight_set(layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 
 	// processs style
 	progressbar = elm_progressbar_add(layout);
@@ -74,4 +70,5 @@ void progressbar_cb(void *data, Evas_Object *obj, void *event_info)
 	scroller = _create_progressbar(ad);
 
 	nf_it = elm_naviframe_item_push(nf, "ProgressBar", NULL, NULL, scroller, "empty");
-}
+}*/
+

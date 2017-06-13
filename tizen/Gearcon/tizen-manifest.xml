@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest xmlns="http://tizen.org/ns/packages" api-version="2.3.2" package="org.example.gearcon" version="1.0.0">
+    <author email="lovelyhyunkyung@gmail.com" href="https://gitbub.com/kyun2">hyunkyung</author>
     <profile name="wearable"/>
     <ui-application appid="org.example.gearcon" exec="gearcon" multiple="false" nodisplay="false" taskmanage="true" type="capp">
         <label>gearcon</label>
@@ -9,4 +10,5 @@
         <privilege>http://tizen.org/privilege/network.get</privilege>
         <privilege>http://tizen.org/privilege/internet</privilege>
     </privileges>
+    <feature name="http://tizen.org/feature/screen.size.normal.720.1280">true</feature>
 </manifest>

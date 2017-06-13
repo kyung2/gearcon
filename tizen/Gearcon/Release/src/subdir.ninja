@@ -1,0 +1,78 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+
+ctool = clang.exe
+cflags = -DTIZEN_DEPRECATION -DDEPRECATION_WARNING -I"../inc" -O3 -g -Wall -c -fmessage-length=0 -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/libxml2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/appcore-agent" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/appcore-watch" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/appfw" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/badge" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/base" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/cairo" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/ckm" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/content" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/context-manager" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/dbus-1.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/device" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/dlog" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/ecore-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/e_dbus-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/edje-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/eet-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/efl-extension" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/efreet-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/eina-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/eina-1/eina" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/eio-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/elementary-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/embryo-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/ethumb-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/evas-1" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/ewebkit2-0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/fontconfig" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/freetype2" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/gio-unix-2.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/glib-2.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/json-glib-1.0" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/json-glib-1.0/json-glib" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/location" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/maps" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/media" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/media-content" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/messaging" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/minizip" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/network" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/notification" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/sensor" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/storage" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/system" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/telephony" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/ui" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/widget_service" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/include/widget_viewer_evas" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/lib/dbus-1.0/include" -I"C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core/usr/lib/glib-2.0/include" -target arm-tizen-linux-gnueabi -gcc-toolchain "C:\tizen-studio\tools\arm-linux-gnueabi-gcc-4.6/" -ccc-gcc-name arm-linux-gnueabi-g++ -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 -mtune=cortex-a8 -Wno-gnu  -fPIE --sysroot="C:/tizen-studio/tools/smart-build-interface/../../platforms/tizen-2.3.2/wearable\rootstraps/wearable-2.3.2-device.core" -mthumb -Werror-implicit-function-declaration
+
+build src/app_info.o: build_c ../src/app_info.c 
+build src/app_info.o.ast: build_c_fast_ast ../src/app_info.c 
+build $sareportdir/src/app_info.o.xml: build_c_fast_sa src/app_info.o.ast || externalFnMap.txt
+build src/app_info.o.txt: build_c_api ../src/app_info.c 
+build $coveragedir/src/app_info.o.cov: build_cov ../src/app_info.c 
+build src/connect.o: build_c ../src/connect.c 
+build src/connect.o.ast: build_c_fast_ast ../src/connect.c 
+build $sareportdir/src/connect.o.xml: build_c_fast_sa src/connect.o.ast || externalFnMap.txt
+build src/connect.o.txt: build_c_api ../src/connect.c 
+build $coveragedir/src/connect.o.cov: build_cov ../src/connect.c 
+build src/control_brightness.o: build_c ../src/control_brightness.c 
+build src/control_brightness.o.ast: build_c_fast_ast ../src/control_brightness.c 
+build $sareportdir/src/control_brightness.o.xml: build_c_fast_sa src/control_brightness.o.ast || externalFnMap.txt
+build src/control_brightness.o.txt: build_c_api ../src/control_brightness.c 
+build $coveragedir/src/control_brightness.o.cov: build_cov ../src/control_brightness.c 
+build src/control_keyboard.o: build_c ../src/control_keyboard.c 
+build src/control_keyboard.o.ast: build_c_fast_ast ../src/control_keyboard.c 
+build $sareportdir/src/control_keyboard.o.xml: build_c_fast_sa src/control_keyboard.o.ast || externalFnMap.txt
+build src/control_keyboard.o.txt: build_c_api ../src/control_keyboard.c 
+build $coveragedir/src/control_keyboard.o.cov: build_cov ../src/control_keyboard.c 
+build src/control_mouse.o: build_c ../src/control_mouse.c 
+build src/control_mouse.o.ast: build_c_fast_ast ../src/control_mouse.c 
+build $sareportdir/src/control_mouse.o.xml: build_c_fast_sa src/control_mouse.o.ast || externalFnMap.txt
+build src/control_mouse.o.txt: build_c_api ../src/control_mouse.c 
+build $coveragedir/src/control_mouse.o.cov: build_cov ../src/control_mouse.c 
+build src/control_pdf.o: build_c ../src/control_pdf.c 
+build src/control_pdf.o.ast: build_c_fast_ast ../src/control_pdf.c 
+build $sareportdir/src/control_pdf.o.xml: build_c_fast_sa src/control_pdf.o.ast || externalFnMap.txt
+build src/control_pdf.o.txt: build_c_api ../src/control_pdf.c 
+build $coveragedir/src/control_pdf.o.cov: build_cov ../src/control_pdf.c 
+build src/control_player.o: build_c ../src/control_player.c 
+build src/control_player.o.ast: build_c_fast_ast ../src/control_player.c 
+build $sareportdir/src/control_player.o.xml: build_c_fast_sa src/control_player.o.ast || externalFnMap.txt
+build src/control_player.o.txt: build_c_api ../src/control_player.c 
+build $coveragedir/src/control_player.o.cov: build_cov ../src/control_player.c 
+build src/control_ppt.o: build_c ../src/control_ppt.c 
+build src/control_ppt.o.ast: build_c_fast_ast ../src/control_ppt.c 
+build $sareportdir/src/control_ppt.o.xml: build_c_fast_sa src/control_ppt.o.ast || externalFnMap.txt
+build src/control_ppt.o.txt: build_c_api ../src/control_ppt.c 
+build $coveragedir/src/control_ppt.o.cov: build_cov ../src/control_ppt.c 
+build src/control_volume.o: build_c ../src/control_volume.c 
+build src/control_volume.o.ast: build_c_fast_ast ../src/control_volume.c 
+build $sareportdir/src/control_volume.o.xml: build_c_fast_sa src/control_volume.o.ast || externalFnMap.txt
+build src/control_volume.o.txt: build_c_api ../src/control_volume.c 
+build $coveragedir/src/control_volume.o.cov: build_cov ../src/control_volume.c 
+build src/disconnect.o: build_c ../src/disconnect.c 
+build src/disconnect.o.ast: build_c_fast_ast ../src/disconnect.c 
+build $sareportdir/src/disconnect.o.xml: build_c_fast_sa src/disconnect.o.ast || externalFnMap.txt
+build src/disconnect.o.txt: build_c_api ../src/disconnect.c 
+build $coveragedir/src/disconnect.o.cov: build_cov ../src/disconnect.c 
+build src/gearcon.o: build_c ../src/gearcon.c 
+build src/gearcon.o.ast: build_c_fast_ast ../src/gearcon.c 
+build $sareportdir/src/gearcon.o.xml: build_c_fast_sa src/gearcon.o.ast || externalFnMap.txt
+build src/gearcon.o.txt: build_c_api ../src/gearcon.c 
+build $coveragedir/src/gearcon.o.cov: build_cov ../src/gearcon.c 
+build src/pc_off.o: build_c ../src/pc_off.c 
+build src/pc_off.o.ast: build_c_fast_ast ../src/pc_off.c 
+build $sareportdir/src/pc_off.o.xml: build_c_fast_sa src/pc_off.o.ast || externalFnMap.txt
+build src/pc_off.o.txt: build_c_api ../src/pc_off.c 
+build $coveragedir/src/pc_off.o.cov: build_cov ../src/pc_off.c 
+build src/pc_setting.o: build_c ../src/pc_setting.c 
+build src/pc_setting.o.ast: build_c_fast_ast ../src/pc_setting.c 
+build $sareportdir/src/pc_setting.o.xml: build_c_fast_sa src/pc_setting.o.ast || externalFnMap.txt
+build src/pc_setting.o.txt: build_c_api ../src/pc_setting.c 
+build $coveragedir/src/pc_setting.o.cov: build_cov ../src/pc_setting.c 
+build src/progressbar.o: build_c ../src/progressbar.c 
+build src/progressbar.o.ast: build_c_fast_ast ../src/progressbar.c 
+build $sareportdir/src/progressbar.o.xml: build_c_fast_sa src/progressbar.o.ast || externalFnMap.txt
+build src/progressbar.o.txt: build_c_api ../src/progressbar.c 
+build $coveragedir/src/progressbar.o.cov: build_cov ../src/progressbar.c 

@@ -19,7 +19,7 @@
 #define PACKAGE "org.example.gearcon"
 #endif
 //res?
-#define EDJ_FILE "/edje/gearcon.edj"
+//#define EDJ_FILE "/edje/gearcon.edj"
 #define GRP_MAIN "main"
 #define ICON_DIR "/opt/usr/apps/org.example.gearcon/res/images"
 #define ELM_DEMO_EDJ "/opt/usr/apps/org.example.gearcon/res/edje/gearcon.edj"
